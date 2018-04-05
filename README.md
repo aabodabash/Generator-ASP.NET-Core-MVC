@@ -16,5 +16,5 @@ In order to see and download Mobioos NuGet packages, you will need to add a new 
 
 In the following documentation, we give more information about the generator and the generated solution and how it uses the [manifest metadata] (http://www.mobioos.ai/).
 
-- [Generator Structure](https://github.com/Mobioos/ASP.NET-Core-MVC/wiki/Generator-Structure)
-- [Generated Solution](https://github.com/Mobioos/ASP.NET-Core-MVC/wiki/Generated-Solution)
+- [Generator Overview](https://github.com/Mobioos/ASP.NET-Core-MVC/wiki/Generator-Overview)
+- [Generated Code Overview](https://github.com/Mobioos/ASP.NET-Core-MVC/wiki/Generated-Code-Overview)
