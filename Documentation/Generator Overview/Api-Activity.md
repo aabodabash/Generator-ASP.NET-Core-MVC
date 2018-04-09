@@ -7,7 +7,7 @@ The api activity is responsible for the generation of all api controllers and pa
 
 The activity structure:
 
-![](https://github.com/Mobioos/ASP.NET-Core-MVC/blob/master/api-activity.png)
+![](https://github.com/Mobioos/ASP.NET-Core-MVC/blob/master/ScreenShots/api-activity.png)
 
 As for Common Activity, we have the templates files and the partial classes.
 
