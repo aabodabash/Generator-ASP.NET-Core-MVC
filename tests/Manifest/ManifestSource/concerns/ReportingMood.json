@@ -1,0 +1,137 @@
+{
+  "id": "ReportingMood",
+  "title": "ReportingMood",
+  "description": "ReportingMood",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "FilterTime",
+      "title": "FilterTime",
+      "description": "FilterTime",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "BackButton",
+          "type": "Navigation",
+          "target": "Flow.Flow",
+          "api": ""
+        },
+        {
+          "id": "GoToFilterDepartment",
+          "type": "Navigation",
+          "target": "ReportingMood.FilterDepartment",
+          "api": ""
+        },
+        {
+          "id": "getMoodForTime",
+          "type": "DataGet",
+          "target": "",
+          "api": "ReportingMood.getMoodForTime"
+        }
+      ],
+      "dataModel": {
+        "id": "FilterTimeViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodAnswer",
+            "foreignKey": "",
+            "type": "MoodAnswer",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "FilterDepartment",
+      "title": "FilterDepartment",
+      "description": "FilterDepartment",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "GoToFilterTime",
+          "type": "Navigation",
+          "target": "ReportingMood.FilterTime",
+          "api": ""
+        },
+        {
+          "id": "GoToFilterTimeDepartment",
+          "type": "Navigation",
+          "target": "ReportingMood.FilterTimeDepartment",
+          "api": ""
+        },
+        {
+          "id": "getMoodForDepartment",
+          "type": "RequestApi",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "FilterDepartmentViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodAnswer",
+            "foreignKey": "",
+            "type": "MoodAnswer",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "FilterTimeDepartment",
+      "title": "FilterTimeDepartment",
+      "description": "FilterTimeDepartment",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "BackButton",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "GoToFilterDepartment",
+          "type": "Navigation",
+          "target": "ReportingMood.FilterDepartment",
+          "api": ""
+        },
+        {
+          "id": "getMoodForTimeDepartment",
+          "type": "DataGet",
+          "target": "",
+          "api": "ReportingMood.getMoodForTimeDepartment"
+        }
+      ],
+      "dataModel": {
+        "id": "FilterTimeDepartmentViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodAnswer",
+            "foreignKey": "",
+            "type": "MoodAnswer",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

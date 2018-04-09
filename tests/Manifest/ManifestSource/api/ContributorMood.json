@@ -1,0 +1,48 @@
+{
+  "id": "ContributorMood",
+  "description": "ContributorMood",
+  "actions": [
+    {
+      "id": "getMoodCardsAndChoices",
+      "parameters": [],
+      "type": "dataget",
+      "url": "/api/contributor/moodCardsAndChoices",
+      "allowAnonymous": false,
+      "allowedRoles": [
+        {
+          "id": "Admin"
+        }
+      ],
+      "returnType": {
+        "id": "ContributorMoodViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodCard",
+            "foreignKey": "",
+            "type": "MoodCard",
+            "isCollection": false,
+            "isRequired": false
+          },
+          {
+            "id": "MoodChoice",
+            "foreignKey": "",
+            "type": "MoodChoice",
+            "isCollection": false,
+            "isRequired": false
+          },
+          {
+            "id": "UserSetting",
+            "foreignKey": "",
+            "type": "UserSetting",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

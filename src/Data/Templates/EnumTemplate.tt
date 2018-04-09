@@ -1,0 +1,17 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; var lastValue = model?.Values.AsEnumerable().LastOrDefault(); #>
+using System.Collections.Generic;
+using System;
+using System.ComponentModel.DataAnnotations;
+using <#= ApplicationId #>.Backend.DataModels;
+
+namespace <#= ApplicationId #>.Backend.<#= DataNamespace #>
+{
+	public enum <#= model.Id #>
+	{
+<# if (model.Values != null) {#>
+<# foreach(var val in model.Values.AsEnumerable()) {#>
+		<#= val.Id #><#if(!val.Equals(lastValue)){#>,<#}#>
+<# } }#>
+		
+	}
+}

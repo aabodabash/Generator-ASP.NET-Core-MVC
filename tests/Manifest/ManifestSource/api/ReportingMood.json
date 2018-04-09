@@ -1,0 +1,143 @@
+{
+  "id": "ReportingMood",
+  "description": "ReportingMood",
+  "actions": [
+    {
+      "id": "getMoodForTime",
+      "parameters": [
+        {
+          "id": "Time",
+          "type": "date"
+        }
+      ],
+      "type": "dataget",
+      "url": "/api/reporting/mood",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "FilterTimeViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodAnswer",
+            "foreignKey": "",
+            "type": "MoodAnswer",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "getMoodForDepartment",
+      "parameters": [
+        {
+          "id": "Group",
+          "type": "GroupViewModel",
+          "dataModel": {
+            "id": "GroupViewModel",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [],
+            "references": [
+              {
+                "id": "Group",
+                "foreignKey": "",
+                "type": "Group",
+                "isCollection": false,
+                "isRequired": false
+              },
+              {
+                "id": "TestEnumViewModel",
+                "foreignKey": "",
+                "type": "TestEnumViewModel",
+                "isCollection": false,
+                "isRequired": false
+              }
+            ],
+            "values": []
+          }
+        }
+      ],
+      "type": "dataget",
+      "url": "/api/reporting/mood",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "FilterDepartmentViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodAnswer",
+            "foreignKey": "",
+            "type": "MoodAnswer",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "getMoodForTimeDepartment",
+      "parameters": [
+        {
+          "id": "Group",
+          "type": "GroupViewModel",
+          "dataModel": {
+            "id": "GroupViewModel",
+            "isAbstract": false,
+            "isEnum": false,
+            "properties": [],
+            "references": [
+              {
+                "id": "Group",
+                "foreignKey": "",
+                "type": "Group",
+                "isCollection": false,
+                "isRequired": false
+              },
+              {
+                "id": "TestEnumViewModel",
+                "foreignKey": "",
+                "type": "TestEnumViewModel",
+                "isCollection": false,
+                "isRequired": false
+              }
+            ],
+            "values": []
+          }
+        },
+        {
+          "id": "Time",
+          "type": "date"
+        }
+      ],
+      "type": "dataget",
+      "url": "/api/reporting/mood",
+      "allowAnonymous": false,
+      "allowedRoles": [],
+      "returnType": {
+        "id": "FilterTimeDepartmentViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodAnswer",
+            "foreignKey": "",
+            "type": "MoodAnswer",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    }
+  ]
+}

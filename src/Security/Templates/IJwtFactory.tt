@@ -1,0 +1,12 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+using System.Security.Claims;
+using System.Threading.Tasks;
+
+namespace <#= model.Id #>.Backend.Auth
+{
+	public interface IJwtFactory
+    {
+        Task<string> GenerateEncodedToken(string userName, ClaimsIdentity identity);
+        ClaimsIdentity GenerateClaimsIdentity(string userName, string id);
+    }
+}

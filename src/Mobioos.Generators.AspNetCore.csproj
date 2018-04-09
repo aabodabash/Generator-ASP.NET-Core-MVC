@@ -1,0 +1,994 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>Mobioos.Generators.AspNetCore</AssemblyName>
+    <PackageId>Mobioos.Scaffold.Generators</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <ProjectGuid>{8ED94DCC-7F20-4368-865C-9506987AA98F}</ProjectGuid>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Common\Templates\.bowerrc" />
+    <None Remove="Common\Templates\app.config" />
+    <None Remove="Common\Templates\bower.json" />
+    <None Remove="Common\Templates\bundleconfig.json" />
+    <None Remove="Common\Templates\wwwroot\css\site.css" />
+    <None Remove="Common\Templates\wwwroot\favicon.ico" />
+    <None Remove="Common\Templates\wwwroot\images\banner1.svg" />
+    <None Remove="Common\Templates\wwwroot\images\banner2.svg" />
+    <None Remove="Common\Templates\wwwroot\images\banner3.svg" />
+    <None Remove="Common\Templates\wwwroot\images\banner4.svg" />
+    <None Remove="Common\Templates\wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Common\Templates\.bowerrc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\bower.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\bundleconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\css\site.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\images\banner1.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\images\banner2.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\images\banner3.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\images\banner4.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\wwwroot\js\site.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <Reference Include="System" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Base\Templates\Include.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Include.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\AppSettingsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppSettingsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Controllers\AccountController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AccountController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Controllers\ControllerBase.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ControllerBase.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Controllers\HomeController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HomeController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Controllers\ManageController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Controllers\RoleAdminController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleAdminController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Data\IRepositoryTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IRepositoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Data\RepositoryTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\DesignTimeDbContextFactory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DesignTimeDbContextFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Helpers\ErrorsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Helpers\TokensTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TokensTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Models\AccountViewModels.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AccountViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Models\AdminViewModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AdminViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Models\ApplicationUser.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApplicationUser.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Models\ManageViewModels.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\ProgramTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProgramTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Project.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Project.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Services\EmailSender.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EmailSender.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Services\MessageServices.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MessageServices.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Services\SmsSender.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SmsSender.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Startup.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Startup.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\AccessDenied.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AccessDenied.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ConfirmEmail.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConfirmEmail.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ExternalLoginConfirmation.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExternalLoginConfirmation.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ExternalLoginFailure.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExternalLoginFailure.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ForgotPassword.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ForgotPassword.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ForgotPasswordConfirmation.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ForgotPasswordConfirmation.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\Lockout.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lockout.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\Login.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Login.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\Register.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Register.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ResetPassword.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResetPassword.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\ResetPasswordConfirmation.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResetPasswordConfirmation.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\SendCode.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SendCode.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Account\VerifyCode.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VerifyCode.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Home\HomeAbout.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HomeAbout.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Home\HomeContact.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HomeContact.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Home\HomeDashboard.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HomeDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Home\HomeIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HomeIndex.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Manage\ManageAddPhoneNumber.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageAddPhoneNumber.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Manage\ManageChangePassword.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageChangePassword.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Manage\ManageIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageIndex.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Manage\ManageLogins.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageLogins.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Manage\ManageSetPassword.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageSetPassword.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Manage\ManageVerifyPhoneNumber.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManageVerifyPhoneNumber.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\RoleAdmin\RoleCreate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleCreate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\RoleAdmin\RoleDelete.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleDelete.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\RoleAdmin\RoleDetails.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleDetails.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\RoleAdmin\RoleEdit.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleEdit.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\RoleAdmin\RoleIndex.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleIndex.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Shared\Error.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Error.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Shared\LayoutTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LayoutTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Shared\LoginPartial.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoginPartial.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\Shared\ValidationScriptsPartial.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationScriptsPartial.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\ViewImports.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ViewImports.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Views\ViewStart.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ViewStart.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\ApiConcernController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiConcernController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Api\Templates\ApiController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Api\Templates\Api\ApiDeleteTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiDeleteTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Api\Templates\Api\ApiGetAllTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiGetAllTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Api\Templates\Api\ApiGetTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiGetTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Api\Templates\Api\ApiPostTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiPostTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Api\Templates\Api\ApiPutTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiPutTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\DataModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\DataRepository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\DbContext.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\EntityApiController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityApiController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\EntityMvcController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityMvcController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\EnumTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EnumTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\IDataRepository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IDataRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\IServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\ServiceContext.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\ServiceTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\ViewModelTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ViewModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\Views\CreateTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\Views\DeleteTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DeleteTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\Views\DetailsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DetailsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\Views\EditTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EditTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Data\Templates\Views\IndexTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IndexTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\AuthController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\ConstantsTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConstantsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\ExternalAuthController.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExternalAuthController.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\FacebookApiResponses.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FacebookApiResponses.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\AuthSettings.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthSettings.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\FacebookAuthViewModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FacebookAuthViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\IJwtFactory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IJwtFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\JwtFactory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JwtFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\JwtIssuerOptions.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JwtIssuerOptions.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\RolesTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RolesTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Security\Templates\StartupAuth.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StartupAuth.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Base\Templates\Include.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Include.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\AppSettingsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AppSettingsTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Controllers\AccountController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AccountController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Controllers\ControllerBase.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ControllerBase.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Controllers\HomeController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HomeController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Controllers\ManageController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Controllers\RoleAdminController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleAdminController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Data\IRepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IRepositoryTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Data\RepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RepositoryTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\DesignTimeDbContextFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DesignTimeDbContextFactory.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Helpers\ErrorsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ErrorsTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Helpers\TokensTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TokensTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Models\AccountViewModels.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AccountViewModels.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Models\AdminViewModel.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AdminViewModel.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Models\ApplicationUser.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApplicationUser.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Models\ManageViewModels.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageViewModels.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\ProgramTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProgramTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Project.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Project.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Services\EmailSender.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EmailSender.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Services\MessageServices.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MessageServices.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Services\SmsSender.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SmsSender.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Startup.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Startup.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\AccessDenied.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AccessDenied.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ConfirmEmail.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ConfirmEmail.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ExternalLoginConfirmation.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ExternalLoginConfirmation.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ExternalLoginFailure.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ExternalLoginFailure.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ForgotPassword.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ForgotPassword.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ForgotPasswordConfirmation.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ForgotPasswordConfirmation.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\Lockout.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Lockout.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\Login.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Login.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\Register.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Register.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ResetPassword.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResetPassword.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\ResetPasswordConfirmation.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResetPasswordConfirmation.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\SendCode.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SendCode.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Account\VerifyCode.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>VerifyCode.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Home\HomeAbout.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HomeAbout.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Home\HomeContact.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HomeContact.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Home\HomeDashboard.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HomeDashboard.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Home\HomeIndex.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>HomeIndex.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Manage\ManageAddPhoneNumber.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageAddPhoneNumber.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Manage\ManageChangePassword.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageChangePassword.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Manage\ManageIndex.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageIndex.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Manage\ManageLogins.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageLogins.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Manage\ManageSetPassword.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageSetPassword.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Manage\ManageVerifyPhoneNumber.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ManageVerifyPhoneNumber.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\RoleAdmin\RoleCreate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleCreate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\RoleAdmin\RoleDelete.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleDelete.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\RoleAdmin\RoleDetails.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleDetails.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\RoleAdmin\RoleEdit.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleEdit.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\RoleAdmin\RoleIndex.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleIndex.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Shared\Error.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Error.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Shared\LayoutTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LayoutTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Shared\LoginPartial.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LoginPartial.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\Shared\ValidationScriptsPartial.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ValidationScriptsPartial.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\ViewImports.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ViewImports.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Views\ViewStart.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ViewStart.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\ApiConcernController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiConcernController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Api\Templates\ApiController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Api\Templates\Api\ApiDeleteTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiDeleteTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Api\Templates\Api\ApiGetAllTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiGetAllTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Api\Templates\Api\ApiGetTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiGetTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Api\Templates\Api\ApiPostTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiPostTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Api\Templates\Api\ApiPutTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApiPutTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\DataModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataModelTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\DataRepository.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataRepository.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\DbContext.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DbContext.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\EntityApiController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityApiController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\EntityMvcController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityMvcController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\EnumTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EnumTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\IDataRepository.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IDataRepository.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\IServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IServiceTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\ServiceContext.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceContext.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\ServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\ViewModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ViewModelTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\Views\CreateTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreateTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\Views\DeleteTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DeleteTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\Views\DetailsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DetailsTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\Views\EditTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Data\Templates\Views\IndexTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IndexTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\AuthController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\ConstantsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ConstantsTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\ExternalAuthController.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ExternalAuthController.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\FacebookApiResponses.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FacebookApiResponses.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\AuthSettings.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthSettings.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\FacebookAuthViewModel.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>FacebookAuthViewModel.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\IJwtFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IJwtFactory.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\JwtFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JwtFactory.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\JwtIssuerOptions.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>JwtIssuerOptions.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\RolesTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RolesTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Security\Templates\StartupAuth.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>StartupAuth.cs</LastGenOutput>
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UI\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mobioos.Scaffold" Version="0.9.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.exclusions">
+      <Value>**/*.ts,**/*.scss</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
+</Project>

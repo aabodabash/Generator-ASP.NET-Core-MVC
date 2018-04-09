@@ -1,0 +1,112 @@
+{
+  "id": "Flow",
+  "title": "Flow",
+  "description": "Flow description",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "Flow",
+      "title": "Flow",
+      "description": "Flow description",
+      "isVisibleInMenu": false,
+      "isRoot": true,
+      "actions": [
+        {
+          "id": "NavigationContributor",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        },
+        {
+          "id": "getCardsAndChoices",
+          "type": "DataGet",
+          "target": "",
+          "api": "Flow.getCardsAndChoices"
+        },
+        {
+          "id": "displayCards",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "displayChoices",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "sendAnswer",
+          "type": "DataCreate",
+          "target": "",
+          "api": "Flow.sendAnswer"
+        }
+      ],
+      "dataModel": {
+        "id": "FlowViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "Choice",
+            "foreignKey": "",
+            "type": "Choice",
+            "isCollection": false,
+            "isRequired": false
+          },
+          {
+            "id": "Card",
+            "foreignKey": "",
+            "type": "Card",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "MenuProfile",
+      "title": "Profile",
+      "description": "Profile",
+      "isVisibleInMenu": true,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "Account",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "Close",
+          "type": "Navigation",
+          "target": "Flow.Flow",
+          "api": ""
+        }
+      ]
+    },
+    {
+      "id": "MenuReporting",
+      "title": "Reporting",
+      "description": "Reporting",
+      "isVisibleInMenu": true,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "Mood",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "Close",
+          "type": "Navigation",
+          "target": "Flow.Flow",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

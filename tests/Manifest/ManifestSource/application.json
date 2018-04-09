@@ -1,0 +1,40 @@
+{
+  "id": "CollaboratorWeather",
+  "title": "Collaborator's Weather",
+  "platforms": [
+    "Android",
+    "WindowsPhone",
+    "iOS",
+    "WindowsStore",
+    "Web"
+  ],
+  "version": "1.0.0.0",
+  "themes": [
+    "Light",
+    "Dark"
+  ],
+  "languages": [
+    "En",
+    "Fr",
+    "Es"
+  ],
+  "$schema": "http://schema.mobioos.com/2015/01",
+  "addons": "addons.json",
+  "api": [
+    "api/ContributorMood.json",
+    "api/Flow.json",
+    "api/ReportingMood.json"
+  ],
+  "concerns": [
+    "concerns/Flow.json",
+    "concerns/ContributorMood.json",
+    "concerns/ReportingMood.json"
+  ],
+  "configurations": [
+    {
+      "type": "dev",
+      "Path": "configurations\\configuration.dev.json"
+    }
+  ],
+  "data": "data.json"
+}

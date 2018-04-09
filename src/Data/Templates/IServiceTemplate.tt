@@ -1,0 +1,17 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; #>
+﻿using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Threading.Tasks;
+using <#= ApplicationId #>.Backend.DataModels;
+ 
+namespace <#= ApplicationId #>.Backend.Services
+{ 
+    public interface I<#= model.Id #>Service
+    { 
+		IQueryable<<#= model.Id #>> GetAll(); 
+		Task<<#= model.Id #>> GetById(<#= key.CSharpType() #> id);      
+        Task Save(<#= model.Id #> entity); 
+        Task Delete(<#= key.CSharpType() #> id); 
+    } 
+}

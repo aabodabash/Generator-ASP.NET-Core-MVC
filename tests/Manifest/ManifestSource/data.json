@@ -1,0 +1,386 @@
+{
+  "entities": [
+    {
+      "id": "Entity",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Id",
+          "type": "integer",
+          "isKey": true,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "User",
+      "extends": "Entity",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Name",
+          "type": "string",
+          "isKey": true,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 25,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Password",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Email",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "Group",
+          "foreignKey": "Id",
+          "type": "Group",
+          "isCollection": true,
+          "isRequired": false
+        },
+        {
+          "id": "UserSetting",
+          "foreignKey": "Id",
+          "type": "UserSetting",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Group",
+      "extends": "Entity",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Name",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "User",
+          "foreignKey": "Id",
+          "type": "User",
+          "isCollection": true,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Card",
+      "extends": "Entity",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "DateCreated",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Alert",
+          "type": "boolean",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "Duration",
+          "type": "number",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "CreatedByUser",
+          "foreignKey": "Id",
+          "type": "User",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "TargetedGroup",
+          "foreignKey": "Id",
+          "type": "Group",
+          "isCollection": true,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "MoodCard",
+      "extends": "Card",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Image",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "MoodAnswer",
+      "extends": "Answer",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [],
+      "references": [
+        {
+          "id": "MoodChoice",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "MoodCard",
+          "foreignKey": "Id",
+          "type": "MoodCard",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "UserSetting",
+      "extends": "Entity",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "ImageMoodTop",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "ImageMoodBottom",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "ImageMoodLeft",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "ImageMoodRight",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "MoodTop",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "MoodBottom",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "MoodLeft",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "MoodRight",
+          "foreignKey": "Id",
+          "type": "Choice",
+          "isCollection": false,
+          "isRequired": false
+        },
+        {
+          "id": "DefaultMoodAnswer",
+          "foreignKey": "Id",
+          "type": "MoodChoice",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Choice",
+      "extends": "Entity",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "Name",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "TestEnumModel",
+          "foreignKey": "",
+          "type": "TestEnumModel",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Answer",
+      "extends": "Entity",
+      "isAbstract": true,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "DateAnswered",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [
+        {
+          "id": "AnsweredByUser",
+          "foreignKey": "Id",
+          "type": "User",
+          "isCollection": false,
+          "isRequired": false
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "MoodChoice",
+      "extends": "Choice",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "TestEnumModel",
+      "isAbstract": false,
+      "isEnum": true,
+      "properties": [],
+      "references": [],
+      "values": [
+        {
+          "id": "ValueModel1"
+        },
+        {
+          "id": "ValueModel2"
+        }
+      ]
+    },
+    {
+      "id": "TestEnumViewModel",
+      "isAbstract": false,
+      "isEnum": true,
+      "properties": [],
+      "references": [],
+      "values": [
+        {
+          "id": "ValueViewModel1"
+        },
+        {
+          "id": "ValueViewModel2"
+        }
+      ]
+    }
+  ]
+}

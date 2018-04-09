@@ -1,0 +1,233 @@
+{
+  "id": "ContributorMood",
+  "title": "ContributorMood",
+  "description": "ContributorMood",
+  "mandatory": false,
+  "layouts": [
+    {
+      "id": "ContributorMood",
+      "title": "Contributor Mood",
+      "description": "Contributor Mood",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "NavigationFlow",
+          "type": "Navigation",
+          "target": "Flow.Flow",
+          "api": ""
+        },
+        {
+          "id": "CreateCard",
+          "type": "Navigation",
+          "target": "ContributorMood.CreateMood",
+          "api": ""
+        },
+        {
+          "id": "Delete",
+          "type": "Navigation",
+          "target": "ContributorMood.DeleteMood",
+          "api": ""
+        },
+        {
+          "id": "getMoodCardsAndChoicesAndUserSetting",
+          "type": "DataGet",
+          "target": "",
+          "api": "ContributorMood.getMoodCardsAndChoices"
+        },
+        {
+          "id": "displayMoodChoices",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "displayMoodUserSetting",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "displayMoodCards",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "ContributorMoodViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodCard",
+            "foreignKey": "",
+            "type": "MoodCard",
+            "isCollection": false,
+            "isRequired": false
+          },
+          {
+            "id": "MoodChoice",
+            "foreignKey": "",
+            "type": "MoodChoice",
+            "isCollection": false,
+            "isRequired": false
+          },
+          {
+            "id": "UserSetting",
+            "foreignKey": "",
+            "type": "UserSetting",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "CreateMood",
+      "title": "Create Mood",
+      "description": "Create Mood",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "BackButton",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "CreateMoodViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodCard",
+            "foreignKey": "",
+            "type": "MoodCard",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "EditMood",
+      "title": "Edit Mood",
+      "description": "Edit Mood",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "BackButton",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "EditMoodViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [],
+        "references": [
+          {
+            "id": "MoodCard",
+            "foreignKey": "",
+            "type": "MoodCard",
+            "isCollection": false,
+            "isRequired": false
+          }
+        ],
+        "values": []
+      }
+    },
+    {
+      "id": "DeleteMood",
+      "title": "Delete Mood",
+      "description": "Delete Mood",
+      "isVisibleInMenu": false,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "BackButton",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        },
+        {
+          "id": "No",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        }
+      ],
+      "dataModel": {
+        "id": "DeleteMoodViewModel",
+        "isAbstract": false,
+        "isEnum": false,
+        "properties": [
+          {
+            "id": "IdeaCardId",
+            "type": "number",
+            "isKey": false,
+            "isCollection": false,
+            "isRequired": false,
+            "minimum": 0,
+            "maximum": 0,
+            "modelProperty": ""
+          }
+        ],
+        "references": [],
+        "values": []
+      }
+    },
+    {
+      "id": "MenuProfile",
+      "title": "Profile",
+      "description": "Profile",
+      "isVisibleInMenu": true,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "Account",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "Close",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        }
+      ]
+    },
+    {
+      "id": "MenuReporting",
+      "title": "Reporting",
+      "description": "Reporting",
+      "isVisibleInMenu": true,
+      "isRoot": false,
+      "actions": [
+        {
+          "id": "Mood",
+          "type": "Method",
+          "target": "",
+          "api": ""
+        },
+        {
+          "id": "Close",
+          "type": "Navigation",
+          "target": "ContributorMood.ContributorMood",
+          "api": ""
+        }
+      ]
+    }
+  ]
+}

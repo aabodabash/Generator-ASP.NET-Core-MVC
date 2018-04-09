@@ -1,0 +1,8 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+namespace <#= model.Id #>.Backend.ViewModels
+{
+	public class FacebookAuthViewModel
+    {
+		public string AccessToken { get; set; }
+	}
+}

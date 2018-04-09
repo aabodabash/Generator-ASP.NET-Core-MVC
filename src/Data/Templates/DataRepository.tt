@@ -1,0 +1,30 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; #>
+using Microsoft.EntityFrameworkCore; 
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Threading.Tasks; 
+using  <#= ApplicationId #>.Backend.Models;
+using  <#= ApplicationId #>.Backend.DataModels;
+
+namespace <#= ApplicationId #>.Backend.Repositories
+{ 
+    public class <#= model.Id #>Repository : Repository<<#= model.Id#>>, I<#= model.Id #>Repository
+    { 
+		public <#= model.Id #>Repository(ApplicationDbContext context) : base(context)
+        {
+        }
+
+        public IQueryable<<#= model.Id #>> GetAllWithReferences()
+        { 
+            return DbContext.Set<<#= model.Id #>>()<# if(model.AllReferences().Count()>0) { foreach(var reference in model.AllReferences()) {#>.Include(m=>m.<#=reference.Id #>)<#}}#>.AsNoTracking(); 
+        }
+
+<#if(key!=null){#>
+		public async Task<<#= model.Id #>> GetByIdWithReferences(<#= key.CSharpType() #> id)
+        {
+            return await DbContext.Set<<#= model.Id #>>()<# if(model.AllReferences().Count()>0) { foreach(var reference in model.AllReferences()) {#>.Include(m=>m.<#=reference.Id #>)<#}}#>.FirstOrDefaultAsync(p=>p.<#= key.Id #> == id);
+        }
+<#}#>
+    } 
+}

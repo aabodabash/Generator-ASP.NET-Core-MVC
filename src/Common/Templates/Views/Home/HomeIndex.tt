@@ -1,0 +1,32 @@
+﻿<#@ include file="..\..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron">
+    <h1>Mobioos <#= model.Title #> Backend</h1>
+    <p class="lead">Lorem ipsum.</p>
+    <p><a href="http://www.mobioos.com/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>APIs</h2>
+        <p>See available APIs documentation for either bulk load and application execution.</p>
+        <p><a class="btn btn-default" href="/swagger">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Basic back office editor</h2>
+        <div class="btn-group-vertical" role="group" aria-label="...">
+            @if (User.IsInRole(<#= model.Id #>.Backend.Security.Roles.BuiltinRoles.Admin.Key) ||
+                User.IsInRole(<#= model.Id #>.Backend.Security.Roles.BuiltinRoles.DataEditor.Key))
+            {
+			<# if(model.DataModel !=null && model.DataModel.Entities != null)
+			 foreach(var entity in model.DataModel.Entities){
+			 if(!entity.IsAbstract){ #>
+			  <a class="btn btn-default" href="@Url.Action("Index", "<#= entity.Id #>")"><#= entity.Id #></a>
+			<# }
+			  } #>
+            }
+        </div>
+    </div>
+</div>

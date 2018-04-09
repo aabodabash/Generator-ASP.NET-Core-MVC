@@ -1,0 +1,28 @@
+﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; #>
+@model <#= ApplicationId #>.Backend.DataModels.<#=model.Id#>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4><#=model.Id#></h4>
+    <hr />
+    <dl class="dl-horizontal">
+		<# foreach(var property in model.AllProperties()){#>
+		<dt>
+            @Html.DisplayNameFor(m => m.<#= property.Id #>)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.<#= property.Id #>)
+        </dd>
+		<#}#>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

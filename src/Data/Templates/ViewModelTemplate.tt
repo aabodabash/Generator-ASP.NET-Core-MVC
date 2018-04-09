@@ -1,0 +1,111 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; #>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using <#= ApplicationId #>.Backend.DataModels;
+
+<# var lastType = ReferencedTypes.LastOrDefault(); #>
+<# var keyProperty = model.AllProperties().FirstOrDefault(p=>p.IsKey); #>
+<# var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : ""; #>
+<# if(string.IsNullOrEmpty(keyType)) { keyType = model.AllReferences().FirstOrDefault()?.CSharpType(); }#>
+
+namespace <#= ApplicationId #>.Backend.<#= ViewModelNamespace #>
+{
+	public partial class <#=model.Id#> <#= model.BaseEntity !=null ? ": "+ model.BaseEntity.Id : "" #>
+	{
+		public <#= model.Id #>() <#= model.BaseEntity !=null ? ": base()" : "" #>
+		{
+<# if(model.References !=null && model.References.Count() > 0) {
+foreach(var reference in model.References) {
+var currentReference = reference.Id; var referenceName = currentReference.First().ToString().ToUpper() + currentReference.Substring(1);
+if(reference.IsCollection){ #>
+			<#= referenceName #> = new HashSet<<#= reference.Type #>>();
+<#}
+else{#>
+			<#=referenceName #> = new <#= reference.Type #>();
+<#}
+}
+}#>
+		}
+
+<# if (model.Properties != null){#>
+<# foreach(var prop in model.Properties){ var propertyId = prop.Id.First().ToString().ToUpper() + prop.Id.Substring(1);#>
+		public <#= prop.CSharpType() #><#= prop.IsNullable? "?" : ""#> <#=propertyId#>  { get; set; }
+<#}}#>
+<# if(model.References !=null && model.References.Count() > 0){
+foreach(var reference in model.References){
+var currentReference = reference.Id; var referenceName = currentReference.First().ToString().ToUpper() + currentReference.Substring(1);
+if(reference.IsCollection){ #>
+		private HashSet<<#= reference.Type #>> _<#= reference.Id #>; 
+		private HashSet<<#= reference.Type #>> <#=referenceName #> { get { return _<#= reference.Id #> ??(_<#=reference.Id #> = new HashSet<<#= reference.Type #>>()); } set {  _<#= reference.Id #> = value; }}
+<#}else{var fieldName = Char.ToLowerInvariant(reference.Id.First()) + reference.Id.Substring(1);#>
+		private <#= reference.Type #> _<#=fieldName#>;
+		public virtual <#= reference.Type #> <#=referenceName #> { get {return _<#=fieldName#>;} set { _<#=fieldName#> = value;}}
+<#}
+}
+}#>
+
+<# if (model.BaseEntity==null) {#>
+		[Timestamp]
+		public byte[] RawVersion { get; set; }
+<#}#>
+
+		public <#= model.Id #> ConvertFromModel(<#if(ReferencedTypes.Count>0){foreach(var referencedType in ReferencedTypes){ var parameterName = Char.ToLowerInvariant(referencedType.Key[0]) + referencedType.Key.Substring(1); var modelReference = model.References.FirstOrDefault(r=>r.Type == referencedType.Key); var parameterType = modelReference != null && modelReference.IsCollection? "HashSet<"+referencedType.Key +">":referencedType.Key;#><#= parameterType #> <#= parameterName #><#if(lastType.Key!=referencedType.Key){#>,<#}}}#>)
+		{
+<#if(model.AllProperties()!=null){#>
+<# foreach(var prop in model.AllProperties()) { if(!string.IsNullOrEmpty(prop.ModelProperty)) { var modelProperty = Char.ToLowerInvariant(prop.ModelProperty[0]) + prop.ModelProperty.Substring(1);var property = Char.ToUpperInvariant(prop.Id[0]) + prop.Id.Substring(1); #>
+			<#= property #> = <#= modelProperty #>;
+<#}}}#>
+<#foreach(var reference in model.References){var currentReference = ReferencedTypes.FirstOrDefault(r=>r.Key == reference.Type); var parameterName = Char.ToLowerInvariant(currentReference.Key[0]) + currentReference.Key.Substring(1);  var fieldName = Char.ToLowerInvariant(reference.Id[0]) + reference.Id.Substring(1);#>
+			_<#=fieldName#> = <#= parameterName #>;
+<#}#>
+
+			return this;
+		}
+
+<# if(ReferencedTypes != null) { #>
+<# foreach(var refType in ReferencedTypes) { var currentReferenceType = model.References.FirstOrDefault(r=>r.Type == refType.Key); var type = currentReferenceType !=null && currentReferenceType.IsCollection? "HashSet<" + refType.Key + ">": refType.Key; #>
+		public <#= type #> Get<#= refType.Key #>FromViewModel()
+		{
+<#if(model.References?.FirstOrDefault(r=>r.Type == refType.Key)!=null){var fieldName = Char.ToLowerInvariant(refType.Value[0])+refType.Value.Substring(1); #>
+			return this._<#=fieldName#>;
+<#}else{#>
+			var model = new <#= refType.Key #>();
+<# foreach(var prop in model.AllProperties()) { #>
+<# if(!string.IsNullOrEmpty(prop.ModelProperty) && prop.ModelProperty.StartsWith(refType.Key +'.')) { #>
+<# var propertyName = prop.ModelProperty?.Split('.').Last(); var property = Char.ToUpperInvariant(prop.Id[0]) + prop.Id.Substring(1); #>
+			model.<#= propertyName #> =  <#= property #>;
+<#}#>
+<#}#>
+
+			return model;
+<#}#>
+		}
+		<# } #>
+	<# } #>
+
+<# if(!string.IsNullOrEmpty(keyType)) { var currentReferenceType = model.References.FirstOrDefault(r=>r.Type == keyType); var type = currentReferenceType != null && currentReferenceType.IsCollection ? "HashSet<" + keyType+ ">": keyType; #>
+		public <#= type #> ConvertToModel()
+		{
+<#var currentReference = model.References?.FirstOrDefault(r=>r.Type == keyType); #>
+<#if(currentReference != null && !string.IsNullOrEmpty(currentReference.Id)){ var referenceName = currentReference.Id.First().ToString().ToUpper() + currentReference.Id.Substring(1); #>
+			return this.<#=referenceName#>;
+<#}else{#>
+			var model = new <#= keyType #>();
+<# if (model.Properties != null) {#>
+<# foreach(var prop in model.Properties) {#>
+<# if(!string.IsNullOrEmpty(prop.ModelProperty)) {#>
+<# var modelType =  prop.ModelProperty.Substring(0, prop.ModelProperty.IndexOf("."));#>
+<# if(modelType == keyType) {#>
+<# var propertyName = prop.ModelProperty.Substring(prop.ModelProperty.IndexOf(".")+1); #>
+			model.<#= propertyName #> = <#= prop.Id #>;
+<#}#>
+<#}#>
+<#}#>
+<#}#>
+			return model;
+<#}#>
+		}
+<#}#>
+	}
+}

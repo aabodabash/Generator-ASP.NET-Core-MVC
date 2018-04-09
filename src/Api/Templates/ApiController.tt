@@ -1,0 +1,60 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><#var model = (ApiInfo)Model; var actions = ((ApiInfo)Model).Actions.AsEnumerable(); #>
+using System;
+using System.Net;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using <#=ApplicationId#>.Backend.DataModels;
+using <#=ApplicationId#>.Backend.Models;
+using <#=ApplicationId#>.Backend.Services;
+using <#=ApplicationId#>.Backend.ViewModels;
+
+namespace <#=ApplicationId#>.Backend.Api.<#=model.Id#>
+{
+	/// <summary>
+	/// Controller responsible for all data interactions with the <#=model.Id#>
+	/// </summary>
+	[Route("api/<#=Version#>/<#=ApplicationId#><#=model.Id#>")]
+	public partial class <#=model.Id#> : Controller
+	{
+<#foreach(var entity in Entities){#>
+		private I<#=entity.Key#>Service _<#=entity.Key #>Service;
+<#}#>
+<#var lastEntity = Entities.LastOrDefault();#>
+		/// <summary>
+		/// Initialize a new instance of <see cref="<#=ApplicationId#>.Backend.Api.<#=model.Id#>Controller"/> class.
+		/// </summary>
+		public <#=model.Id#>(<#foreach(var entity in Entities){#>I<#=entity.Key#>Service <#=entity.Key#>Service<#if (!entity.Equals(lastEntity)){#>,<#}#><#}#>)
+		{
+<#foreach(var entity in Entities){#>
+			_<#=entity.Key#>Service = <#=entity.Key#>Service;
+<#}#>
+		}
+<#foreach(var action in actions){#>
+
+<#var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); var lastParameter = action.Parameters.LastOrDefault();#>
+		[<#=action.CSharpType()#>]
+		[Route("<#=action.Url#>")]
+<#if(action.ReturnType != null){#>
+		[ProducesResponseType(typeof(<#=action.ReturnType#>), 200)]
+<#}#>
+		public async Task<IActionResult> <#=action.Id#>(<#foreach(var parameter in action.Parameters.AsEnumerable()){#><#=parameter.CSharpType()#> <#=parameter.Id #><#if (!parameter.Equals(lastParameter)){#>,<#}#><#}#>)
+		{
+<#if(action.Type?.ToLower() == "datacreate" && firstParameter != null) { var template = new ApiPostTemplate(action);#>
+			<#Write(template.TransformText());#>
+<#}else if(action.Type?.ToLower() == "dataupdate" && firstParameter != null) { var template = new ApiPutTemplate(action); #>
+			<#Write(template.TransformText());#>
+<#}else if(action.Type == "datadelete" && firstParameter != null) { var template = new ApiDeleteTemplate(action);#>
+			<#Write(template.TransformText());#>
+<#}else if(action.Type?.ToLower() == "datalist") { var template = new ApiGetAllTemplate(action, Entities);#>
+			<#Write(template.TransformText());#>
+<#}else if(action.Type?.ToLower() == "dataget") { var template = new ApiGetTemplate(action, Entities);#>
+			<#Write(template.TransformText());#>
+<#}#>
+		}
+<#}#>
+	}
+}

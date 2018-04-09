@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/Mobioos.Scaffold.Generators/v15/Server/sqlite3
+/tests/obj
+/src/obj

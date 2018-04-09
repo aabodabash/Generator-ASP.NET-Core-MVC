@@ -1,0 +1,52 @@
+﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; #>
+using System.Collections.Generic;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using <#= ApplicationId #>.Backend.DataModels;
+
+namespace <#= ApplicationId #>.Backend.<#= DataNamespace #>
+{
+	public <#if(model.IsAbstract){#>abstract<#}#> partial class <#= model.Id #> <#= model.BaseEntity !=null ? ": "+ model.BaseEntity.Id : "" #>
+	{
+		public <#= model.Id #>() <#= model.BaseEntity !=null ? ": base()" : "" #>
+		{
+		}
+<# if (model.Properties != null) {#>
+<# foreach(var prop in model.Properties) {#>
+
+		public <#= prop.CSharpType() #><#= prop.IsNullable? "?" : ""#> <#= prop.Id #> { get; set; }
+
+<# } }#>
+<# if(model.References !=null && model.References.Count() > 0) {
+foreach(var reference in model.References) {
+if(reference.IsCollection){ #>
+		private HashSet<<#= reference.Type #>> _<#= reference.Id #>; 
+		<# var currentReference = reference.Id; var referenceName = currentReference.First().ToString().ToUpper() + currentReference.Substring(1); #>
+		<#if(reference.Target!=null && reference.Target.IsAbstract){#>
+		[NotMapped]
+		<#}#>
+		public HashSet<<#= reference.Type #>> <#= referenceName #> { get { return _<#= reference.Id #> ??(_<#=reference.Id #> = new HashSet<<#= reference.Type #>>()); }}
+
+<#}
+else {#>
+		<# var referenceKey = reference.Reference?.Properties.FirstOrDefault(p => p.IsKey); #>
+		<#if(reference.Target!=null && reference.Target.IsAbstract){#>
+		[NotMapped]
+		<#}#>
+		<# if(referenceKey != null) { #>
+		[ForeignKey("<#= reference.Type #>")]
+		public <#= referenceKey.Type #> <#= reference.Id #>RefId { get; set; }
+		<# } #>
+		public virtual <#= reference.Type #> <#= reference.Id #> { get; set; }
+
+<#}
+}
+}#>
+
+<# if (model.BaseEntity==null) {#>
+		[Timestamp]
+		public new byte[] RawVersion { get; set; }
+<#}#>
+	}
+}
