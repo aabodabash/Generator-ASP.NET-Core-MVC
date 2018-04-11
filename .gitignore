@@ -6,3 +6,5 @@
 /tests/obj
 /src/obj
 /.vs/Mobioos.Generators/v15/Server/sqlite3
+/src/bin/Debug/net461
+/.vs/Mobioos.Generators/v15

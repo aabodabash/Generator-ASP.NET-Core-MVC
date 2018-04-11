@@ -41,7 +41,7 @@ namespace Mobioos.Generators.AspNetCore
             var success = ExecuteTemplates("CommonActivity", BasePath, Context.DynamicContext.Manifest, executingAssembly);
             if (success)
             {
-                success = CopyDirectory(Path.Combine(Context.DynamicContext.GeneratorPath, "Platforms\\Backend\\AspNetCore\\Common\\Templates"), BasePath);
+                success = CopyDirectory(Path.Combine(Context.DynamicContext.GeneratorPath, "Common\\Templates"), BasePath);
             }
 
             TransformAppSettings(Context.DynamicContext.Manifest);
