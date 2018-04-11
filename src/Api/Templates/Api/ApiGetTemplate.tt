@@ -7,7 +7,7 @@
 			try
 			{
 <# if(action.ReturnType != null){#>
-<# if(!string.IsNullOrEmpty(keyType) && firstParameter != null) {#>
+<# if(!string.IsNullOrEmpty(keyType) && firstParameter != null && keyType == firstParameter.CSharpType()) {#>
 				var entity = await _<#= keyType #>Service.GetById(<#=firstParameter.Id#>);
 				if(entity != null)
 				{
