@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiGetAllTemplate : TemplateBase
     {
@@ -35,65 +35,65 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 2 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 var action = (ApiActionInfo)Model;
             
             #line default
             #line hidden
             
-            #line 3 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 3 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 var lastEntity = Entities.LastOrDefault();
             
             #line default
             #line hidden
             
-            #line 4 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 4 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault();
             
             #line default
             #line hidden
             
-            #line 5 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 5 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 var keyProperty = action.ReturnType?.AllProperties().FirstOrDefault(p=>p.IsKey);
             
             #line default
             #line hidden
             
-            #line 6 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : "";
             
             #line default
             #line hidden
             
-            #line 7 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 7 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 if(string.IsNullOrEmpty(keyType)) { var reference = action.ReturnType?.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract); keyType = reference?.CSharpType(); keyProperty=reference?.Target.AllProperties()?.FirstOrDefault(p=>p.IsKey);}
             
             #line default
             #line hidden
             this.Write("\t\t\ttry\r\n\t\t\t{\r\n");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 if(action.ReturnType != null){
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar list = new List<");
             
-            #line 11 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.ReturnType.Id));
             
             #line default
             #line hidden
             this.Write(">();\r\n");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 if(!string.IsNullOrEmpty(keyType)){
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar result = _");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
@@ -103,49 +103,49 @@ if(!string.IsNullOrEmpty(keyType)){
                     "turn this.Ok(await Task.FromResult(list));\r\n\t\t\t\t}\r\n\t\t\t\r\n\t\t\t\treturn NotFound();\r\n" +
                     "");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn this.Ok(await Task.FromResult(list));\r\n");
             
-            #line 27 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 27 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 }}else{
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn NotFound();\r\n");
             
-            #line 29 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\t\t}\r\n\t\t\tcatch (Exception xcp)\r\n\t\t\t{\r\n\t\t\t\t//log error\r\n");
             
-            #line 34 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 34 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 if(action.ReturnType !=null){
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn Ok(Enumerable.Empty <");
             
-            #line 35 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 35 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.ReturnType.Id));
             
             #line default
             #line hidden
             this.Write("> ().AsQueryable());\r\n");
             
-            #line 36 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 36 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn NotFound();\r\n");
             
-            #line 38 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiGetAllTemplate.tt"
+            #line 38 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetAllTemplate.tt"
 }
             
             #line default

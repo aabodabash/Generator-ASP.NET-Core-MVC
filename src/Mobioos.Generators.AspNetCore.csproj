@@ -15,6 +15,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UI\**" />
+    <EmbeddedResource Remove="UI\**" />
+    <None Remove="UI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Common\Templates\.bowerrc" />
     <None Remove="Common\Templates\app.config" />
     <None Remove="Common\Templates\bower.json" />
@@ -979,11 +985,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UI\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Mobioos.Scaffold" Version="0.9.7" />
+    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>

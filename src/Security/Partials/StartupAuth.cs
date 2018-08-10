@@ -1,11 +1,9 @@
-﻿using Mobioos.Scaffold.Core.Runtime.Attributes;
-using Mobioos.Foundation.Jade.Models;
+﻿using Mobioos.Foundation.Jade.Models;
+using Mobioos.Scaffold.BaseGenerators.TextTemplating;
 using System.Collections.Generic;
-using Mobioos.Scaffold.TextTemplating;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [Generator(ActivityName = nameof(SecurityActivity), Order = 1)]
     public partial class StartupAuth : TemplateBase
     {
         public StartupAuth(SmartAppInfo model, IDictionary<string, string> authenticationKeys) : base(model)

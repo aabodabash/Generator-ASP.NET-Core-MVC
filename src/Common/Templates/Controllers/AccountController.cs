@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Controllers\AccountController.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Controllers\AccountController.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class AccountController : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Controllers\AccountController.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Controllers\AccountController.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -53,28 +53,28 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Common\Templates\Controllers\AccountController.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Controllers\AccountController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Common\Templates\Controllers\AccountController.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Controllers\AccountController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Helpers;\r\nusing ");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Common\Templates\Controllers\AccountController.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Controllers\AccountController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Infrastructure.Services;\r\n\r\nnamespace ");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Common\Templates\Controllers\AccountController.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Controllers\AccountController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

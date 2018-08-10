@@ -1,11 +1,9 @@
-﻿using Mobioos.Scaffold.Core.Runtime.Attributes;
-using Mobioos.Foundation.Jade.Models;
+﻿using Mobioos.Foundation.Jade.Models;
+using Mobioos.Scaffold.BaseGenerators.TextTemplating;
 using System;
-using Mobioos.Scaffold.TextTemplating;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [Generator(ActivityName = nameof(CommonActivity), Order = 2)]
     public partial class Project : TemplateBase
     {
         public Project(SmartAppInfo model) : base(model)

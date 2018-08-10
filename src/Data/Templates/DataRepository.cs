@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class DataRepository : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
  var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; 
             
             #line default
@@ -42,49 +42,49 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("using Microsoft.EntityFrameworkCore; \r\nusing System; \r\nusing System.Collections.G" +
                     "eneric; \r\nusing System.Linq; \r\nusing System.Threading.Tasks; \r\nusing  ");
             
-            #line 7 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 7 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing  ");
             
-            #line 8 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 8 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\n\r\nnamespace ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Repositories\r\n{ \r\n    public class ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Repository : Repository<");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(">, I");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Repository\r\n    { \r\n\t\tpublic ");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -92,98 +92,98 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("Repository(ApplicationDbContext context) : base(context)\r\n        {\r\n        }\r\n\r" +
                     "\n        public IQueryable<");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("> GetAllWithReferences()\r\n        { \r\n            return DbContext.Set<");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(">()");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
  if(model.AllReferences().Count()>0) { foreach(var reference in model.AllReferences()) {
             
             #line default
             #line hidden
             this.Write(".Include(m=>m.");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
             
             #line default
             #line hidden
             this.Write(")");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
 }}
             
             #line default
             #line hidden
             this.Write(".AsNoTracking(); \r\n        }\r\n\r\n");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
 if(key!=null){
             
             #line default
             #line hidden
             this.Write("\t\tpublic async Task<");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("> GetByIdWithReferences(");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            return await DbContext.Set<");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(">()");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
  if(model.AllReferences().Count()>0) { foreach(var reference in model.AllReferences()) {
             
             #line default
             #line hidden
             this.Write(".Include(m=>m.");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
             
             #line default
             #line hidden
             this.Write(")");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
 }}
             
             #line default
             #line hidden
             this.Write(".FirstOrDefaultAsync(p=>p.");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
             #line hidden
             this.Write(" == id);\r\n        }\r\n");
             
-            #line 28 "D:\DEV\Generators\Mobioos\Data\Templates\DataRepository.tt"
+            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataRepository.tt"
 }
             
             #line default

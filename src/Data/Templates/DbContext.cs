@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class DbContext : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -42,14 +42,14 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("using Microsoft.EntityFrameworkCore;\r\nusing Microsoft.AspNetCore.Identity.EntityF" +
                     "rameworkCore;\r\nusing Microsoft.AspNetCore.Identity;\r\nusing ");
             
-            #line 5 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 5 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\n\r\nnamespace ");
             
-            #line 7 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 7 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -69,14 +69,14 @@ namespace Mobioos.Generators.AspNetCore
             builder.Entity<IdentityUserToken<string>>().HasKey(e => new { e.UserId });
 			");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  if(model.DataModel != null && model.DataModel.Entities != null){ 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t");
             
-            #line 21 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  foreach(var entity in model.DataModel.Entities) {
 					var primaryKey = entity.AllProperties()?.FirstOrDefault(p => p.IsKey);
 					if(!entity.IsAbstract && !entity.IsEnum && primaryKey != null) { var lastKey = entity.AllProperties().Where(p=>p.IsKey).LastOrDefault(); 
@@ -85,49 +85,49 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("\t\t\tbuilder.Entity<");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write(">().HasKey(e => new { ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  foreach(var key in entity.AllProperties().Where(p=>p.IsKey)) {
             
             #line default
             #line hidden
             this.Write(" e.");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  if (!key.Equals(lastKey)) {
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
 }
             
             #line default
             #line hidden
             this.Write("  ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  }
             
             #line default
             #line hidden
             this.Write("});\r\n\t\t\t");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  } 
 			 } 
 			}
@@ -139,14 +139,14 @@ namespace Mobioos.Generators.AspNetCore
                     "uilder)\r\n        {\r\n            base.OnConfiguring(optionsBuilder);\r\n        }\r\n" +
                     "\r\n");
             
-            #line 37 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  if(model.DataModel != null && model.DataModel.Entities != null){ 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 38 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 38 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  foreach(var entity in model.DataModel.Entities) {
 		var key = entity.AllProperties()?.FirstOrDefault(p => p.IsKey);
 		if(!entity.IsAbstract && !entity.IsEnum && key != null) { 
@@ -155,21 +155,21 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("\t\tpublic DbSet<");
             
-            #line 41 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 41 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 41 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 41 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("s { get; set; }\r\n\t\t");
             
-            #line 42 "D:\DEV\Generators\Mobioos\Data\Templates\DbContext.tt"
+            #line 42 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DbContext.tt"
  } 
 		 } 
 	    }

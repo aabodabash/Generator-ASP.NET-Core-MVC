@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ServiceContext : TemplateBase
     {
@@ -34,21 +34,21 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
             #line hidden
             this.Write("using System.Linq;\r\nusing Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 4 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 4 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\n\r\nnamespace ");
             
-            #line 6 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -90,35 +90,35 @@ namespace Mobioos.Generators.AspNetCore
         
 		");
             
-            #line 41 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 41 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
  if (model.DataModel != null && model.DataModel.Entities != null) {
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 42 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 42 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
  foreach(var entity in model.DataModel.Entities){
             
             #line default
             #line hidden
             this.Write("\t\tpublic DbSet<");
             
-            #line 43 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 43 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("s { get; set; }\r\n\t\t");
             
-            #line 44 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceContext.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceContext.tt"
 }
 	    }
 		

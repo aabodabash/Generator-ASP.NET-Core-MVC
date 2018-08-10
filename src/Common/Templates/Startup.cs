@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class Startup : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -52,35 +52,35 @@ using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using ");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Services;\r\nusing ");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Infrastructure.Services;\r\nusing ");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Repositories;\r\n\r\nnamespace ");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -110,56 +110,56 @@ using ");
                     "ender>();\r\n\t\t\tservices.AddScoped(typeof(IRepository<>), typeof(Repository<>));\r\n" +
                     "\t\t\t\r\n\t\t\t");
             
-            #line 67 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 67 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
 if(model.DataModel!=null && model.DataModel.Entities!=null && model.DataModel.Entities.FirstOrDefault(e => !e.IsAbstract && !e.IsEnum)!=null){foreach(var entity in model.DataModel.Entities.Where(e => !e.IsAbstract && !e.IsEnum)) { 
             
             #line default
             #line hidden
             this.Write("\t\t\tservices.AddScoped<I");
             
-            #line 68 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 68 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("Repository, ");
             
-            #line 68 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 68 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("Repository>();\r\n\t\t\t");
             
-            #line 69 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 69 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
 }
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 71 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 71 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
  foreach(var entity in model.DataModel.Entities.Where(e => !e.IsAbstract && !e.IsEnum)) { 
             
             #line default
             #line hidden
             this.Write("\t\t\tservices.AddScoped<I");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("Service, ");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("Service>();\r\n\t\t\t");
             
-            #line 73 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 73 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
 }}
             
             #line default
@@ -168,7 +168,7 @@ if(model.DataModel!=null && model.DataModel.Entities!=null && model.DataModel.En
                     "            services.AddSwaggerGen(c =>\r\n            {\r\n                c.Swagge" +
                     "rDoc(\"v1\", new Info { Title = \"");
             
-            #line 78 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 78 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -215,7 +215,7 @@ if(model.DataModel!=null && model.DataModel.Entities!=null && model.DataModel.En
             {
                 c.SwaggerEndpoint(""/swagger/v1/swagger.json"", """);
             
-            #line 118 "D:\DEV\Generators\Mobioos\Common\Templates\Startup.tt"
+            #line 118 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Startup.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

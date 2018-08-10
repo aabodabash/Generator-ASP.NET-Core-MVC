@@ -5,11 +5,7 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{998AB543-D82C-4ECE-9BA8-B72E0ECE6C82}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3DE1188F-EA14-4BE1-8DF8-5391D5662D35}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobioos.Generators.AspNetCore", "src\Mobioos.Generators.AspNetCore.csproj", "{8ED94DCC-7F20-4368-865C-9506987AA98F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mobioos.Generators.AspNetCore.Tests", "tests\Mobioos.Generators.AspNetCore.Tests.csproj", "{C6968B41-1389-418A-8230-14249848863E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,17 +17,12 @@ Global
 		{8ED94DCC-7F20-4368-865C-9506987AA98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED94DCC-7F20-4368-865C-9506987AA98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ED94DCC-7F20-4368-865C-9506987AA98F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6968B41-1389-418A-8230-14249848863E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6968B41-1389-418A-8230-14249848863E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6968B41-1389-418A-8230-14249848863E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6968B41-1389-418A-8230-14249848863E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8ED94DCC-7F20-4368-865C-9506987AA98F} = {998AB543-D82C-4ECE-9BA8-B72E0ECE6C82}
-		{C6968B41-1389-418A-8230-14249848863E} = {3DE1188F-EA14-4BE1-8DF8-5391D5662D35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C73131C-8284-429E-923C-D77AD0A0E8EB}

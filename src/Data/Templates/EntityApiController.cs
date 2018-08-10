@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class EntityApiController : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; 
             
             #line default
@@ -43,112 +43,112 @@ namespace Mobioos.Generators.AspNetCore
                     "s;\r\nusing Microsoft.AspNetCore.Authorization;\r\nusing Microsoft.AspNetCore.Mvc;\r\n" +
                     "using System.Collections.Generic;\r\nusing Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\nusing ");
             
-            #line 11 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Services;\r\n\r\nnamespace ");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Api.");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    [Route(\"api/");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\")]\r\n\tpublic partial class ");
             
-            #line 17 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller\r\n        : Controller\r\n    {\r\n\t\tprivate I");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service _");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service;\r\n\r\n        public ");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service ");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service)\r\n        {\r\n\t\t\t_");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service = ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service;\r\n        }\r\n\r\n\t\t/// <summary>\r\n        /// Get all ");
             
-            #line 28 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -156,21 +156,21 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("s from database\r\n        /// </summary>\r\n        /// <returns></returns>\r\n\r\n     " +
                     "   /// <response code=\"200\">Ok</response>\r\n        // GET: api/");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        [HttpGet(\"GetAll\")]\r\n        [ProducesResponseType(typeof(IEnumerable<");
             
-            #line 35 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 35 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -178,7 +178,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write(">), 200)]\r\n        public async virtual Task<IActionResult> GetAll()\r\n        {\r\n" +
                     "\t\t\ttry\r\n            {\r\n                return Ok((_");
             
-            #line 40 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 40 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -187,49 +187,49 @@ namespace Mobioos.Generators.AspNetCore
                     "p)\r\n            {\r\n                //log error\r\n                return Ok(Enumer" +
                     "able.Empty <");
             
-            #line 45 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 45 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("> ().AsQueryable());\r\n            }\r\n        }\r\n");
             
-            #line 48 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 48 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
 if(key!=null){
             
             #line default
             #line hidden
             this.Write("\t\t/// <summary>\r\n        /// Get ");
             
-            #line 50 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 50 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" by id\r\n        /// </summary>\r\n        /// <param name=\"id\">");
             
-            #line 52 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" id</param>\r\n        /// <returns>Corresponding ");
             
-            #line 53 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" <see cref=\"");
             
-            #line 53 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\" >");
             
-            #line 53 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -237,21 +237,21 @@ if(key!=null){
             this.Write("</see></returns>\r\n        /// <response code=\"200\">Ok</response>\r\n        /// <re" +
                     "sponse code=\"404\">Not found</response>\r\n        [ProducesResponseType(typeof(");
             
-            #line 56 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 56 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("), 200)]\r\n        // GET: api/");
             
-            #line 57 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 57 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 57 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 57 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -259,7 +259,7 @@ if(key!=null){
             this.Write("/<id>\r\n\t\t[HttpGet(\"Get\")]\r\n        public async virtual Task<IActionResult> GetBy" +
                     "Id(");
             
-            #line 59 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 59 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
@@ -267,7 +267,7 @@ if(key!=null){
             this.Write(" id)\r\n        {\r\n            try\r\n            {\r\n                var entity = awa" +
                     "it _");
             
-            #line 63 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 63 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -290,21 +290,21 @@ if(key!=null){
 		/// <summary>
         /// Update existing ");
             
-            #line 79 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 79 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"id\">");
             
-            #line 81 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 81 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" id</param>\r\n        /// <param name=\"entity\">");
             
-            #line 82 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 82 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -316,14 +316,14 @@ if(key!=null){
         /// <response code=""500"">Internal error</response>
         // PUT: api/");
             
-            #line 87 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 87 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 87 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 87 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -331,14 +331,14 @@ if(key!=null){
             this.Write("/<id>\r\n        [ProducesResponseType(typeof(void), 200)]\r\n\t\t[HttpPut(\"PutEntity\")" +
                     "]\r\n        public async virtual Task<IActionResult> PutEntity(");
             
-            #line 90 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 90 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id, [FromBody] ");
             
-            #line 90 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 90 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -346,28 +346,28 @@ if(key!=null){
             this.Write(" entity)\r\n        {\r\n            if (!ModelState.IsValid)\r\n            {\r\n       " +
                     "         return BadRequest(ModelState);\r\n            }\r\n\r\n\t\t\t");
             
-            #line 97 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 97 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  if (!string.IsNullOrEmpty(key.Id)) { 
             
             #line default
             #line hidden
             this.Write("            if (id != entity.");
             
-            #line 98 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 98 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
             #line hidden
             this.Write(")\r\n            {\r\n                return BadRequest();\r\n            }\r\n\t\t\t");
             
-            #line 102 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 102 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 104 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 104 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  if (!string.IsNullOrEmpty(key.Id)) { 
             
             #line default
@@ -375,21 +375,21 @@ if(key!=null){
             this.Write("            // Gets the original entity from the database.\r\n            var origi" +
                     "nal = _");
             
-            #line 106 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 106 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service.GetById(entity.");
             
-            #line 106 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 106 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
             #line hidden
             this.Write(");\r\n\t\t\t");
             
-            #line 107 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 107 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  } 
             
             #line default
@@ -409,7 +409,7 @@ if(key!=null){
                 // Save changes to database.
                 await _");
             
-            #line 121 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 121 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -439,35 +439,35 @@ if(key!=null){
 		/// <summary>
         /// Create a new ");
             
-            #line 144 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 144 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"entity\">");
             
-            #line 146 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 146 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" to create</param>\r\n        /// <returns>New ");
             
-            #line 147 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 147 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" <see cref=\"");
             
-            #line 147 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 147 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 147 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 147 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -479,21 +479,21 @@ if(key!=null){
         /// <response code=""500"">Internal error</response>
         [ProducesResponseType(typeof(");
             
-            #line 152 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 152 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("), 200)]\r\n        // POST: api/");
             
-            #line 153 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 153 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 153 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 153 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -501,7 +501,7 @@ if(key!=null){
             this.Write("\r\n\t\t[HttpPost(\"PostEntity\")]\r\n        public async virtual Task<IActionResult> Po" +
                     "stEntity([FromBody] ");
             
-            #line 155 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 155 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -510,7 +510,7 @@ if(key!=null){
                     "         return BadRequest(ModelState);\r\n            }            \r\n\r\n          " +
                     "  try\r\n            {\r\n                await _");
             
-            #line 164 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 164 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -518,14 +518,14 @@ if(key!=null){
             this.Write("Service.Save(entity);\r\n                return this.Ok(entity);\r\n            }\r\n  " +
                     "          catch (DbUpdateException xcp)\r\n            {\r\n\t\t\t");
             
-            #line 169 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 169 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  if (!string.IsNullOrEmpty(key.Id)) { 
             
             #line default
             #line hidden
             this.Write("                if (this.EntityExists(entity.");
             
-            #line 170 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 170 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
@@ -534,7 +534,7 @@ if(key!=null){
                     "Conflict);\r\n                }\r\n                else\r\n                {\r\n        " +
                     "            throw xcp;\r\n                }\r\n\t\t\t\t");
             
-            #line 178 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 178 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
 }
             
             #line default
@@ -543,14 +543,14 @@ if(key!=null){
                     "Code((int)HttpStatusCode.InternalServerError);\r\n            }       \r\n        }\r" +
                     "\n\r\n\t\t/// <summary>\r\n        /// Delete an existing ");
             
-            #line 186 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 186 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"entity\">");
             
-            #line 188 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 188 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -559,14 +559,14 @@ if(key!=null){
                     "response code=\"404\">Not found</response>\r\n        /// <response code=\"500\">Inter" +
                     "nal error</response>\r\n        // DELETE: api/");
             
-            #line 192 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 192 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 192 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 192 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -574,7 +574,7 @@ if(key!=null){
             this.Write("/<id>\r\n\t\t[HttpDelete(\"DeleteEntity\")]\r\n        public async virtual Task<IActionR" +
                     "esult> DeleteEntity(");
             
-            #line 194 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 194 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
@@ -582,7 +582,7 @@ if(key!=null){
             this.Write(" id)\r\n        {\r\n            try\r\n            {\r\n                var entity = awa" +
                     "it _");
             
-            #line 198 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 198 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -591,7 +591,7 @@ if(key!=null){
                     "                 return NotFound();\r\n                }\r\n\r\n                await " +
                     "_");
             
-            #line 204 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 204 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -601,34 +601,34 @@ if(key!=null){
                     "t)HttpStatusCode.InternalServerError);\r\n            }          \r\n        }\r\n\r\n\t\t" +
                     "");
             
-            #line 214 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 214 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
  if (!string.IsNullOrEmpty(key.Id)) { 
             
             #line default
             #line hidden
             this.Write("        protected virtual bool EntityExists(");
             
-            #line 215 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 215 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            return _");
             
-            #line 217 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 217 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service.GetById(id) != null;\r\n        }\r\n\t\t");
             
-            #line 219 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 219 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
 }
             
             #line default
             #line hidden
             
-            #line 220 "D:\DEV\Generators\Mobioos\Data\Templates\EntityApiController.tt"
+            #line 220 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityApiController.tt"
 }
             
             #line default

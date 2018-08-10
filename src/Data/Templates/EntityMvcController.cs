@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class EntityMvcController : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
  var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; 
             
             #line default
@@ -43,112 +43,112 @@ namespace Mobioos.Generators.AspNetCore
                     "m.Threading.Tasks;\r\nusing Microsoft.AspNetCore.Authorization;\r\nusing Microsoft.E" +
                     "ntityFrameworkCore;\r\nusing Microsoft.AspNetCore.Mvc;\r\nusing ");
             
-            #line 9 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\nusing ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Controllers;\r\nusing ");
             
-            #line 11 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Services;\r\n\r\n\r\nnamespace ");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Controllers\r\n{\r\n    public partial class ");
             
-            #line 17 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller : ControllerBase<");
             
-            #line 17 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n\r\n        private I");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service _");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service;\r\n\r\n        public ");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service ");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service)\r\n        {\r\n\t\t\t_");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service = ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service;\r\n        }\r\n\t\r\n\t\t");
             
-            #line 27 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 27 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
 var properties = model.Properties != null ? string.Join(",",model.Properties.Select(p=>p.Id).ToArray()) + ",RawVersion" : ""; 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t// GET: ");
             
-            #line 29 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -156,28 +156,28 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
             this.Write("\r\n        public async Task<IActionResult> Index()\r\n        {\r\n            return" +
                     " View((_");
             
-            #line 32 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 32 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service.GetAll()).AsQueryable());\r\n        }\r\n\r\n\r\n\t\t// GET:");
             
-            #line 36 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 36 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("/Details/5\r\n        public async Task<IActionResult> Details(");
             
-            #line 37 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            var entity = await _");
             
-            #line 39 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 39 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -200,7 +200,7 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
 
 		// POST: ");
             
-            #line 55 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 55 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -212,14 +212,14 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
         [ValidateAntiForgeryToken]
         public virtual async  Task<IActionResult> Create([Bind(""");
             
-            #line 60 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 60 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(properties));
             
             #line default
             #line hidden
             this.Write("\")] ");
             
-            #line 60 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 60 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -227,7 +227,7 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
             this.Write(" entity)\r\n        {\r\n            if (ModelState.IsValid)\r\n            {\r\n        " +
                     "        await _");
             
-            #line 64 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 64 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -235,21 +235,21 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
             this.Write("Service.Save(entity);\r\n                return RedirectToAction(\"Index\");\r\n       " +
                     "     }\r\n\r\n            return View(entity);\r\n        }\r\n      \r\n\t\t// GET: ");
             
-            #line 71 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 71 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("/Edit/5\r\n        public async Task<IActionResult> Edit(");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            var entity = await _");
             
-            #line 74 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 74 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -258,7 +258,7 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
                     "     return NotFound();\r\n            }\r\n            return View(entity);\r\n      " +
                     "  }\r\n\r\n\t\t// POST: ");
             
-            #line 82 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 82 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -270,14 +270,14 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
         [ValidateAntiForgeryToken]
         public virtual async Task<IActionResult> Edit([Bind(""");
             
-            #line 87 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 87 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(properties));
             
             #line default
             #line hidden
             this.Write("\")] ");
             
-            #line 87 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 87 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -285,7 +285,7 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
             this.Write(" entity)\r\n        {\r\n            if (ModelState.IsValid)\r\n            {\r\n        " +
                     "        await _");
             
-            #line 91 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 91 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -293,21 +293,21 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
             this.Write("Service.Save(entity);\r\n                return RedirectToAction(\"Index\");\r\n       " +
                     "     }\r\n            return View(entity);\r\n        }\r\n\r\n\r\n\t\t // GET: ");
             
-            #line 98 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 98 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("/Delete/5\r\n        public async Task<IActionResult> Delete(");
             
-            #line 99 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 99 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            var entity = await _");
             
-            #line 101 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 101 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -316,7 +316,7 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
                     "     return NotFound();\r\n            }\r\n            return View(entity);\r\n      " +
                     "  }\r\n\r\n        // POST: ");
             
-            #line 109 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 109 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -324,14 +324,14 @@ var properties = model.Properties != null ? string.Join(",",model.Properties.Sel
             this.Write("/Delete/5\r\n        [HttpPost, ActionName(\"Delete\")]\r\n        [ValidateAntiForgery" +
                     "Token]\r\n        public async Task<IActionResult> DeleteConfirmed(");
             
-            #line 112 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 112 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            await _");
             
-            #line 114 "D:\DEV\Generators\Mobioos\Data\Templates\EntityMvcController.tt"
+            #line 114 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\EntityMvcController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

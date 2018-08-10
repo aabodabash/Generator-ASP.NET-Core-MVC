@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiConcernController : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  var model = (LayoutInfo)Model; var actions = ((LayoutInfo)Model).Actions.Where(a=> a.Type.ToString().IndexOf("data") == 0).ToList(); var key = ((EntityInfo)model.DataModel).AllProperties() != null ? ((EntityInfo)model.DataModel).AllProperties().FirstOrDefault(p=>p.IsKey) : null; 
             
             #line default
@@ -43,73 +43,73 @@ namespace Mobioos.Generators.AspNetCore
                     "s;\r\nusing System.Collections.Generic;\r\nusing Microsoft.AspNetCore.Authorization;" +
                     "\r\nusing Microsoft.AspNetCore.Mvc;\r\nusing ");
             
-            #line 9 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\nusing ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 11 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Services;\r\nusing ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.ViewModels;\r\n\r\n");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  var lastType = ReferencedTypes.LastOrDefault(); 
             
             #line default
             #line hidden
             
-            #line 15 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  var keyProperty = model.DataModel.AllProperties().FirstOrDefault(p=>p.IsKey); 
             
             #line default
             #line hidden
             
-            #line 16 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : ""; 
             
             #line default
             #line hidden
             
-            #line 17 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(string.IsNullOrEmpty(keyType)) { keyType = model.DataModel.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract)?.CSharpType(); }
             
             #line default
             #line hidden
             
-            #line 18 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(key == null) { key =  model.DataModel.AllReferences().FirstOrDefault()?.Target?.AllProperties().FirstOrDefault(p=>p.IsKey); }
             
             #line default
             #line hidden
             this.Write("\r\nnamespace ");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Api.");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Concern.Id));
             
             #line default
@@ -117,213 +117,213 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("\r\n{\r\n    /// <summary>\r\n    /// Controller responsible for all data interactions " +
                     "with the ");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" view of the ");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Concern.Id));
             
             #line default
             #line hidden
             this.Write(" Feature\r\n    /// </summary>\r\n    [Route(\"api/");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             
-            #line 25 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\")]\r\n    public partial class ");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Concern.Id));
             
             #line default
             #line hidden
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller : Controller\r\n    {\r\n\t\t");
             
-            #line 28 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  foreach(var type in ReferencedTypes) {
             
             #line default
             #line hidden
             this.Write("\t\tprivate I");
             
-            #line 29 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Key));
             
             #line default
             #line hidden
             this.Write("Service _");
             
-            #line 29 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Key));
             
             #line default
             #line hidden
             this.Write("Service;\r\n\t\t");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n        /// <summary>\r\n        /// Initialize a new instance of <see cref=\"");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.api.");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Concern.Id));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Concern.Id));
             
             #line default
             #line hidden
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller\"/> class.\r\n        /// </summary>\r\n        public ");
             
-            #line 35 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 35 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Concern.Id));
             
             #line default
             #line hidden
             
-            #line 35 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 35 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller(");
             
-            #line 35 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 35 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  foreach(var type in ReferencedTypes) {
             
             #line default
             #line hidden
             this.Write("\t\tI");
             
-            #line 36 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 36 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Key));
             
             #line default
             #line hidden
             this.Write("Service ");
             
-            #line 36 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 36 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Key));
             
             #line default
             #line hidden
             this.Write("Service\r\n\t\t");
             
-            #line 37 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if (!type.Equals(lastType)) {
             
             #line default
             #line hidden
             this.Write("\t\t,\r\n\t\t");
             
-            #line 39 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 39 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 40 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 40 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write(")\r\n\t\t{ \r\n\t\t\t");
             
-            #line 42 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 42 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  foreach(var type in ReferencedTypes) {
             
             #line default
             #line hidden
             this.Write("\t\t\t_");
             
-            #line 43 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Key));
             
             #line default
             #line hidden
             this.Write("Service  = ");
             
-            #line 43 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Key));
             
             #line default
             #line hidden
             this.Write("Service;\r\n\t\t\t");
             
-            #line 44 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t}\r\n\r\n        ");
             
-            #line 47 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 47 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             
             #line default
             #line hidden
             this.Write("\r\n\t\t");
             
-            #line 49 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 49 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(!string.IsNullOrEmpty(keyType)) { 
             
             #line default
             #line hidden
             this.Write("\t\t/// <summary>\r\n        /// Get all ");
             
-            #line 51 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 51 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("s\r\n        /// </summary>\r\n        /// <returns><see cref=\"<%=List<");
             
-            #line 53 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -331,21 +331,21 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write(">%>\"/></returns>\r\n\r\n        /// <response code=\"200\">Ok</response>\r\n        // GE" +
                     "T: api/");
             
-            #line 56 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 56 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 56 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 56 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        [HttpGet(\"GetAll\")]\r\n        [ProducesResponseType(typeof(IEnumerable<");
             
-            #line 58 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 58 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -353,21 +353,21 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write(">), 200)]\r\n        public async virtual Task<IActionResult> GetAll()\r\n        {\r\n" +
                     "\t\t\ttry\r\n            {\r\n\t\t\t\tvar list = new List<");
             
-            #line 63 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 63 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write(">();\r\n\t\t\t\t");
             
-            #line 64 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 64 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(!string.IsNullOrEmpty(keyType)) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar result = _");
             
-            #line 65 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 65 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
@@ -375,49 +375,49 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("Service.GetAll();\r\n\r\n\t\t\t\tif(result != null)\r\n\t\t\t\t{\r\n\t\t\t\t\tforeach(var item in resu" +
                     "lt)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\tlist.Add(new ");
             
-            #line 71 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 71 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("().ConvertFromModel(");
             
-            #line 71 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 71 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  foreach(var referenceType in ReferencedTypes) { if(referenceType.Key.Equals(keyType)){ 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t\t\titem ");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 } else {
             
             #line default
             #line hidden
             this.Write(" new ");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(referenceType.Key));
             
             #line default
             #line hidden
             this.Write("() ");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } if(!referenceType.Key.Equals(lastType.Key)) {
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 72 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 72 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\t\t\t\t\t");
             
-            #line 73 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 73 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -425,14 +425,14 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("\t\t\t\t\t\t));\r\n\t\t\t\t\t}\r\n\t\t\t\t\treturn this.Ok(await Task.FromResult(list));\r\n\t\t\t\t}\r\n\r\n\t\t" +
                     "\t\treturn NotFound();\r\n\t\t\t\t");
             
-            #line 80 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 80 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("                return this.Ok(await Task.FromResult(list));\r\n\t\t\t\t");
             
-            #line 82 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 82 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -440,7 +440,7 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("            }\r\n            catch (Exception xcp)\r\n            {\r\n                " +
                     "//log error\r\n                return Ok(Enumerable.Empty <");
             
-            #line 87 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 87 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -448,13 +448,13 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("ViewModel> ().AsQueryable());\r\n            }\r\n        }\r\n\r\n        /// <summary>\r" +
                     "\n        /// ");
             
-            #line 92 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 92 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if (model.DataModel.Description != null) 
             
             #line default
             #line hidden
             
-            #line 92 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 92 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Description));
             
             #line default
@@ -462,14 +462,14 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"date\">The date to use to retre" +
                     "ive the <see cref=\"");
             
-            #line 94 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 94 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("\"/> collection from</param>\r\n        /// <returns><see cref=\"<%=");
             
-            #line 95 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 95 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -482,49 +482,49 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
         [HttpGet(""Get"")]
 		[ProducesResponseType(typeof(");
             
-            #line 101 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 101 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("), 200)]\r\n        public async Task<IActionResult> Get(");
             
-            #line 102 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 102 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(key != null) {
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 102 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 102 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 102 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 102 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 } else {
             
             #line default
             #line hidden
             this.Write(" int ");
             
-            #line 102 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 102 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            try\r\n            {\r\n\t\t\t\t");
             
-            #line 106 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 106 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(!string.IsNullOrEmpty(keyType)) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = await _");
             
-            #line 107 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 107 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
@@ -532,70 +532,70 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("Service.GetById(id);\r\n\t\t\t\tif(entity != null)\r\n\t\t\t\t{\r\n\t\t\t\t\treturn this.Ok(await Ta" +
                     "sk.FromResult(new ");
             
-            #line 110 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 110 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("().ConvertFromModel(\r\n\t\t\t\t\t");
             
-            #line 111 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 111 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  foreach(var referenceType in ReferencedTypes) { if(referenceType.Key.Equals(keyType)){ 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t\t\tentity ");
             
-            #line 112 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 112 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 } else {
             
             #line default
             #line hidden
             this.Write(" new ");
             
-            #line 112 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 112 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(referenceType.Key));
             
             #line default
             #line hidden
             this.Write("() ");
             
-            #line 112 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 112 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } if(!referenceType.Key.Equals(lastType.Key)) {
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 112 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 112 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\t\t\t\t\t");
             
-            #line 113 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 113 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
             #line hidden
             this.Write(")));\r\n\t\t\t\t}\r\n\r\n\t\t\t\treturn NotFound();\r\n\t\t\t\t");
             
-            #line 117 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 117 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("                return this.Ok(await Task.FromResult(new ");
             
-            #line 118 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 118 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("()));\r\n\t\t\t\t");
             
-            #line 119 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 119 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -604,21 +604,21 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
                     "return new StatusCodeResult((int)HttpStatusCode.InternalServerError);\r\n         " +
                     "   }\r\n        }\r\n\r\n\t\t/// <summary>\r\n        /// Update existing ");
             
-            #line 128 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 128 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"id\">");
             
-            #line 130 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 130 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write(" id</param>\r\n        /// <param name=\"entity\">");
             
-            #line 131 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 131 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -630,14 +630,14 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
         /// <response code=""500"">Internal error</response>
         // PUT: api/");
             
-            #line 136 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 136 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 136 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 136 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -645,35 +645,35 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("/<id>\r\n        [ProducesResponseType(typeof(void), 200)]\r\n\t\t[HttpPut(\"PutEntity\")" +
                     "]\r\n        public async virtual Task<IActionResult> PutEntity(");
             
-            #line 139 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 139 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(key != null) {
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 139 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 139 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 139 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 139 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 } else {
             
             #line default
             #line hidden
             this.Write(" int ");
             
-            #line 139 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 139 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write(" id, [FromBody] ");
             
-            #line 139 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 139 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -681,56 +681,56 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write(" model)\r\n        {\r\n            if (!ModelState.IsValid)\r\n            {\r\n        " +
                     "        return BadRequest(ModelState);\r\n            }\r\n\r\n\t\t\t");
             
-            #line 146 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 146 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if (key != null && !string.IsNullOrEmpty(key.Id)) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 147 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 147 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(model.DataModel.AllProperties().FirstOrDefault(p=>p.IsKey) != null) { 
             
             #line default
             #line hidden
             this.Write("            if (id != model.");
             
-            #line 148 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 148 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
             #line hidden
             this.Write(")\r\n            {\r\n                return BadRequest();\r\n            }\r\n\t\t\t");
             
-            #line 152 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 152 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("\t\t\tif (id != model.");
             
-            #line 153 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 153 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.AllReferences().FirstOrDefault()?.Id));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 153 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 153 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
             #line hidden
             this.Write(")\r\n            {\r\n                return BadRequest();\r\n            }\r\n\t\t\t");
             
-            #line 157 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 157 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  }} 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t");
             
-            #line 159 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 159 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if (key != null && !string.IsNullOrEmpty(key.Id)) { 
             
             #line default
@@ -738,14 +738,14 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
             this.Write("            // Gets the original entity from the database.\r\n            var origi" +
                     "nal = _");
             
-            #line 161 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 161 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.GetById(id);\r\n\t\t\t");
             
-            #line 162 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 162 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -754,28 +754,28 @@ if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {
                     "nal == null)\r\n            {\r\n                return NotFound();\r\n            }\r\n" +
                     "           \r\n            try\r\n            {\r\n\t\t\t");
             
-            #line 172 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 172 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = model.ConvertToModel();\r\n\t\t\t\t");
             
-            #line 174 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 174 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } else if(model.DataModel.AllReferences().FirstOrDefault() != null) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = model.");
             
-            #line 175 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 175 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write(";\r\n\t\t\t\t");
             
-            #line 176 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 176 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -783,21 +783,21 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
             this.Write("\t\t\t\t// Sets a new rawVersion to the update entity.\r\n\t\t\t    entity.RawVersion = Sy" +
                     "stem.BitConverter.GetBytes(DateTime.Now.Ticks);\r\n\r\n\t\t\t\t");
             
-            #line 180 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 180 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(!string.IsNullOrEmpty(keyType)) { 
             
             #line default
             #line hidden
             this.Write("                // Save changes to database.\r\n                await _");
             
-            #line 182 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 182 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.Save(entity);\r\n\r\n\t\t\t\t");
             
-            #line 184 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 184 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 } 
             
             #line default
@@ -815,35 +815,35 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
 		/// <summary>
         /// Create a new ");
             
-            #line 196 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 196 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"entity\">");
             
-            #line 198 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 198 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write(" to create</param>\r\n        /// <returns>New ");
             
-            #line 199 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 199 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" <see cref=\"");
             
-            #line 199 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 199 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 199 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 199 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -855,21 +855,21 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
         /// <response code=""500"">Internal error</response>
         [ProducesResponseType(typeof(");
             
-            #line 204 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 204 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("), 200)]\r\n        // POST: api/");
             
-            #line 205 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 205 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 205 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 205 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -877,7 +877,7 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
             this.Write("\r\n\t\t[HttpPost(\"PostEntity\")]\r\n        public async virtual Task<IActionResult> Po" +
                     "stEntity([FromBody] ");
             
-            #line 207 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 207 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
@@ -886,49 +886,49 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
                     "        return BadRequest(ModelState);\r\n            }            \r\n\r\n           " +
                     " try\r\n            {\r\n\t\t\t");
             
-            #line 216 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 216 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = model.ConvertToModel();\r\n\t\t\t\t");
             
-            #line 218 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 218 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } else if(model.DataModel.AllReferences().FirstOrDefault() != null) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = model.");
             
-            #line 219 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 219 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write(";\r\n\t\t\t\t");
             
-            #line 220 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 220 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t");
             
-            #line 221 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 221 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(!string.IsNullOrEmpty(keyType)) { 
             
             #line default
             #line hidden
             this.Write("                await _");
             
-            #line 222 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 222 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.Save(entity);\r\n\t\t\t\t");
             
-            #line 223 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 223 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -937,21 +937,21 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
                     "ion xcp) {\r\n                return StatusCode((int)HttpStatusCode.InternalServer" +
                     "Error);\r\n            }       \r\n        }\r\n\r\n\t\t");
             
-            #line 231 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 231 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t/// <summary>\r\n        /// Delete an existing ");
             
-            #line 234 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 234 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\r\n        /// </summary>\r\n        /// <param name=\"entity\">");
             
-            #line 236 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 236 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -960,14 +960,14 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
                     "response code=\"404\">Not found</response>\r\n        /// <response code=\"500\">Inter" +
                     "nal error</response>\r\n        // DELETE: api/");
             
-            #line 240 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 240 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 240 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 240 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -975,42 +975,42 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
             this.Write("/<id>\r\n\t\t[HttpDelete(\"DeleteEntity\")]\r\n        public async virtual Task<IActionR" +
                     "esult> DeleteEntity(");
             
-            #line 242 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 242 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(key != null) {
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 242 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 242 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 242 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 242 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 } else {
             
             #line default
             #line hidden
             this.Write(" int ");
             
-            #line 242 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 242 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default
             #line hidden
             this.Write(" id)\r\n        {\r\n            try\r\n            {\r\n\t\t\t");
             
-            #line 246 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 246 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  if(!string.IsNullOrEmpty(keyType)) { 
             
             #line default
             #line hidden
             this.Write("                var entity = await _");
             
-            #line 247 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 247 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
@@ -1019,28 +1019,28 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
                     "                 return NotFound();\r\n                }\r\n\r\n                await " +
                     "_");
             
-            #line 253 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 253 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.Delete(id);\r\n\r\n                return Ok(entity);\r\n\t\t\t\t");
             
-            #line 256 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 256 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("\r\n\t\t\t\treturn Ok(new ");
             
-            #line 258 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 258 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("());\r\n\t\t\t\t");
             
-            #line 259 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 259 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
  } 
             
             #line default
@@ -1049,7 +1049,7 @@ if(model.DataModel.AllProperties().FirstOrDefault() !=null) {
                     "return StatusCode((int)HttpStatusCode.InternalServerError);\r\n            }      " +
                     "    \r\n        }\r\n\r\n        ");
             
-            #line 267 "D:\DEV\Generators\Mobioos\Data\Templates\ApiConcernController.tt"
+            #line 267 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ApiConcernController.tt"
 }
             
             #line default

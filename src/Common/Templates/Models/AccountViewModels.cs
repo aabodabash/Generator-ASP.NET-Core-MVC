@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Models\AccountViewModels.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Models\AccountViewModels.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class AccountViewModels : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Models\AccountViewModels.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Models\AccountViewModels.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -43,7 +43,7 @@ namespace Mobioos.Generators.AspNetCore
                     "aAnnotations;\r\nusing System.Linq;\r\nusing System.Threading.Tasks;\r\nusing Microsof" +
                     "t.AspNetCore.Mvc.Rendering;\r\n\r\nnamespace ");
             
-            #line 9 "D:\DEV\Generators\Mobioos\Common\Templates\Models\AccountViewModels.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Models\AccountViewModels.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

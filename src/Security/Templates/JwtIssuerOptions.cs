@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\JwtIssuerOptions.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\JwtIssuerOptions.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class JwtIssuerOptions : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\JwtIssuerOptions.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\JwtIssuerOptions.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -42,7 +42,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("using System;\r\nusing System.Threading.Tasks;\r\nusing Microsoft.IdentityModel.Token" +
                     "s;\r\n\r\nnamespace ");
             
-            #line 6 "D:\DEV\Generators\Mobioos\Security\Templates\JwtIssuerOptions.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\JwtIssuerOptions.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

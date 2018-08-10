@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Views\ViewImports.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\ViewImports.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ViewImports : TemplateBase
     {
@@ -34,21 +34,21 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Views\ViewImports.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\ViewImports.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
             #line hidden
             this.Write("@using ");
             
-            #line 2 "D:\DEV\Generators\Mobioos\Common\Templates\Views\ViewImports.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\ViewImports.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend\r\n@using ");
             
-            #line 3 "D:\DEV\Generators\Mobioos\Common\Templates\Views\ViewImports.tt"
+            #line 3 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\ViewImports.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

@@ -1,0 +1,12 @@
+{
+  "platform": "backend",
+  "name": "Asp.NETCore",
+  "version": "1.0.0",
+  "tags" : [
+    "asp.netcore",
+    "backend"
+  ],
+  "description": "An ASP.NET Core backend generator",
+  "assemblyName": "Mobioos.Generators.AspNetCore",
+  "audiences": "public"
+}

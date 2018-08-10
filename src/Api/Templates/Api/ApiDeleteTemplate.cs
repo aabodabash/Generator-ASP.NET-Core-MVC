@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiDeleteTemplate : TemplateBase
     {
@@ -34,59 +34,59 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 var action = (ApiActionInfo)Model;
             
             #line default
             #line hidden
             
-            #line 2 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault();
             
             #line default
             #line hidden
             
-            #line 3 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 3 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 var keyProperty = firstParameter?.DataModel?.AllProperties()?.FirstOrDefault(p=>p.IsKey);
             
             #line default
             #line hidden
             
-            #line 4 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 4 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : "";
             
             #line default
             #line hidden
             
-            #line 5 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 5 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 if(string.IsNullOrEmpty(keyType)) { var reference = action.ReturnType?.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract); keyType = reference?.CSharpType(); keyProperty=reference?.Target.AllProperties()?.FirstOrDefault(p=>p.IsKey);}
             
             #line default
             #line hidden
             this.Write("\t\t\ttry\r\n\t\t\t{\r\n");
             
-            #line 8 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 8 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 if(!string.IsNullOrEmpty(keyType)){
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = await _");
             
-            #line 9 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.GetById(");
             
-            #line 9 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(firstParameter.Id));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 9 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Id));
             
             #line default
@@ -94,55 +94,55 @@ if(!string.IsNullOrEmpty(keyType)){
             this.Write(");\r\n\t\t\t\tif (entity == null)\r\n\t\t\t\t{\r\n\t\t\t\t\treturn NotFound();\r\n\t\t\t\t}\r\n\t\r\n\t\t\t\tawait " +
                     "_");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.Delete(");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(firstParameter.Id));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Id));
             
             #line default
             #line hidden
             this.Write(");\r\n\t\r\n\t\t\t\treturn Ok(entity);\r\n");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 }else if(firstParameter?.DataModel!=null) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn Ok(new ");
             
-            #line 19 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 19 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(firstParameter.DataModel.Id));
             
             #line default
             #line hidden
             this.Write("());\r\n");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 }
             
             #line default
             #line hidden
             
-            #line 21 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
  else{
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn Ok(true);\r\n");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiDeleteTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiDeleteTemplate.tt"
 }
             
             #line default

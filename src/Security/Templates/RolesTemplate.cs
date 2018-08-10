@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class RolesTemplate : TemplateBase
     {
@@ -34,14 +34,14 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
             #line hidden
             this.Write("using System.Collections.Generic;\r\nusing System.Linq;\r\n\r\nnamespace ");
             
-            #line 5 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 5 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -64,56 +64,56 @@ namespace Mobioos.Generators.AspNetCore
         public const string RolesValueClaimType = ""RolesValue"";
 		");
             
-            #line 21 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
  if (Roles !=null) {
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 22 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
  for(int i=0;i< Roles.Count;i++) { 
             
             #line default
             #line hidden
             this.Write("\t\tpublic const string ");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Roles[i]));
             
             #line default
             #line hidden
             this.Write("Key = \"");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Roles[i]));
             
             #line default
             #line hidden
             this.Write("\";\r\n        public static readonly RoleDefinition ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Roles[i]));
             
             #line default
             #line hidden
             this.Write(" = new RoleDefinition(");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Roles[i]));
             
             #line default
             #line hidden
             this.Write("Key, ");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(i+6));
             
             #line default
             #line hidden
             this.Write("^2);\r\n\t\t");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
 }
 		}
 		
@@ -146,7 +146,7 @@ namespace Mobioos.Generators.AspNetCore
 
 			");
             
-            #line 52 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
  if (Roles!=null && Roles.Count>0) {
 				for(int i=0;i< Roles.Count;i++){ 
             
@@ -154,14 +154,14 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("\t\t\t\t\tyield return Roles.");
             
-            #line 54 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 54 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Roles[i]));
             
             #line default
             #line hidden
             this.Write(";\r\n\t\t\t\t");
             
-            #line 55 "D:\DEV\Generators\Mobioos\Security\Templates\RolesTemplate.tt"
+            #line 55 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\RolesTemplate.tt"
 }
 			}
             

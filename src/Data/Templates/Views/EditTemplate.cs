@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class EditTemplate : TemplateBase
     {
@@ -34,21 +34,21 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
  var model = (EntityInfo)Model; 
             
             #line default
             #line hidden
             this.Write("@model ");
             
-            #line 2 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels.");
             
-            #line 2 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -57,7 +57,7 @@ namespace Mobioos.Generators.AspNetCore
                     ";\r\n}\r\n\r\n<h2>Edit</h2>\r\n\r\n\r\n@using (Html.BeginForm())\r\n{\r\n    @Html.AntiForgeryTo" +
                     "ken()\r\n    \r\n    <div class=\"form-horizontal\">\r\n        <h4>");
             
-            #line 17 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -66,21 +66,21 @@ namespace Mobioos.Generators.AspNetCore
                     " \"text-danger\" })\r\n        @Html.HiddenFor(m => m.Id)\r\n        @Html.HiddenFor(m" +
                     " => m.RawVersion)\r\n\r\n\t\t");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
  var properties = model.AllProperties().Where(p=>p.IsKey==false).ToList(); 
             
             #line default
             #line hidden
             this.Write("\t\t");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
  foreach(var property in properties){
             
             #line default
             #line hidden
             this.Write("\t\t<div class=\"form-group\">\r\n            @Html.LabelFor(m => m.");
             
-            #line 27 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 27 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Id));
             
             #line default
@@ -88,7 +88,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write(", htmlAttributes: new { @class = \"control-label col-md-2\" })\r\n            <div cl" +
                     "ass=\"col-md-10\">\r\n                @Html.EditorFor(m => m.");
             
-            #line 29 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Id));
             
             #line default
@@ -96,7 +96,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write(", new { htmlAttributes = new { @class = \"form-control\" } })\r\n                @Htm" +
                     "l.ValidationMessageFor(m => m.");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Id));
             
             #line default
@@ -104,7 +104,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write(", \"\", new { @class = \"text-danger\" })\r\n            </div>\r\n        </div>    \r\n\t\t" +
                     "");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Data\Templates\Views\EditTemplate.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\EditTemplate.tt"
 }
             
             #line default

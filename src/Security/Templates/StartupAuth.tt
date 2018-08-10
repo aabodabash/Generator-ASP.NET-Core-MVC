@@ -61,7 +61,11 @@ namespace <#= model.Id #>.Backend
 				ClockSkew = TimeSpan.Zero
 			};
 
-			services.AddAuthentication(options =>
+<#
+                if (AuthenticationKeys != null) 
+                {
+#>
+            services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -71,33 +75,37 @@ namespace <#= model.Id #>.Backend
 				configureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
 				configureOptions.TokenValidationParameters = tokenValidationParameters;
 				configureOptions.SaveToken = true;
-			})<# if(AuthenticationKeys.Keys.Contains("FacebookAuthConsumerKey") && AuthenticationKeys.Keys.Contains("FacebookAuthConsumerSecret")) {#>
+			})<# if(AuthenticationKeys.ContainsKey("FacebookAuthConsumerKey") && AuthenticationKeys.ContainsKey("FacebookAuthConsumerSecret")) {#>
 			.AddFacebook(facebookOptions =>
 			{
 				facebookOptions.AppId = authSettings[nameof(AuthSettings.FacebookAppId)];
 				facebookOptions.AppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
 			})
 			<# } #>
-			<# if(AuthenticationKeys.Keys.Contains("TwitterAuthAppId") && AuthenticationKeys.Keys.Contains("TwitterAuthAppSecret")) {#>
+			<# if(AuthenticationKeys.ContainsKey("TwitterAuthAppId") && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret")) {#>
 			.AddTwitter(twitterOptions =>
 			{
 				twitterOptions.ConsumerKey = "<#= AuthenticationKeys["TwitterAuthAppId"] #>";
 				twitterOptions.ConsumerSecret = "<#= AuthenticationKeys["TwitterAuthAppSecret"] #>";
 			})
 			<# } #>
-			<# if(AuthenticationKeys.Keys.Contains("GoogleAuthClientId") && AuthenticationKeys.Keys.Contains("GoogleAuthSecret")) {#>
+			<# if(AuthenticationKeys.ContainsKey("GoogleAuthClientId") && AuthenticationKeys.ContainsKey("GoogleAuthSecret")) {#>
 			.AddGoogle(googleOptions =>
 			{
 				googleOptions.ClientId = "<#= AuthenticationKeys["GoogleAuthClientId"] #>";
 				googleOptions.ClientSecret = "<#= AuthenticationKeys["GoogleAuthSecret"] #>";
 			})
 			<# } #>
-			<# if(AuthenticationKeys.Keys.Contains("MicrosoftAuthClientId") && AuthenticationKeys.Keys.Contains("MicrosoftAuthSecret")) {#>
+			<# if(AuthenticationKeys.ContainsKey("MicrosoftAuthClientId") && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret")) {#>
 			services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 			{
 				microsoftOptions.ClientId = "<#= AuthenticationKeys["MicrosoftAuthClientId"] #>";
 				microsoftOptions.ClientSecret = "<#= AuthenticationKeys["MicrosoftAuthSecret"] #>";
 			})<#}#>;
+<#
+                }
+#>
+			
 
 			services.Configure<IdentityOptions>(options =>
             {

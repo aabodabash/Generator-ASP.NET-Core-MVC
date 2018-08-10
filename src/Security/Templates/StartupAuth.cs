@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class StartupAuth : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -49,21 +49,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 11 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Auth;\r\n\r\nnamespace ");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -81,26 +81,40 @@ using ");
                     "Options[nameof(JwtIssuerOptions.Issuer)];\r\n\t\t\t\toptions.Audience = jwtSettingOpti" +
                     "ons[nameof(JwtIssuerOptions.Audience)];\r\n\t\t\t\toptions.SigningCredentials = new Si" +
                     "gningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);\r\n\t\t\t});\r\n\r\n\t\t\t// G" +
-                    "et options from app settings\n\t\t\tvar authSettings = Configuration.GetSection(name" +
-                    "of(AuthSettings));\r\n\r\n\t\t\t// Configure AuthSettings\n\t\t\tservices.Configure<AuthSet" +
-                    "tings>(options =>\n\t\t\t{\n\t\t\t\toptions.FacebookAppId = authSettings[nameof(AuthSetti" +
-                    "ngs.FacebookAppId)];\n\t\t\t\toptions.FacebookAppSecret = authSettings[nameof(AuthSet" +
-                    "tings.FacebookAppSecret)];\n\t\t\t});\r\n\r\n\t\t\tvar tokenValidationParameters = new Toke" +
-                    "nValidationParameters\r\n\t\t\t{\r\n\t\t\t\tValidateIssuer = true,\r\n\t\t\t\tValidIssuer = jwtSe" +
-                    "ttingOptions[nameof(JwtIssuerOptions.Issuer)],\r\n\r\n\t\t\t\tValidateAudience = true,\r\n" +
-                    "\t\t\t\tValidAudience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)],\r\n\r\n\t\t\t" +
-                    "\tValidateIssuerSigningKey = true,\r\n\t\t\t\tIssuerSigningKey = _signingKey,\r\n\r\n\t\t\t\tRe" +
-                    "quireExpirationTime = false,\r\n\t\t\t\tValidateLifetime = true,\r\n\t\t\t\tClockSkew = Time" +
-                    "Span.Zero\r\n\t\t\t};\r\n\r\n\t\t\tservices.AddAuthentication(options =>\r\n\t\t\t{\r\n\t\t\t\toptions." +
-                    "DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;\r\n\t\t\t\toptions" +
-                    ".DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;\r\n\t\t\t}).AddCook" +
-                    "ie(cfg => cfg.SlidingExpiration = true)\r\n\t\t\t.AddJwtBearer(configureOptions =>\r\n\t" +
-                    "\t\t{\r\n\t\t\t\tconfigureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptio" +
-                    "ns.Issuer)];\r\n\t\t\t\tconfigureOptions.TokenValidationParameters = tokenValidationPa" +
-                    "rameters;\r\n\t\t\t\tconfigureOptions.SaveToken = true;\r\n\t\t\t})");
+                    "et options from app settings\r\n\t\t\tvar authSettings = Configuration.GetSection(nam" +
+                    "eof(AuthSettings));\r\n\r\n\t\t\t// Configure AuthSettings\r\n\t\t\tservices.Configure<AuthS" +
+                    "ettings>(options =>\r\n\t\t\t{\r\n\t\t\t\toptions.FacebookAppId = authSettings[nameof(AuthS" +
+                    "ettings.FacebookAppId)];\r\n\t\t\t\toptions.FacebookAppSecret = authSettings[nameof(Au" +
+                    "thSettings.FacebookAppSecret)];\r\n\t\t\t});\r\n\r\n\t\t\tvar tokenValidationParameters = ne" +
+                    "w TokenValidationParameters\r\n\t\t\t{\r\n\t\t\t\tValidateIssuer = true,\r\n\t\t\t\tValidIssuer =" +
+                    " jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)],\r\n\r\n\t\t\t\tValidateAudience = t" +
+                    "rue,\r\n\t\t\t\tValidAudience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)],\r" +
+                    "\n\r\n\t\t\t\tValidateIssuerSigningKey = true,\r\n\t\t\t\tIssuerSigningKey = _signingKey,\r\n\r\n" +
+                    "\t\t\t\tRequireExpirationTime = false,\r\n\t\t\t\tValidateLifetime = true,\r\n\t\t\t\tClockSkew " +
+                    "= TimeSpan.Zero\r\n\t\t\t};\r\n\r\n");
             
-            #line 68 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.Keys.Contains("FacebookAuthConsumerKey") && AuthenticationKeys.Keys.Contains("FacebookAuthConsumerSecret")) {
+            #line 64 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+
+                if (AuthenticationKeys != null) 
+                {
+
+            
+            #line default
+            #line hidden
+            this.Write(@"            services.AddAuthentication(options =>
+			{
+				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+			}).AddCookie(cfg => cfg.SlidingExpiration = true)
+			.AddJwtBearer(configureOptions =>
+			{
+				configureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+				configureOptions.TokenValidationParameters = tokenValidationParameters;
+				configureOptions.SaveToken = true;
+			})");
+            
+            #line 78 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+ if(AuthenticationKeys.ContainsKey("FacebookAuthConsumerKey") && AuthenticationKeys.ContainsKey("FacebookAuthConsumerSecret")) {
             
             #line default
             #line hidden
@@ -108,97 +122,106 @@ using ");
                     "s[nameof(AuthSettings.FacebookAppId)];\r\n\t\t\t\tfacebookOptions.AppSecret = authSett" +
                     "ings[nameof(AuthSettings.FacebookAppSecret)];\r\n\t\t\t})\r\n\t\t\t");
             
-            #line 74 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 84 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 75 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.Keys.Contains("TwitterAuthAppId") && AuthenticationKeys.Keys.Contains("TwitterAuthAppSecret")) {
+            #line 85 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+ if(AuthenticationKeys.ContainsKey("TwitterAuthAppId") && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret")) {
             
             #line default
             #line hidden
             this.Write("\t\t\t.AddTwitter(twitterOptions =>\r\n\t\t\t{\r\n\t\t\t\ttwitterOptions.ConsumerKey = \"");
             
-            #line 78 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 88 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["TwitterAuthAppId"]));
             
             #line default
             #line hidden
             this.Write("\";\r\n\t\t\t\ttwitterOptions.ConsumerSecret = \"");
             
-            #line 79 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 89 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["TwitterAuthAppSecret"]));
             
             #line default
             #line hidden
             this.Write("\";\r\n\t\t\t})\r\n\t\t\t");
             
-            #line 81 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 91 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 82 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.Keys.Contains("GoogleAuthClientId") && AuthenticationKeys.Keys.Contains("GoogleAuthSecret")) {
+            #line 92 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+ if(AuthenticationKeys.ContainsKey("GoogleAuthClientId") && AuthenticationKeys.ContainsKey("GoogleAuthSecret")) {
             
             #line default
             #line hidden
             this.Write("\t\t\t.AddGoogle(googleOptions =>\r\n\t\t\t{\r\n\t\t\t\tgoogleOptions.ClientId = \"");
             
-            #line 85 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 95 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["GoogleAuthClientId"]));
             
             #line default
             #line hidden
             this.Write("\";\r\n\t\t\t\tgoogleOptions.ClientSecret = \"");
             
-            #line 86 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 96 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["GoogleAuthSecret"]));
             
             #line default
             #line hidden
             this.Write("\";\r\n\t\t\t})\r\n\t\t\t");
             
-            #line 88 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 98 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 89 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.Keys.Contains("MicrosoftAuthClientId") && AuthenticationKeys.Keys.Contains("MicrosoftAuthSecret")) {
+            #line 99 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+ if(AuthenticationKeys.ContainsKey("MicrosoftAuthClientId") && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret")) {
             
             #line default
             #line hidden
             this.Write("\t\t\tservices.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>\r\n\t\t\t{\r\n\t\t" +
                     "\t\tmicrosoftOptions.ClientId = \"");
             
-            #line 92 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 102 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["MicrosoftAuthClientId"]));
             
             #line default
             #line hidden
             this.Write("\";\r\n\t\t\t\tmicrosoftOptions.ClientSecret = \"");
             
-            #line 93 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 103 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["MicrosoftAuthSecret"]));
             
             #line default
             #line hidden
             this.Write("\";\r\n\t\t\t})");
             
-            #line 94 "D:\DEV\Generators\Mobioos\Security\Templates\StartupAuth.tt"
+            #line 104 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
 }
             
             #line default
             #line hidden
-            this.Write(@";
+            this.Write(";\r\n");
+            
+            #line 105 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+
+                }
+
+            
+            #line default
+            #line hidden
+            this.Write(@"			
 
 			services.Configure<IdentityOptions>(options =>
             {
