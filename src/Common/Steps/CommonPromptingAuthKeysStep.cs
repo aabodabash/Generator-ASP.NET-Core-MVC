@@ -25,7 +25,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
             var prompts = new Stack<Question>();
-            var authProviders = _context.DynamicContext.AuthProviders as List<Answer>;
+            var authProviders = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("AuthProviders") ? _context.DynamicContext.AuthProviders as List<Answer> : new List<Answer>();
             if (authProviders.Count() > 0)
                 AddPrompt(prompts, authProviders);
 

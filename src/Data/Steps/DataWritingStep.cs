@@ -25,14 +25,16 @@ namespace Mobioos.Generators.AspNetCore.Data.Steps
         {
             if (null == _context.Manifest)
                 throw new NullReferenceException("Manifest object is null or empty");
+            if (_context.BasePath != null)
+            {
+                if (!Directory.Exists(_context.BasePath))
+                    Directory.CreateDirectory(_context.BasePath);
 
-            if (!Directory.Exists(_context.BasePath))
-                Directory.CreateDirectory(_context.BasePath);
-
-            TransformDbContext(_context.Manifest);
-            TransformDataModels(_context.Manifest);
-            TransformControllers(_context.Manifest);
-            TransformViews(_context.Manifest);
+                TransformDbContext(_context.Manifest);
+                TransformDataModels(_context.Manifest);
+                TransformControllers(_context.Manifest);
+                TransformViews(_context.Manifest);
+            }
             return Task.FromResult(ExecutionResult.Next());
         }
 

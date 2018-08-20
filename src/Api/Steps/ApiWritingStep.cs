@@ -31,10 +31,14 @@ namespace Mobioos.Generators.AspNetCore.Api.Steps
 
             var manifest = _context.Manifest;
 
-            if (!Directory.Exists(_context.BasePath))
-                Directory.CreateDirectory(_context.BasePath);
+            if (_context.BasePath != null)
+            {
+                if (!Directory.Exists(_context.BasePath))
+                    Directory.CreateDirectory(_context.BasePath);
 
-            TransformControllerApi(manifest);
+                TransformControllerApi(manifest);
+            }
+
             return Task.FromResult(ExecutionResult.Next());
         }
 

@@ -29,13 +29,15 @@ namespace Mobioos.Generators.AspNetCore.Security.Steps
             var manifest = _context.Manifest;
 
             var roles = new List<string>();
+            if (_context.BasePath != null)
+            {
+                if (!Directory.Exists(_context.BasePath))
+                    Directory.CreateDirectory(_context.BasePath);
 
-            if (!Directory.Exists(_context.BasePath))
-                Directory.CreateDirectory(_context.BasePath);
-
-            TransformStartupAuth(manifest);
-            TransformRoles(manifest, roles);
-            TransformAll(manifest);
+                TransformStartupAuth(manifest);
+                TransformRoles(manifest, roles);
+                TransformAll(manifest);
+            }
             return Task.FromResult(ExecutionResult.Next());
     }
 

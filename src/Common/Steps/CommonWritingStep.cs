@@ -28,91 +28,95 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
             if (null == _context.Manifest)
                 throw new ArgumentNullException(nameof(_context.Manifest));
 
-            var facebookAuthConsumerKey = (((IDictionary<string, object>)_context.DynamicContext).ContainsKey("FacebookAuthConsumerKey")) ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["FacebookAuthConsumerKey"]).First().Value : null;
-            var facebookAuthConsumerSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("FacebookAuthConsumerSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["FacebookAuthConsumerSecret"]).First().Value : null;
-            var twitterAuthAppId = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("TwitterAuthAppId") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["TwitterAuthAppId"]).First().Value : null;
-            var twitterAuthAppSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("TwitterAuthAppSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["TwitterAuthAppSecret"]).First().Value : null;
-            var googleAuthClientId = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("GoogleAuthClientId") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["GoogleAuthClientId"]).First().Value : null;
-            var googleAuthSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("GoogleAuthSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["GoogleAuthSecret"]).First().Value : null;
-            var microsoftAuthClientId = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("MicrosoftAuthClientId") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["MicrosoftAuthClientId"]).First().Value : null;
-            var microsoftAuthSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("MicrosoftAuthSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["MicrosoftAuthSecret"]).First().Value : null;
+            if (_context.BasePath != null && _context.GeneratorPath != null)
+            {
+                var facebookAuthConsumerKey = (((IDictionary<string, object>)_context.DynamicContext).ContainsKey("FacebookAuthConsumerKey")) ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["FacebookAuthConsumerKey"]).First().Value : null;
+                var facebookAuthConsumerSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("FacebookAuthConsumerSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["FacebookAuthConsumerSecret"]).First().Value : null;
+                var twitterAuthAppId = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("TwitterAuthAppId") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["TwitterAuthAppId"]).First().Value : null;
+                var twitterAuthAppSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("TwitterAuthAppSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["TwitterAuthAppSecret"]).First().Value : null;
+                var googleAuthClientId = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("GoogleAuthClientId") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["GoogleAuthClientId"]).First().Value : null;
+                var googleAuthSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("GoogleAuthSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["GoogleAuthSecret"]).First().Value : null;
+                var microsoftAuthClientId = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("MicrosoftAuthClientId") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["MicrosoftAuthClientId"]).First().Value : null;
+                var microsoftAuthSecret = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("MicrosoftAuthSecret") ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["MicrosoftAuthSecret"]).First().Value : null;
 
-            var authentiationKeys = new Dictionary<string, string>();
-            if (facebookAuthConsumerKey != null)
-                authentiationKeys.Add("FacebookAuthConsumerKey", facebookAuthConsumerKey);
-            if (facebookAuthConsumerSecret != null)
-                authentiationKeys.Add("FacebookAuthConsumerSecret", facebookAuthConsumerSecret);
-            if (twitterAuthAppId != null)
-                authentiationKeys.Add("TwitterAuthAppId", twitterAuthAppId);
-            if (twitterAuthAppSecret != null)
-                authentiationKeys.Add("TwitterAuthAppSecret", twitterAuthAppSecret);
-            if (googleAuthClientId != null)
-                authentiationKeys.Add("GoogleAuthClientId", googleAuthClientId);
-            if (googleAuthSecret != null)
-                authentiationKeys.Add("GoogleAuthSecret", googleAuthSecret);
-            if (microsoftAuthClientId != null)
-                authentiationKeys.Add("MicrosoftAuthClientId", microsoftAuthClientId);
-            if (microsoftAuthSecret != null)
-                authentiationKeys.Add("MicrosoftAuthSecret", microsoftAuthSecret);
-            _context.DynamicContext.AuthenticationKeys = authentiationKeys;
+                var authentiationKeys = new Dictionary<string, string>();
+                if (facebookAuthConsumerKey != null)
+                    authentiationKeys.Add("FacebookAuthConsumerKey", facebookAuthConsumerKey);
+                if (facebookAuthConsumerSecret != null)
+                    authentiationKeys.Add("FacebookAuthConsumerSecret", facebookAuthConsumerSecret);
+                if (twitterAuthAppId != null)
+                    authentiationKeys.Add("TwitterAuthAppId", twitterAuthAppId);
+                if (twitterAuthAppSecret != null)
+                    authentiationKeys.Add("TwitterAuthAppSecret", twitterAuthAppSecret);
+                if (googleAuthClientId != null)
+                    authentiationKeys.Add("GoogleAuthClientId", googleAuthClientId);
+                if (googleAuthSecret != null)
+                    authentiationKeys.Add("GoogleAuthSecret", googleAuthSecret);
+                if (microsoftAuthClientId != null)
+                    authentiationKeys.Add("MicrosoftAuthClientId", microsoftAuthClientId);
+                if (microsoftAuthSecret != null)
+                    authentiationKeys.Add("MicrosoftAuthSecret", microsoftAuthSecret);
+                _context.DynamicContext.AuthenticationKeys = authentiationKeys;
 
-            var directoryPath = Path.Combine(_context.GeneratorPath, "Common\\Templates");
-            TransformStartup(_context.Manifest);
-            TransformProject(_context.Manifest);
-            TransformProgramTemplate(_context.Manifest);
-            TransformControllersAccountController(_context.Manifest);
-            TransformControllersControllerBase(_context.Manifest);
-            TransformControllersHomeController(_context.Manifest);
-            TransformControllersManageController(_context.Manifest);
-            TransformDataIRepositoryTemplate(_context.Manifest);
-            TransformDataRepositoryTemplate(_context.Manifest);
-            TransformModelsAccountViewModel(_context.Manifest);
-            TransformModelsAdminViewModel(_context.Manifest);
-            TransformModelsApplicationUser(_context.Manifest);
-            TransformModelsManageViewModel(_context.Manifest);
-            TransformServicesEmailSender(_context.Manifest);
-            TransformServicesMessageServices(_context.Manifest);
-            TransformServicesSmsSender(_context.Manifest);
-            TransformViewsAccountAccessDenied(_context.Manifest);
-            TransformViewsAccountConfirmEmail(_context.Manifest);
-            TransformViewsAccountExternalLoginConfirmation(_context.Manifest);
-            TransformViewsAccountExternalLoginFailure(_context.Manifest);
-            TransformViewsAccountForgotPassword(_context.Manifest);
-            TransformViewsAccountForgotPasswordConfirmation(_context.Manifest);
-            TransformViewsAccountLockout(_context.Manifest);
-            TransformViewsAccountLogin(_context.Manifest);
-            TransformViewsAccountRegister(_context.Manifest);
-            TransformViewsAccountResetPassword(_context.Manifest);
-            TransformViewsAccountResetPasswordConfirmation(_context.Manifest);
-            TransformViewsAccountSendCode(_context.Manifest);
-            TransformViewsAccountVerifyCode(_context.Manifest);
-            TransformViewsHomeHomeAbout(_context.Manifest);
-            TransformViewsHomeHomeContact(_context.Manifest);
-            TransformViewsHomeHomeDashboard(_context.Manifest);
-            TransformViewsHomeHomeIndex(_context.Manifest);
-            TransformViewsManageManageAddPhoneNumber(_context.Manifest);
-            TransformViewsManageManageChangePassword(_context.Manifest);
-            TransformViewsManageManageIndex(_context.Manifest);
-            TransformViewsManageManageLogins(_context.Manifest);
-            TransformViewsManageManageSetPassword(_context.Manifest);
-            TransformViewsManageManageVerifyPhoneNumber(_context.Manifest);
-            TransformViewsRoleAdminRoleCreate(_context.Manifest);
-            TransformViewsRoleAdminRoleDelete(_context.Manifest);
-            TransformViewsRoleAdminRoleDetails(_context.Manifest);
-            TransformViewsRoleAdminRoleEdit(_context.Manifest);
-            TransformViewsRoleAdminRoleIndex(_context.Manifest);
-            TransformViewsSharedError(_context.Manifest);
-            TransformViewsSharedLayoutTemplate(_context.Manifest);
-            TransformViewsSharedLoginPartial(_context.Manifest);
-            TransformViewsSharedValidationScriptsPartial(_context.Manifest);
-            TransformViewsViewImports(_context.Manifest);
-            TransformViewsViewStart(_context.Manifest);
-            TransformHelpersErrorsTemplate(_context.Manifest);
-            TransformHelpersTokensTemplate(_context.Manifest);
-            TransformDesignTimeDbContextFactory(_context.Manifest);
-            TransformAppSettings(_context.Manifest);
+                var directoryPath = Path.Combine(_context.GeneratorPath, "Common\\Templates");
+                TransformStartup(_context.Manifest);
+                TransformProject(_context.Manifest);
+                TransformProgramTemplate(_context.Manifest);
+                TransformControllersAccountController(_context.Manifest);
+                TransformControllersControllerBase(_context.Manifest);
+                TransformControllersHomeController(_context.Manifest);
+                TransformControllersManageController(_context.Manifest);
+                TransformDataIRepositoryTemplate(_context.Manifest);
+                TransformDataRepositoryTemplate(_context.Manifest);
+                TransformModelsAccountViewModel(_context.Manifest);
+                TransformModelsAdminViewModel(_context.Manifest);
+                TransformModelsApplicationUser(_context.Manifest);
+                TransformModelsManageViewModel(_context.Manifest);
+                TransformServicesEmailSender(_context.Manifest);
+                TransformServicesMessageServices(_context.Manifest);
+                TransformServicesSmsSender(_context.Manifest);
+                TransformViewsAccountAccessDenied(_context.Manifest);
+                TransformViewsAccountConfirmEmail(_context.Manifest);
+                TransformViewsAccountExternalLoginConfirmation(_context.Manifest);
+                TransformViewsAccountExternalLoginFailure(_context.Manifest);
+                TransformViewsAccountForgotPassword(_context.Manifest);
+                TransformViewsAccountForgotPasswordConfirmation(_context.Manifest);
+                TransformViewsAccountLockout(_context.Manifest);
+                TransformViewsAccountLogin(_context.Manifest);
+                TransformViewsAccountRegister(_context.Manifest);
+                TransformViewsAccountResetPassword(_context.Manifest);
+                TransformViewsAccountResetPasswordConfirmation(_context.Manifest);
+                TransformViewsAccountSendCode(_context.Manifest);
+                TransformViewsAccountVerifyCode(_context.Manifest);
+                TransformViewsHomeHomeAbout(_context.Manifest);
+                TransformViewsHomeHomeContact(_context.Manifest);
+                TransformViewsHomeHomeDashboard(_context.Manifest);
+                TransformViewsHomeHomeIndex(_context.Manifest);
+                TransformViewsManageManageAddPhoneNumber(_context.Manifest);
+                TransformViewsManageManageChangePassword(_context.Manifest);
+                TransformViewsManageManageIndex(_context.Manifest);
+                TransformViewsManageManageLogins(_context.Manifest);
+                TransformViewsManageManageSetPassword(_context.Manifest);
+                TransformViewsManageManageVerifyPhoneNumber(_context.Manifest);
+                TransformViewsRoleAdminRoleCreate(_context.Manifest);
+                TransformViewsRoleAdminRoleDelete(_context.Manifest);
+                TransformViewsRoleAdminRoleDetails(_context.Manifest);
+                TransformViewsRoleAdminRoleEdit(_context.Manifest);
+                TransformViewsRoleAdminRoleIndex(_context.Manifest);
+                TransformViewsSharedError(_context.Manifest);
+                TransformViewsSharedLayoutTemplate(_context.Manifest);
+                TransformViewsSharedLoginPartial(_context.Manifest);
+                TransformViewsSharedValidationScriptsPartial(_context.Manifest);
+                TransformViewsViewImports(_context.Manifest);
+                TransformViewsViewStart(_context.Manifest);
+                TransformHelpersErrorsTemplate(_context.Manifest);
+                TransformHelpersTokensTemplate(_context.Manifest);
+                TransformDesignTimeDbContextFactory(_context.Manifest);
+                TransformAppSettings(_context.Manifest);
 
-            _writingService.CopyDirectory(directoryPath, _context.BasePath);
+                _writingService.CopyDirectory(directoryPath, _context.BasePath);
+            }
+
             return Task.FromResult(ExecutionResult.Next());
         }
 
