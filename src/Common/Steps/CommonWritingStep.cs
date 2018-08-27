@@ -1,6 +1,8 @@
 ﻿using Mobioos.Foundation.Jade.Models;
 using Mobioos.Foundation.Prompt;
+using Mobioos.Foundation.Prompt.Infrastructure;
 using Mobioos.Scaffold.BaseInfrastructure.Contexts;
+using Mobioos.Scaffold.BaseInfrastructure.Notifiers;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
 using System.Collections.Generic;
@@ -16,11 +18,13 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
     {
         private readonly ISessionContext _context;
         private readonly IWriting _writingService;
+        private readonly IWorkflowNotifier _workflowNotifier;
 
-        public CommonWritingStep(ISessionContext context, IWriting writingService)
+        public CommonWritingStep(ISessionContext context, IWriting writingService, IWorkflowNotifier workflowNotifier)
         {
             _context = context;
             _writingService = writingService;
+            _workflowNotifier = workflowNotifier;
         }
 
         public override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
@@ -28,6 +32,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
             if (null == _context.Manifest)
                 throw new ArgumentNullException(nameof(_context.Manifest));
 
+            _workflowNotifier.Notify(nameof(CommonWritingStep), NotificationType.GeneralInfo, "Generating common asp.net core files");
             if (_context.BasePath != null && _context.GeneratorPath != null)
             {
                 var facebookAuthConsumerKey = (((IDictionary<string, object>)_context.DynamicContext).ContainsKey("FacebookAuthConsumerKey")) ? ((List<Answer>)((IDictionary<string, object>)_context.DynamicContext)["FacebookAuthConsumerKey"]).First().Value : null;

@@ -1,5 +1,7 @@
 ﻿using Mobioos.Foundation.Jade.Models;
+using Mobioos.Foundation.Prompt.Infrastructure;
 using Mobioos.Scaffold.BaseInfrastructure.Contexts;
+using Mobioos.Scaffold.BaseInfrastructure.Notifiers;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
 using System.Collections.Generic;
@@ -15,13 +17,15 @@ namespace Mobioos.Generators.AspNetCore.Api.Steps
     {
         private readonly ISessionContext _context;
         private readonly IWriting _writingService;
+        private readonly IWorkflowNotifier _workflowNotifier;
 
         private IDictionary<string, string> _serviceTypes;
 
-        public ApiWritingStep(ISessionContext context, IWriting writingService)
+        public ApiWritingStep(ISessionContext context, IWriting writingService, IWorkflowNotifier workflowNotifier)
         {
             _context = context;
             _writingService = writingService;
+            _workflowNotifier = workflowNotifier;
         }
 
         public override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
@@ -30,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore.Api.Steps
                 throw new NullReferenceException("Manifest object is null or empty");
 
             var manifest = _context.Manifest;
-
+            _workflowNotifier.Notify(nameof(ApiWritingStep), NotificationType.GeneralInfo, "Generating asp.net core apis");
             if (_context.BasePath != null)
             {
                 if (!Directory.Exists(_context.BasePath))

@@ -1,6 +1,8 @@
 ﻿using Mobioos.Foundation.Jade.Extensions;
 using Mobioos.Foundation.Jade.Models;
+using Mobioos.Foundation.Prompt.Infrastructure;
 using Mobioos.Scaffold.BaseInfrastructure.Contexts;
+using Mobioos.Scaffold.BaseInfrastructure.Notifiers;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
 using System.IO;
@@ -15,16 +17,20 @@ namespace Mobioos.Generators.AspNetCore.Data.Steps
     {
         private readonly ISessionContext _context;
         private readonly IWriting _writingService;
+        private readonly IWorkflowNotifier _workflowNotifier;
 
-        public DataWritingStep(ISessionContext context, IWriting writingService)
+        public DataWritingStep(ISessionContext context, IWriting writingService, IWorkflowNotifier workflowNotifier)
         {
             _context = context;
             _writingService = writingService;
+            _workflowNotifier = workflowNotifier;
         }
         public override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
             if (null == _context.Manifest)
                 throw new NullReferenceException("Manifest object is null or empty");
+
+            _workflowNotifier.Notify(nameof(DataWritingStep), NotificationType.GeneralInfo, "Generating asp.net core models");
             if (_context.BasePath != null)
             {
                 if (!Directory.Exists(_context.BasePath))

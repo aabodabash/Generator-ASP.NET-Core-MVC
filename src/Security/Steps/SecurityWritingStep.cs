@@ -1,5 +1,7 @@
 ﻿using Mobioos.Foundation.Jade.Models;
+using Mobioos.Foundation.Prompt.Infrastructure;
 using Mobioos.Scaffold.BaseInfrastructure.Contexts;
+using Mobioos.Scaffold.BaseInfrastructure.Notifiers;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,13 @@ namespace Mobioos.Generators.AspNetCore.Security.Steps
     {
         private readonly ISessionContext _context;
         private readonly IWriting _writingService;
+        private readonly IWorkflowNotifier _workflowNotifier;
 
-        public SecurityWritingStep(ISessionContext context, IWriting writingService)
+        public SecurityWritingStep(ISessionContext context, IWriting writingService, IWorkflowNotifier workflowNotifier)
         {
             _context = context;
             _writingService = writingService;
+            _workflowNotifier = workflowNotifier;
         }
 
         public override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
@@ -26,6 +30,7 @@ namespace Mobioos.Generators.AspNetCore.Security.Steps
             if (null == _context.Manifest)
                 throw new ArgumentNullException(nameof(_context.Manifest));
 
+            _workflowNotifier.Notify(nameof(SecurityWritingStep), NotificationType.GeneralInfo, "Generating asp.net core securities");
             var manifest = _context.Manifest;
 
             var roles = new List<string>();

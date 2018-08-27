@@ -1,5 +1,6 @@
 ﻿using Mobioos.Foundation.Prompt;
 using Mobioos.Foundation.Prompt.Infrastructure;
+using Mobioos.Scaffold.BaseInfrastructure.Attributes;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using WorkflowCore.Models;
 
 namespace Mobioos.Generators.AspNetCore.Common.Steps
 {
+    [PromptingStep]
     public class CommonPromptingAuthProvidersStep : StepBodyAsync
     {
         private readonly IPrompting _promptingService;
@@ -31,14 +33,13 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
 
             prompts.Push(new ChoiceQuestion()
             {
-                Id = Guid.NewGuid(),
                 Name = "AuthProviders",
                 Message = "Choose additional auth providers",
                 Type = QuestionType.Select,
                 Choices = authProviderChoices
             });
 
-            await _promptingService.Prompts(prompts, nameof(CommonPromptingAuthProvidersStep));
+            await _promptingService.Prompts(nameof(CommonPromptingAuthProvidersStep), prompts, "Select you authentication providers");
             return ExecutionResult.Next();
         }
     }

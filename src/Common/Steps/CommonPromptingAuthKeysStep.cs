@@ -1,5 +1,6 @@
 ﻿using Mobioos.Foundation.Prompt;
 using Mobioos.Foundation.Prompt.Infrastructure;
+using Mobioos.Scaffold.BaseInfrastructure.Attributes;
 using Mobioos.Scaffold.BaseInfrastructure.Contexts;
 using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
@@ -11,6 +12,7 @@ using WorkflowCore.Models;
 
 namespace Mobioos.Generators.AspNetCore.Common.Steps
 {
+    [PromptingStep]
     public class CommonPromptingAuthKeysStep : StepBodyAsync
     {
         private readonly ISessionContext _context;
@@ -30,7 +32,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
                 AddPrompt(prompts, authProviders);
 
             if (prompts.Count > 0)
-                await _promptingService.Prompts(prompts, nameof(CommonPromptingAuthKeysStep));
+                await _promptingService.Prompts(nameof(CommonPromptingAuthKeysStep), prompts, "Retrieving informations for selected authentication providers");
 
             return ExecutionResult.Next();
         }
@@ -44,7 +46,6 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
                 {
                     prompts.Push(new Question
                     {
-                        Id = Guid.NewGuid(),
                         Name = providers[authProvider.Value].ClientName,
                         Message = providers[authProvider.Value].ClientMessage,
                         Type = QuestionType.Text
@@ -52,7 +53,6 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
 
                     prompts.Push(new Question
                     {
-                        Id = Guid.NewGuid(),
                         Name = providers[authProvider.Value].SecretName,
                         Message = providers[authProvider.Value].SecretMessage,
                         Type = QuestionType.Text
