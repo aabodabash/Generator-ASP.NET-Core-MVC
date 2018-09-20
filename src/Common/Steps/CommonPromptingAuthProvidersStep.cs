@@ -34,12 +34,12 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
             prompts.Push(new ChoiceQuestion()
             {
                 Name = "AuthProviders",
-                Message = "Choose additional auth providers",
+                Message = "Choose additional authentication providers",
                 Type = QuestionType.Select,
                 Choices = authProviderChoices
             });
 
-            await _promptingService.Prompts(nameof(CommonPromptingAuthProvidersStep), prompts, "Select you authentication providers");
+            await _promptingService.Prompts(nameof(CommonPromptingAuthProvidersStep), prompts, "Select your authentication providers");
             return ExecutionResult.Next();
         }
     }
