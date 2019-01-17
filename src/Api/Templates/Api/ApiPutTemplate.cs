@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiPutTemplate : TemplateBase
     {
@@ -34,13 +34,13 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
  var action = (ApiActionInfo)Model; 
             
             #line default
             #line hidden
             
-            #line 2 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
  var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); 
             
             #line default
@@ -48,121 +48,121 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("\t\t\tif (!ModelState.IsValid)\r\n\t\t\t{\r\n\t\t\t\treturn BadRequest(ModelState);\r\n\t\t\t}\r\n\r\n\t\t" +
                     "\ttry\r\n\t\t\t{\r\n");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
  if(firstParameter.DataModel?.PropertyTypes() != null) {
             
             #line default
             #line hidden
             
-            #line 11 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
  foreach(var entity in firstParameter.DataModel.PropertyTypes()) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write(" =  ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(firstParameter.Id));
             
             #line default
             #line hidden
             this.Write(".Get");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("FromViewModel();\r\n\t\t\t\tawait _");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service.Save(");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
 }
             
             #line default
             #line hidden
             
-            #line 15 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
 }
             
             #line default
             #line hidden
             
-            #line 16 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
 if(firstParameter.DataModel?.ReferencedTypes() != null){
             
             #line default
             #line hidden
             
-            #line 17 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
  foreach(var entity in firstParameter.DataModel.ReferencedTypes()) { 
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar ");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write(" =  ");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(firstParameter.Id));
             
             #line default
             #line hidden
             this.Write(".Get");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("FromViewModel();\r\n\t\t\t\tawait _");
             
-            #line 19 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 19 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service.Save(");
             
-            #line 19 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 19 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
 }
             
             #line default
             #line hidden
             
-            #line 21 "D:\DEV\Generators\Mobioos\Api\Templates\Api\ApiPutTemplate.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiPutTemplate.tt"
 }
             
             #line default

@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class DeleteTemplate : TemplateBase
     {
@@ -34,21 +34,21 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
  var model = (EntityInfo)Model; 
             
             #line default
             #line hidden
             this.Write("@model ");
             
-            #line 2 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels.");
             
-            #line 2 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -57,35 +57,35 @@ namespace Mobioos.Generators.AspNetCore
                     "l\";\r\n}\r\n\r\n<h2>Delete</h2>\r\n\r\n<h3>Are you sure you want to delete this?</h3>\r\n<di" +
                     "v>\r\n    <h4>");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("</h4>\r\n    <hr />\r\n    <dl class=\"dl-horizontal\">\r\n\t\t");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
  foreach(var property in model.AllProperties()){
             
             #line default
             #line hidden
             this.Write("\t\t<dt>\r\n            @Html.DisplayNameFor(m => m.");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Id));
             
             #line default
             #line hidden
             this.Write(")\r\n        </dt>\r\n        <dd>\r\n            @Html.DisplayFor(m => m.");
             
-            #line 21 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Id));
             
             #line default
             #line hidden
             this.Write(")\r\n        </dd>\r\n\t\t");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Data\Templates\Views\DeleteTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\Views\DeleteTemplate.tt"
 }
             
             #line default

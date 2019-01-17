@@ -1,5 +1,5 @@
 ﻿using Mobioos.Foundation.Jade.Models;
-using Mobioos.Scaffold.TextTemplating;
+using Mobioos.Scaffold.BaseGenerators.TextTemplating;
 using System.Collections.Generic;
 
 namespace Mobioos.Generators.AspNetCore

@@ -5,6 +5,6 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Mobioos.Foundation.Jade.Models" #>
 <#@ import namespace="Mobioos.Foundation.Jade.Extensions" #>
-<#@ import namespace="Mobioos.Scaffold.TextTemplating" #>
+<#@ import namespace="Mobioos.Scaffold.BaseGenerators.TextTemplating" #>
 <#@ import namespace="Mobioos.Generators.AspNetCore" #>
 

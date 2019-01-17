@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ServiceTemplate : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
  var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; 
             
             #line default
@@ -42,63 +42,63 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("using System; \r\nusing System.Collections.Generic; \r\nusing System.Linq; \r\nusing Sy" +
                     "stem.Threading.Tasks; \r\nusing ");
             
-            #line 6 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\nusing ");
             
-            #line 7 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 7 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 8 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 8 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Repositories;\r\n\r\nnamespace ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Services\r\n{ \r\n    public class ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service : I");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service\r\n    { \r\n        private readonly I");
             
-            #line 14 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Repository _repository; \r\n \r\n        public ");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Service(I");
             
-            #line 16 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -106,7 +106,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("Repository repository) \r\n        { \r\n            _repository = repository; \r\n    " +
                     "    }\r\n\r\n        public IQueryable<");
             
-            #line 21 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -114,14 +114,14 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("> GetAll() \r\n        { \r\n            return _repository.GetAllWithReferences(); \r" +
                     "\n        } \r\n        \r\n\t\tpublic async Task<");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("> GetById(");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default
@@ -129,7 +129,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write(" id)\r\n        {\r\n            return await _repository.GetByIdWithReferences(id);\r" +
                     "\n        }\r\n\r\n        public async Task Save(");
             
-            #line 31 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 31 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -138,7 +138,7 @@ namespace Mobioos.Generators.AspNetCore
                     "        throw new ArgumentNullException(nameof(entity)); \r\n            }\r\n\r\n\t\t\tv" +
                     "ar oldEntity = await GetById(entity.");
             
-            #line 38 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 38 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.Id));
             
             #line default
@@ -147,7 +147,7 @@ namespace Mobioos.Generators.AspNetCore
                     "\t\t\telse\r\n            \tawait _repository.Update(oldEntity, entity); \r\n        } \r" +
                     "\n \r\n        public async Task Delete(");
             
-            #line 46 "D:\DEV\Generators\Mobioos\Data\Templates\ServiceTemplate.tt"
+            #line 46 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\ServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(key.CSharpType()));
             
             #line default

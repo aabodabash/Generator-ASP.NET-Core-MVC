@@ -1,10 +1,8 @@
-﻿using Mobioos.Scaffold.Core.Runtime.Attributes;
-using Mobioos.Foundation.Jade.Models;
-using Mobioos.Scaffold.TextTemplating;
+﻿using Mobioos.Foundation.Jade.Models;
+using Mobioos.Scaffold.BaseGenerators.TextTemplating;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [Generator(ActivityName = nameof(CommonActivity),Order = 52)]
     public partial class ErrorsTemplate : TemplateBase
     {
         public ErrorsTemplate(SmartAppInfo model) : base(model)

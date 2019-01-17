@@ -15,6 +15,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UI\**" />
+    <EmbeddedResource Remove="UI\**" />
+    <None Remove="UI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Common\Templates\.bowerrc" />
     <None Remove="Common\Templates\app.config" />
     <None Remove="Common\Templates\bower.json" />
@@ -66,6 +72,10 @@
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <Reference Include="System" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -976,14 +986,6 @@
       <LastGenOutput>StartupAuth.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UI\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Mobioos.Scaffold" Version="0.9.2" />
   </ItemGroup>
 
   <ItemGroup>

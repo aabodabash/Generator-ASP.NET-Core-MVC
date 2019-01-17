@@ -1,67 +1,51 @@
 ﻿using Mobioos.Foundation.Jade.Models;
-using Mobioos.Scaffold.Core.Runtime.Activities;
-using Mobioos.Scaffold.Core.Runtime.Attributes;
-using Mobioos.Scaffold.Infrastructure.Runtime;
+using Mobioos.Foundation.Prompt.Infrastructure;
+using Mobioos.Scaffold.BaseInfrastructure.Contexts;
+using Mobioos.Scaffold.BaseInfrastructure.Notifiers;
+using Mobioos.Scaffold.BaseInfrastructure.Services.GeneratorsServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using System.Linq;
-using Mobioos.Foundation.Prompts;
-using Mobioos.Scaffold.Core.Messaging.Events;
-using Mobioos.Scaffold.Utils;
+using System.Threading.Tasks;
+using WorkflowCore.Interface;
+using WorkflowCore.Models;
 
-namespace Mobioos.Generators.AspNetCore
+namespace Mobioos.Generators.AspNetCore.Api.Steps
 {
-    [Activity(Order = 3)]
-    public class ApiActivity : GeneratorActivity
+    public class ApiWritingStep : StepBodyAsync
     {
-        string _sessionId;
-        Dictionary<string, string> _serviceTypes;
+        private readonly ISessionContext _context;
+        private readonly IWriting _writingService;
+        private readonly IWorkflowNotifier _workflowNotifier;
 
-        public ApiActivity(string name, string basePath) : base(name, basePath)
+        private IDictionary<string, string> _serviceTypes;
+
+        public ApiWritingStep(ISessionContext context, IWriting writingService, IWorkflowNotifier workflowNotifier)
         {
+            _context = context;
+            _writingService = writingService;
+            _workflowNotifier = workflowNotifier;
         }
 
-        [Task(Order = 1)]
-        public async override Task Initializing(IActivityContext activityContext)
+        public override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
-            _sessionId = activityContext.RuntimeContext.Runtime.SessionId.ToString();
-
-            await base.Initializing(activityContext);
-        }
-
-        [Task(Order = 2)]
-        public async override Task Writing()
-        {
-            bool hasError = false;
-
-            if (null == Context.DynamicContext.Manifest)
+            if (null == _context.Manifest)
                 throw new NullReferenceException("Manifest object is null or empty");
 
-            var sessionId = Context.RuntimeContext.Runtime.SessionId.ToString();
-
-            try
+            var manifest = _context.Manifest;
+            _workflowNotifier.Notify(nameof(ApiWritingStep), NotificationType.GeneralInfo, "Generating asp.net core apis");
+            if (_context.BasePath != null)
             {
-                var manifest = Context.DynamicContext.Manifest;
-
-                if (!Directory.Exists(BasePath))
-                    Directory.CreateDirectory(BasePath);
+                if (!Directory.Exists(_context.BasePath))
+                    Directory.CreateDirectory(_context.BasePath);
 
                 TransformControllerApi(manifest);
             }
-            catch (Exception e)
-            {
-                hasError = true;
-                Context.RuntimeContext.Runtime.Logger.Error($"exception occured on data activity for session: {sessionId}, exception message: {e.Message}");
-                HandleErrors(sessionId);
-            }
 
-            if (!hasError)
-            {
-                await base.Writing();
-            }
+            return Task.FromResult(ExecutionResult.Next());
         }
+
 
         private void TransformControllerApi(SmartAppInfo manifest)
         {
@@ -88,12 +72,11 @@ namespace Mobioos.Generators.AspNetCore
                         var template = new ApiController(api, manifest.Id, Constants.Version, _serviceTypes);
                         try
                         {
-                            result = WriteFile(Path.Combine(BasePath, template.OutputPath, Constants.Version, api.Id + ".g.cs"), template.TransformText());
+                            result = _writingService.WriteFile(Path.Combine(_context.BasePath, template.OutputPath, Constants.Version, api.Id + ".g.cs"), template.TransformText());
                         }
                         catch (Exception ex)
                         {
                             result = false;
-                            Context.RuntimeContext.Runtime.Logger.Error($"error on generating controllers api for session: {_sessionId} with exception message: {ex.Message}");
                         }
                     }
                 }
@@ -116,12 +99,11 @@ namespace Mobioos.Generators.AspNetCore
                     var dataTemplate = new ViewModelTemplate(param.DataModel, manifest.Id, Constants.ViewModelNamespace, entityTypes);
                     try
                     {
-                        result = WriteFile(Path.Combine(BasePath, dataTemplate.OutputPath, param.DataModel.Id + ".g.cs"), dataTemplate.TransformText());
+                        result = _writingService.WriteFile(Path.Combine(_context.BasePath, dataTemplate.OutputPath, param.DataModel.Id + ".g.cs"), dataTemplate.TransformText());
                     }
                     catch (Exception ex)
                     {
                         result = false;
-                        Context.RuntimeContext.Runtime.Logger.Error($"error on generating controllers api parameters for session: {_sessionId} with exception message: {ex.Message}");
                     }
                 }
             }
@@ -134,15 +116,7 @@ namespace Mobioos.Generators.AspNetCore
                 Dictionary<string, string> entityTypes = GetAllReferencedTypes(action.ReturnType);
 
                 var dataTemplate = new ViewModelTemplate(action.ReturnType, manifest.Id, Constants.ViewModelNamespace, entityTypes);
-
-                try
-                {
-                    WriteFile(Path.Combine(BasePath, dataTemplate.OutputPath, action.ReturnType.Id + ".g.cs"), dataTemplate.TransformText());
-                }
-                catch (Exception ex)
-                {
-                    Context.RuntimeContext.Runtime.Logger.Error($"error on generating controllers api return types for session: {_sessionId} with exception message: {ex.Message}");
-                }
+                _writingService.WriteFile(Path.Combine(_context.BasePath, dataTemplate.OutputPath, action.ReturnType.Id + ".g.cs"), dataTemplate.TransformText());
             }
         }
 
@@ -198,12 +172,6 @@ namespace Mobioos.Generators.AspNetCore
             }
 
             return string.Empty;
-        }
-
-        protected void HandleErrors(string sessionId)
-        {
-            Notify(new NotificationMessage { ActivityName = this.Name, Message = RuntimeHelper.GetLogUrl(Context.DynamicContext.ServerUrl, Context.RuntimeContext.Runtime.ChannelId.ToString()), Type = Foundation.Prompts.Interfaces.NotificationTypes.BootstrapFailed }, this);
-            Publish(new TaskError());
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiGetTemplate : TemplateBase
     {
@@ -34,71 +34,71 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  var action = (ApiActionInfo)Model; 
             
             #line default
             #line hidden
             
-            #line 2 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  var lastEntity = Entities.LastOrDefault(); 
             
             #line default
             #line hidden
             
-            #line 3 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 3 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); 
             
             #line default
             #line hidden
             
-            #line 4 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 4 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  var keyProperty = action.ReturnType?.AllProperties().FirstOrDefault(p=>p.IsKey); 
             
             #line default
             #line hidden
             
-            #line 5 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 5 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : ""; 
             
             #line default
             #line hidden
             
-            #line 6 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  if(string.IsNullOrEmpty(keyType)) { var reference = action.ReturnType?.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract); keyType = reference?.CSharpType(); keyProperty=reference?.Target.AllProperties()?.FirstOrDefault(p=>p.IsKey);  }
             
             #line default
             #line hidden
             this.Write("\t\t\ttry\r\n\t\t\t{\r\n");
             
-            #line 9 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  if(action.ReturnType != null){
             
             #line default
             #line hidden
             
-            #line 10 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
  if(!string.IsNullOrEmpty(keyType) && firstParameter != null && keyType == firstParameter.CSharpType()) {
             
             #line default
             #line hidden
             this.Write("\t\t\t\tvar entity = await _");
             
-            #line 11 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyType));
             
             #line default
             #line hidden
             this.Write("Service.GetById(");
             
-            #line 11 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(firstParameter.Id));
             
             #line default
             #line hidden
             this.Write(");\r\n\t\t\t\tif(entity != null)\r\n\t\t\t\t{\r\n\t\t\t\t\tvar result = new ");
             
-            #line 14 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.ReturnType.Id));
             
             #line default
@@ -106,28 +106,28 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("().ConvertFromModel(entity);\r\n\t\t\t\t\treturn this.Ok(await Task.FromResult(result));" +
                     "\r\n\t\t\t\t}\r\n\t\t\r\n\t\t\t\treturn NotFound();\r\n");
             
-            #line 19 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 19 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn this.Ok(await Task.FromResult(new ");
             
-            #line 20 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.ReturnType.Id));
             
             #line default
             #line hidden
             this.Write("()));\r\n");
             
-            #line 21 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
 }}else{
             
             #line default
             #line hidden
             this.Write("\t\t\t\treturn NotFound();\r\n");
             
-            #line 23 "D:\DEV\Generators\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\Api\ApiGetTemplate.tt"
 }
             
             #line default

@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\FacebookApiResponses.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\FacebookApiResponses.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class FacebookApiResponses : TemplateBase
     {
@@ -34,14 +34,14 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\FacebookApiResponses.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\FacebookApiResponses.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
             #line hidden
             this.Write("using Newtonsoft.Json;\r\n\r\nnamespace ");
             
-            #line 4 "D:\DEV\Generators\Mobioos\Security\Templates\FacebookApiResponses.tt"
+            #line 4 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\FacebookApiResponses.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default

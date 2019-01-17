@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class HomeIndex : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -42,7 +42,7 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("@{\r\n    ViewData[\"Title\"] = \"Home Page\";\r\n}\r\n<div class=\"jumbotron\">\r\n    <h1>Mob" +
                     "ioos ");
             
-            #line 6 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Title));
             
             #line default
@@ -63,7 +63,7 @@ namespace Mobioos.Generators.AspNetCore
         <div class=""btn-group-vertical"" role=""group"" aria-label=""..."">
             @if (User.IsInRole(");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -71,14 +71,14 @@ namespace Mobioos.Generators.AspNetCore
             this.Write(".Backend.Security.Roles.BuiltinRoles.Admin.Key) ||\r\n                User.IsInRole" +
                     "(");
             
-            #line 21 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Security.Roles.BuiltinRoles.DataEditor.Key))\r\n            {\r\n\t\t\t");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
  if(model.DataModel !=null && model.DataModel.Entities != null)
 			 foreach(var entity in model.DataModel.Entities){
 			 if(!entity.IsAbstract){ 
@@ -87,21 +87,21 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("\t\t\t  <a class=\"btn btn-default\" href=\"@Url.Action(\"Index\", \"");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("\")\">");
             
-            #line 26 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Id));
             
             #line default
             #line hidden
             this.Write("</a>\r\n\t\t\t");
             
-            #line 27 "D:\DEV\Generators\Mobioos\Common\Templates\Views\Home\HomeIndex.tt"
+            #line 27 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\Views\Home\HomeIndex.tt"
  }
 			  } 
             

@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiController : TemplateBase
     {
@@ -34,7 +34,7 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 var model = (ApiInfo)Model; var actions = ((ApiInfo)Model).Actions.AsEnumerable(); 
             
             #line default
@@ -43,42 +43,42 @@ var model = (ApiInfo)Model; var actions = ((ApiInfo)Model).Actions.AsEnumerable(
                     "s;\r\nusing System.Collections.Generic;\r\nusing Microsoft.AspNetCore.Authorization;" +
                     "\r\nusing Microsoft.AspNetCore.Mvc;\r\nusing Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 10 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\nusing ");
             
-            #line 11 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 12 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Services;\r\nusing ");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.ViewModels;\r\n\r\nnamespace ");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Api.");
             
-            #line 15 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -86,332 +86,332 @@ var model = (ApiInfo)Model; var actions = ((ApiInfo)Model).Actions.AsEnumerable(
             this.Write("\r\n{\r\n\t/// <summary>\r\n\t/// Controller responsible for all data interactions with t" +
                     "he ");
             
-            #line 18 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\r\n\t/// </summary>\r\n\t[Route(\"api/");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Version));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 20 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             
-            #line 20 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("\")]\r\n\tpublic partial class ");
             
-            #line 21 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" : Controller\r\n\t{\r\n");
             
-            #line 23 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 foreach(var entity in Entities){
             
             #line default
             #line hidden
             this.Write("\t\tprivate I");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service _");
             
-            #line 24 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service;\r\n");
             
-            #line 25 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             
-            #line 26 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 var lastEntity = Entities.LastOrDefault();
             
             #line default
             #line hidden
             this.Write("\t\t/// <summary>\r\n\t\t/// Initialize a new instance of <see cref=\"");
             
-            #line 28 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.Api.");
             
-            #line 28 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("Controller\"/> class.\r\n\t\t/// </summary>\r\n\t\tpublic ");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 foreach(var entity in Entities){
             
             #line default
             #line hidden
             this.Write("I");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service ");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 if (!entity.Equals(lastEntity)){
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             
-            #line 30 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 30 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             this.Write(")\r\n\t\t{\r\n");
             
-            #line 32 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 32 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 foreach(var entity in Entities){
             
             #line default
             #line hidden
             this.Write("\t\t\t_");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service = ");
             
-            #line 33 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entity.Key));
             
             #line default
             #line hidden
             this.Write("Service;\r\n");
             
-            #line 34 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 34 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\t}\r\n");
             
-            #line 36 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 36 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 foreach(var action in actions){
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 38 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 38 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); var lastParameter = action.Parameters.LastOrDefault();
             
             #line default
             #line hidden
             this.Write("\t\t[");
             
-            #line 39 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 39 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.CSharpType()));
             
             #line default
             #line hidden
             this.Write("]\r\n\t\t[Route(\"");
             
-            #line 40 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 40 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.Url));
             
             #line default
             #line hidden
             this.Write("\")]\r\n");
             
-            #line 41 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 41 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 if(action.ReturnType != null){
             
             #line default
             #line hidden
             this.Write("\t\t[ProducesResponseType(typeof(");
             
-            #line 42 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 42 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.ReturnType));
             
             #line default
             #line hidden
             this.Write("), 200)]\r\n");
             
-            #line 43 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\tpublic async Task<IActionResult> ");
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(action.Id));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 foreach(var parameter in action.Parameters.AsEnumerable()){
             
             #line default
             #line hidden
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.CSharpType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(parameter.Id));
             
             #line default
             #line hidden
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 if (!parameter.Equals(lastParameter)){
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             
-            #line 44 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             this.Write(")\r\n\t\t{\r\n");
             
-            #line 46 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 46 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 if(action.Type?.ToLower() == "datacreate" && firstParameter != null) { var template = new ApiPostTemplate(action);
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 47 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 47 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 Write(template.TransformText());
             
             #line default
             #line hidden
             
-            #line 48 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 48 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }else if(action.Type?.ToLower() == "dataupdate" && firstParameter != null) { var template = new ApiPutTemplate(action); 
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 49 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 49 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 Write(template.TransformText());
             
             #line default
             #line hidden
             
-            #line 50 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 50 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }else if(action.Type == "datadelete" && firstParameter != null) { var template = new ApiDeleteTemplate(action);
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 51 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 51 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 Write(template.TransformText());
             
             #line default
             #line hidden
             
-            #line 52 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }else if(action.Type?.ToLower() == "datalist") { var template = new ApiGetAllTemplate(action, Entities);
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 53 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 Write(template.TransformText());
             
             #line default
             #line hidden
             
-            #line 54 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 54 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }else if(action.Type?.ToLower() == "dataget") { var template = new ApiGetTemplate(action, Entities);
             
             #line default
             #line hidden
             this.Write("\t\t\t");
             
-            #line 55 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 55 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 Write(template.TransformText());
             
             #line default
             #line hidden
             
-            #line 56 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 56 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default
             #line hidden
             this.Write("\t\t}\r\n");
             
-            #line 58 "D:\DEV\Generators\Mobioos\Api\Templates\ApiController.tt"
+            #line 58 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Api\Templates\ApiController.tt"
 }
             
             #line default

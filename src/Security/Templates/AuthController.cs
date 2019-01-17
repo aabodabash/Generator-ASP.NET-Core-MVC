@@ -14,7 +14,7 @@ namespace Mobioos.Generators.AspNetCore
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
     using Mobioos.Foundation.Jade.Extensions;
-    using Mobioos.Scaffold.TextTemplating;
+    using Mobioos.Scaffold.BaseGenerators.TextTemplating;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class AuthController : TemplateBase
     {
@@ -34,35 +34,35 @@ namespace Mobioos.Generators.AspNetCore
         {
             this.Write("\r\n");
             
-            #line 1 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
             #line hidden
             this.Write("using System.Security.Claims;\r\nusing System.Threading.Tasks;\r\nusing ");
             
-            #line 4 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+            #line 4 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Auth;\r\nusing ");
             
-            #line 5 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+            #line 5 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Helpers;\r\nusing ");
             
-            #line 6 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 7 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+            #line 7 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
@@ -71,7 +71,7 @@ namespace Mobioos.Generators.AspNetCore
                     "tCore.Mvc;\r\nusing Microsoft.Extensions.Options;\r\nusing Newtonsoft.Json;\r\n\r\nnames" +
                     "pace ");
             
-            #line 13 "D:\DEV\Generators\Mobioos\Security\Templates\AuthController.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthController.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
