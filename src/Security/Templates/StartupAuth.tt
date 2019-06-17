@@ -43,6 +43,12 @@ namespace <#= model.Id #>.Backend
 			{
 				options.FacebookAppId = authSettings[nameof(AuthSettings.FacebookAppId)];
 				options.FacebookAppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
+                options.TwitterAppId = authSettings[nameof(AuthSettings.TwitterAppId)];
+                options.TwitterAppSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];
+                options.GoogleAppId = authSettings[nameof(AuthSettings.GoogleAppId)];
+                options.GoogleAppSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];
+                options.MicrosoftAppId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
+                options.MicrosoftAppSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
 			});
 
 			var tokenValidationParameters = new TokenValidationParameters
@@ -85,23 +91,24 @@ namespace <#= model.Id #>.Backend
 			<# if(AuthenticationKeys.ContainsKey("TwitterAuthAppId") && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret")) {#>
 			.AddTwitter(twitterOptions =>
 			{
-				twitterOptions.ConsumerKey = "<#= AuthenticationKeys["TwitterAuthAppId"] #>";
-				twitterOptions.ConsumerSecret = "<#= AuthenticationKeys["TwitterAuthAppSecret"] #>";
+				twitterOptions.ConsumerKey = authSettings[nameof(AuthSettings.TwitterAppId)];
+				twitterOptions.ConsumerSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];
 			})
 			<# } #>
 			<# if(AuthenticationKeys.ContainsKey("GoogleAuthClientId") && AuthenticationKeys.ContainsKey("GoogleAuthSecret")) {#>
 			.AddGoogle(googleOptions =>
 			{
-				googleOptions.ClientId = "<#= AuthenticationKeys["GoogleAuthClientId"] #>";
-				googleOptions.ClientSecret = "<#= AuthenticationKeys["GoogleAuthSecret"] #>";
+				googleOptions.ClientId = authSettings[nameof(AuthSettings.GoogleAppId)];
+				googleOptions.ClientSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];
 			})
 			<# } #>
+            ;
 			<# if(AuthenticationKeys.ContainsKey("MicrosoftAuthClientId") && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret")) {#>
 			services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 			{
-				microsoftOptions.ClientId = "<#= AuthenticationKeys["MicrosoftAuthClientId"] #>";
-				microsoftOptions.ClientSecret = "<#= AuthenticationKeys["MicrosoftAuthSecret"] #>";
-			})<#}#>;
+				microsoftOptions.ClientId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
+				microsoftOptions.ClientSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
+			});<#}#>
 <#
                 }
 #>

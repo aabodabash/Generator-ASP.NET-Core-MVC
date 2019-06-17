@@ -14,8 +14,11 @@ namespace Mobioos.Generators.AspNetCore
 
         public void Build(IWorkflowBuilder builder)
         {
-            builder.StartWith<ApiWritingStep>()
-                   .Then<WorkFlowEndStepBase>();
+            
         }
+
+        public void Build(IWorkflowBuilder<object> builder)
+        => builder.StartWith<ApiWritingStep>()
+                  .Then<WorkFlowEndStepBase>();
     }
 }

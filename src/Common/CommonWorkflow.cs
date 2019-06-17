@@ -12,14 +12,20 @@ namespace Mobioos.Generators.AspNetCore
 
         public int Version => 1;
 
-        public void Build(IWorkflowBuilder builder)
-        {
-            builder.StartWith<CommonPromptingAuthProvidersStep>()
-                   .WaitForAnswers(nameof(CommonPromptingAuthProvidersStep))
-                   .Then<CommonPromptingAuthKeysStep>()
-                   .WaitForAnswers(nameof(CommonPromptingAuthKeysStep))
-                   .Then<CommonWritingStep>()
-                   .Then<WorkFlowEndStepBase>();
-        }
+        public void Build(IWorkflowBuilder<object> builder)
+        => builder.StartWith<CommonPromptingAuthStep>()
+                  .WaitFor(
+                      nameof(CommonPromptingAuthStep),
+                      data => nameof(CommonPromptingAuthStep))
+                  .Then<CommonPromptingAuthProvidersStep>()
+                  .WaitFor(
+                      nameof(CommonPromptingAuthProvidersStep),
+                      data => nameof(CommonPromptingAuthProvidersStep))
+                  .Then<CommonPromptingAuthKeysStep>()
+                  .WaitFor(
+                      nameof(CommonPromptingAuthKeysStep),
+                      data => nameof(CommonPromptingAuthKeysStep))
+                  .Then<CommonWritingStep>()
+                  .Then<WorkFlowEndStepBase>();
     }
 }

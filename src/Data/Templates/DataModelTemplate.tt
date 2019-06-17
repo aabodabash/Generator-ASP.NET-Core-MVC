@@ -21,12 +21,12 @@ namespace <#= ApplicationId #>.Backend.<#= DataNamespace #>
 <# if(model.References !=null && model.References.Count() > 0) {
 foreach(var reference in model.References) {
 if(reference.IsCollection){ #>
-		private HashSet<<#= reference.Type #>> _<#= reference.Id #>; 
-		<# var currentReference = reference.Id; var referenceName = currentReference.First().ToString().ToUpper() + currentReference.Substring(1); #>
+		private HashSet<<#= reference.Type #>> _<#= reference.Id #>;
+
 		<#if(reference.Target!=null && reference.Target.IsAbstract){#>
 		[NotMapped]
 		<#}#>
-		public HashSet<<#= reference.Type #>> <#= referenceName #> { get { return _<#= reference.Id #> ??(_<#=reference.Id #> = new HashSet<<#= reference.Type #>>()); }}
+		public HashSet<<#= reference.Type #>> <#= reference.Id #> { get { return _<#= reference.Id #> ??(_<#=reference.Id #> = new HashSet<<#= reference.Type #>>()); }}
 
 <#}
 else {#>

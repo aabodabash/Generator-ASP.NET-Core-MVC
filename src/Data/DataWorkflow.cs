@@ -12,10 +12,8 @@ namespace Mobioos.Generators.AspNetCore
 
         public int Version => 1;
 
-        public void Build(IWorkflowBuilder builder)
-        {
-            builder.StartWith<DataWritingStep>()
-                   .Then<WorkFlowEndStepBase>();
-        }
+        public void Build(IWorkflowBuilder<object> builder)
+        => builder.StartWith<DataWritingStep>()
+                  .Then<WorkFlowEndStepBase>();
     }
 }

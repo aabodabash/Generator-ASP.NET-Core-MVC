@@ -9,13 +9,57 @@
       "Default": "Warning"
     }
   },
+<#
+    if (AuthenticationKeys != null)
+    {
+#>
+  "AuthSettings": {
+<#
+        if (AuthenticationKeys.Keys.Contains("FacebookAuthConsumerKey")
+            && AuthenticationKeys.Keys.Contains("FacebookAuthConsumerSecret"))
+        {
+#>
+    "FacebookAppId": "<#= AuthenticationKeys["FacebookAuthConsumerKey"] #>",
+    "FacebookAppSecret": "<#= AuthenticationKeys["FacebookAuthConsumerSecret"] #>",
+<#
+        }
+#>
+<#
+        if (AuthenticationKeys.Keys.Contains("TwitterAuthAppId")
+            && AuthenticationKeys.Keys.Contains("TwitterAuthAppSecret"))
+        {
+#>
+    "TwitterAppId": "<#= AuthenticationKeys["TwitterAuthAppId"] #>",
+    "TwitterAppSecret": "<#= AuthenticationKeys["TwitterAuthAppSecret"] #>",
+<#
+        }
+#>
+<#
+        if (AuthenticationKeys.Keys.Contains("GoogleAuthClientId")
+            && AuthenticationKeys.Keys.Contains("GoogleAuthSecret"))
+        {
+#>
+    "GoogleAppId": "<#= AuthenticationKeys["GoogleAuthClientId"] #>",
+    "GoogleAppSecret": "<#= AuthenticationKeys["GoogleAuthSecret"] #>",
+<#
+        }
+#>
+<#
+        if (AuthenticationKeys.Keys.Contains("MicrosoftAuthClientId")
+            && AuthenticationKeys.Keys.Contains("MicrosoftAuthSecret"))
+        {
+#>
+    "MicrosoftAppId": "<#= AuthenticationKeys["MicrosoftAuthClientId"] #>",
+    "MicrosoftAppSecret": "<#= AuthenticationKeys["MicrosoftAuthSecret"] #>",
+<#
+        }
+#>
+  },
+<#
+    }
+#>
   "JwtIssuerOptions": {
     "Issuer": "webApi",
     "Audience": "http://localhost:5000/"
-  }<# if(AuthenticationKeys.Keys.Contains("FacebookAuthConsumerKey") && AuthenticationKeys.Keys.Contains("FacebookAuthConsumerSecret")) {#>,
-  "AuthSettings": {
-    "FacebookAppId": "<#= AuthenticationKeys["FacebookAuthConsumerKey"] #>",
-    "FacebookAppSecret": "<#= AuthenticationKeys["FacebookAuthConsumerSecret"] #>"
   }
-<#}#>
 }

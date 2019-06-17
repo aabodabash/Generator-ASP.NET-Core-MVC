@@ -31,8 +31,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
             if (authProviders.Count() > 0)
                 AddPrompt(prompts, authProviders);
 
-            if (prompts.Count > 0)
-                await _promptingService.Prompts(nameof(CommonPromptingAuthKeysStep), prompts, "Retrieving informations for selected authentication providers");
+            await _promptingService.Prompts(nameof(CommonPromptingAuthKeysStep), prompts, "Retrieving informations for selected authentication providers");
 
             return ExecutionResult.Next();
         }
