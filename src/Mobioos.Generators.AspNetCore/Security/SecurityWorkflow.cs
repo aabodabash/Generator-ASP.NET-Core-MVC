@@ -5,7 +5,7 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [WorkFlow(Id = "AspNetCoreSecurityWorkflow", Order = 4)]
+    [Workflow(Id = "AspNetCoreSecurityWorkflow", Order = 4)]
     public class SecurityWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreSecurityWorkflow";
@@ -14,6 +14,6 @@ namespace Mobioos.Generators.AspNetCore
 
         public void Build(IWorkflowBuilder<object> builder)
         => builder.StartWith<SecurityWritingStep>()
-                  .Then<WorkFlowEndStepBase>();
+                  .Then<WorkflowEndStepBase>();
     }
 }

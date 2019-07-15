@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Manifest\addons.json" />
+    <None Remove="Manifest\api\Account.json" />
+    <None Remove="Manifest\api\Recipes.json" />
+    <None Remove="Manifest\application.json" />
+    <None Remove="Manifest\concerns\Account.json" />
+    <None Remove="Manifest\concerns\Base.json" />
+    <None Remove="Manifest\concerns\Cookbook.json" />
+    <None Remove="Manifest\configurations\configuration.dev.json" />
+    <None Remove="Manifest\data.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Manifest\addons.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\api\Account.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\api\Recipes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\application.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\concerns\Account.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\concerns\Base.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\concerns\Cookbook.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\configurations\configuration.dev.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest\data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mobioos.Generators.AspNetCore\Mobioos.Generators.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>

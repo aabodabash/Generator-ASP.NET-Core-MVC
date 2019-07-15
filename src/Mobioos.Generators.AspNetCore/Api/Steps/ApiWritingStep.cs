@@ -74,7 +74,7 @@ namespace Mobioos.Generators.AspNetCore.Api.Steps
                         {
                             result = _writingService.WriteFile(Path.Combine(_context.BasePath, template.OutputPath, Constants.Version, api.Id + ".g.cs"), template.TransformText());
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             result = false;
                         }
@@ -101,7 +101,7 @@ namespace Mobioos.Generators.AspNetCore.Api.Steps
                     {
                         result = _writingService.WriteFile(Path.Combine(_context.BasePath, dataTemplate.OutputPath, param.DataModel.Id + ".g.cs"), dataTemplate.TransformText());
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         result = false;
                     }

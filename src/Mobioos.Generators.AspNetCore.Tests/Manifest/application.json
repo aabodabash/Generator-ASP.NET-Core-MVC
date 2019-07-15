@@ -1,0 +1,37 @@
+{
+  "id": "Cookbook",
+  "title": "Cookbook",
+  "smallTitle": "Cookbook",
+  "description": "Simple and easy Kitchen recipes Application",
+  "platforms": [
+    "Android",
+    "Ios"
+  ],
+  "version": "1.0.0.0",
+  "themes": [
+    "Light",
+    "Dark"
+  ],
+  "languages": [
+    "Fr",
+    "En"
+  ],
+  "$schema": "https://www.cookbook.com",
+  "addons": "addons.json",
+  "api": [
+    "api/Account.json",
+    "api/Recipes.json"
+  ],
+  "concerns": [
+    "concerns/Base.json",
+    "concerns/Account.json",
+    "concerns/Cookbook.json"
+  ],
+  "configurations": [
+    {
+      "type": "dev",
+      "Path": "configurations\\configuration.dev.json"
+    }
+  ],
+  "data": "data.json"
+}

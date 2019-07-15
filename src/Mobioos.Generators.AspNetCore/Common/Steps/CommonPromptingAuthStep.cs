@@ -21,14 +21,14 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
 
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
-            var prompts = new Stack<Question>();
+            var prompts = new Queue<Question>();
             var authChoices = new List<Choice>
             {
                 new Choice { Key = "yes", Value = "yes", Name = "Yes" },
                 new Choice { Key = "no", Value = "no", Name = "No" }
             };
 
-            prompts.Push(new ChoiceQuestion()
+            prompts.Enqueue(new ChoiceQuestion()
             {
                 Name = "AuthOrNot",
                 Message = "Do you want to add external authentication features ?",

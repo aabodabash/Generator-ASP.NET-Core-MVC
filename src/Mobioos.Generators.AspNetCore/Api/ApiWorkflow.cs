@@ -5,20 +5,15 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [WorkFlow(Id = "AspNetCoreApiWorkflow", Order = 3)]
+    [Workflow(Id = "AspNetCoreApiWorkflow", Order = 3)]
     public class ApiWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreApiWorkflow";
 
         public int Version => 1;
 
-        public void Build(IWorkflowBuilder builder)
-        {
-            
-        }
-
         public void Build(IWorkflowBuilder<object> builder)
         => builder.StartWith<ApiWritingStep>()
-                  .Then<WorkFlowEndStepBase>();
+                  .Then<WorkflowEndStepBase>();
     }
 }

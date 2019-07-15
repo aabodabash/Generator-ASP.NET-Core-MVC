@@ -25,7 +25,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
 
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
-            var prompts = new Stack<Question>();
+            var prompts = new Queue<Question>();
             var authChoice = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("AuthOrNot") ?
                 _context.DynamicContext.AuthOrNot as List<Answer> : new List<Answer>();
             string choice = (authChoice != null && authChoice.Count > 0) ? authChoice.FirstOrDefault().Value : "no";
@@ -39,7 +39,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
                     new Choice { Key = "twitterAuth", Value = "twitterAuth", Name = "Twitter" }
                 };
 
-                prompts.Push(new ChoiceQuestion()
+                prompts.Enqueue(new ChoiceQuestion()
                 {
                     Name = "AuthProviders",
                     Message = "Choose additional authentication providers",
@@ -48,7 +48,11 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
                 });
             }
 
-            await _promptingService.Prompts(nameof(CommonPromptingAuthProvidersStep), prompts, "Select your authentication providers");
+            await _promptingService.Prompts(
+                nameof(CommonPromptingAuthProvidersStep),
+                prompts,
+                "Select your authentication providers");
+
             return ExecutionResult.Next();
         }
     }

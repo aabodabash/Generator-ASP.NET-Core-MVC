@@ -5,7 +5,7 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [WorkFlow(Id = "AspNetCoreDataWorkflow", Order = 2)]
+    [Workflow(Id = "AspNetCoreDataWorkflow", Order = 2)]
     public class DataWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreDataWorkflow";
@@ -14,6 +14,6 @@ namespace Mobioos.Generators.AspNetCore
 
         public void Build(IWorkflowBuilder<object> builder)
         => builder.StartWith<DataWritingStep>()
-                  .Then<WorkFlowEndStepBase>();
+                  .Then<WorkflowEndStepBase>();
     }
 }

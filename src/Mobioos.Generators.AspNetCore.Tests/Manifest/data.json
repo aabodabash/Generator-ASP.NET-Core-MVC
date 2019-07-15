@@ -1,0 +1,277 @@
+{
+  "entities": [
+    {
+      "id": "Recipe",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "title",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "type",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "difficulty",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "time",
+          "type": "number",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "cost",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "picture",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "howManyPersons",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "creationDate",
+          "type": "date",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "authorId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": "User.id"
+        }
+      ],
+      "references": [
+        {
+          "id": "ingredients",
+          "foreignKey": "id",
+          "type": "Ingredient",
+          "isCollection": true,
+          "isRequired": true
+        },
+        {
+          "id": "prepSteps",
+          "foreignKey": "id",
+          "type": "PrepStep",
+          "isCollection": true,
+          "isRequired": true
+        }
+      ],
+      "values": []
+    },
+    {
+      "id": "Ingredient",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "title",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "id",
+          "type": "integer",
+          "isKey": true,
+          "isCollection": false,
+          "isRequired": false,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "PrepStep",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "title",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        },
+        {
+          "id": "description",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "User",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "username",
+          "type": "string",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": ""
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "Like",
+      "extends": "Identifier",
+      "isAbstract": false,
+      "isEnum": false,
+      "properties": [
+        {
+          "id": "userId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": "User.id"
+        },
+        {
+          "id": "recipeId",
+          "type": "integer",
+          "isKey": false,
+          "isCollection": false,
+          "isRequired": true,
+          "minimum": 0,
+          "maximum": 0,
+          "modelProperty": "Recipe.id"
+        }
+      ],
+      "references": [],
+      "values": []
+    },
+    {
+      "id": "RecipeDifficulty",
+      "isAbstract": false,
+      "isEnum": true,
+      "properties": [],
+      "references": [],
+      "values": [
+        {
+          "id": "Easy"
+        },
+        {
+          "id": "Medium"
+        },
+        {
+          "id": "Hard"
+        }
+      ]
+    },
+    {
+      "id": "RecipeType",
+      "isAbstract": false,
+      "isEnum": true,
+      "properties": [],
+      "references": [],
+      "values": [
+        {
+          "id": "MainMeal"
+        },
+        {
+          "id": "FirstCourse"
+        },
+        {
+          "id": "Dessert"
+        },
+        {
+          "id": "Appetizer"
+        }
+      ]
+    }
+  ]
+}

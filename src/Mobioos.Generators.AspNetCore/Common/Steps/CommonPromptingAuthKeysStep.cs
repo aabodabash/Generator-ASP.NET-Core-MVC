@@ -26,7 +26,7 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
 
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
-            var prompts = new Stack<Question>();
+            var prompts = new Queue<Question>();
             var authProviders = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("AuthProviders") ? _context.DynamicContext.AuthProviders as List<Answer> : new List<Answer>();
             if (authProviders.Count() > 0)
                 AddPrompt(prompts, authProviders);
@@ -36,21 +36,21 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
             return ExecutionResult.Next();
         }
 
-        private static void AddPrompt(Stack<Question> prompts, List<Answer> authProviders)
+        private static void AddPrompt(Queue<Question> prompts, List<Answer> authProviders)
         {
             var providers = AuthenticationProviders.AuthenticationProviderPrompts;
             if (authProviders != null)
             {
                 foreach (var authProvider in authProviders)
                 {
-                    prompts.Push(new Question
+                    prompts.Enqueue(new Question
                     {
                         Name = providers[authProvider.Value].ClientName,
                         Message = providers[authProvider.Value].ClientMessage,
                         Type = QuestionType.Text
                     });
 
-                    prompts.Push(new Question
+                    prompts.Enqueue(new Question
                     {
                         Name = providers[authProvider.Value].SecretName,
                         Message = providers[authProvider.Value].SecretMessage,

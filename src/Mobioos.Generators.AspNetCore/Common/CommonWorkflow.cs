@@ -5,7 +5,7 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [WorkFlow(Id = "AspNetCoreCommonWorkflow", Order = 1)]
+    [Workflow(Id = "AspNetCoreCommonWorkflow", Order = 1)]
     public class CommonWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreCommonWorkflow";
@@ -26,6 +26,6 @@ namespace Mobioos.Generators.AspNetCore
                       nameof(CommonPromptingAuthKeysStep),
                       data => nameof(CommonPromptingAuthKeysStep))
                   .Then<CommonWritingStep>()
-                  .Then<WorkFlowEndStepBase>();
+                  .Then<WorkflowEndStepBase>();
     }
 }
