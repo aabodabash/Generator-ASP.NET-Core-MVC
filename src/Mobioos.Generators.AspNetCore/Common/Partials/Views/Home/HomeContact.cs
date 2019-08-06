@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class HomeContact : TemplateBase
     {
-        public HomeContact(SmartAppInfo model) : base(model)
+        public HomeContact(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Home\\Contact.cshtml";
+        public override string OutputPath => "Views\\GeneratorHome\\Contact.cshtml";
     }
 }

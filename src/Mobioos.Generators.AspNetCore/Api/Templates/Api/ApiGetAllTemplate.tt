@@ -1,39 +1,101 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #>
-<#var action = (ApiActionInfo)Model;#>
-<#var lastEntity = Entities.LastOrDefault();#>
-<#var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault();#>
-<#var keyProperty = action.ReturnType?.AllProperties().FirstOrDefault(p=>p.IsKey);#>
-<#var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : "";#>
-<#if(string.IsNullOrEmpty(keyType)) { var reference = action.ReturnType?.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract); keyType = reference?.CSharpType(); keyProperty=reference?.Target.AllProperties()?.FirstOrDefault(p=>p.IsKey);}#>
-			try
-			{
-<#if(action.ReturnType != null){#>
-				var list = new List<<#=action.ReturnType.Id#>>();
-<#if(!string.IsNullOrEmpty(keyType)){#>
-				var result = _<#= keyType #>Service.GetAll();
-				if(result != null)
-				{
-					foreach(var item in result)
-					{
-						//Todo, put your mapping implementation here
-					}
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<#
+    var action = (ApiActionInfo)Model;
+    var viewModelsNamespace = $"{ApplicationId}.Backend.ViewModels";
 
-					return this.Ok(await Task.FromResult(list));
-				}
-			
-				return NotFound();
-<#}else{#>
-				return this.Ok(await Task.FromResult(list));
-<#}}else{#>
-				return NotFound();
-<#}#>
-			}
-			catch (Exception xcp)
-			{
-				//log error
-<#if(action.ReturnType !=null){#>
-				return Ok(Enumerable.Empty <<#= action.ReturnType.Id #>> ().AsQueryable());
-<#}else{#>
-				return NotFound();
-<#}#>
-			}
+    var firstParameter = action
+        .Parameters
+        .FirstOrDefault();
+
+    var keyProperty = action
+        .ReturnType?
+        .GetProperties()
+        .FirstOrDefault(p => p.IsKey);
+
+    var keyType = keyProperty != null ?
+        keyProperty
+            .ModelProperty?
+            .Substring(
+                0,
+                keyProperty.ModelProperty.IndexOf(".")) :
+        "";
+
+    if (string.IsNullOrEmpty(keyType))
+    {
+        var reference = action
+            .ReturnType?
+            .GetEntityDirectReferences()
+            .FirstOrDefault(p => !p.IsAbstract);
+
+        keyType = reference?
+            .Id?
+            .CSharpType();
+
+        keyProperty = reference?
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey);
+    }
+#>
+        {
+            try
+            {
+<#
+    if (action.ReturnType != null)
+    {
+        var returnType = $"{viewModelsNamespace}.{action.ReturnType.Id}";
+#>
+                var list = new List<<#= returnType #>>();
+<#
+        if (!string.IsNullOrEmpty(keyType))
+        {
+#>
+                var result = _<#= keyType #>Service.GetAll();
+
+                if (result != null)
+                {
+                    foreach (var item in result)
+                    {
+                        //Todo, put your mapping implementation here
+                    }
+
+                    return this.Ok(await Task.FromResult(list));
+                }
+
+                return NotFound();
+<#
+        }
+        else
+        {
+#>
+                return this.Ok(await Task.FromResult(list));
+<#
+        }
+    }
+    else
+    {
+#>
+                return NotFound();
+<#
+    }
+#>
+            }
+            catch (Exception xcp)
+            {
+                //log error
+<#
+    if (action.ReturnType != null)
+    {
+        var returnType = $"{viewModelsNamespace}.{action.ReturnType.Id}";
+#>
+                return Ok(Enumerable.Empty<<#= returnType #>>().AsQueryable());
+<#
+    }
+    else
+    {
+#>
+                return NotFound();
+<#
+    }
+#>
+            }
+        }

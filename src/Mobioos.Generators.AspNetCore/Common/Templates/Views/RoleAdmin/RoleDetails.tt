@@ -1,5 +1,5 @@
-﻿<#@ include file="..\..\..\..\Base\Templates\Include.tt" #>
-@model Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole
+﻿<#@ include file = "..\..\..\..\Base\Templates\Include.tt" #>
+@model Microsoft.AspNetCore.Identity.IdentityRole
 
 @{
     ViewBag.Title = "Details";
@@ -9,7 +9,7 @@
 
 <div>
     <h4>Roles.</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -22,7 +22,7 @@
 <h4>List of users in this role</h4>
 @if (ViewBag.UserCount == 0)
 {
-    <hr />
+    <hr/>
     <p>No users found in this role.</p>
 }
 
@@ -38,9 +38,14 @@
     }
 </table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(
+        "Edit",
+        "Edit",
+        new
+        {
+            id = Model.Id
+        }) |
+    @Html.ActionLink(
+        "Back to List",
+        "Index")
 </p>
-
-
-

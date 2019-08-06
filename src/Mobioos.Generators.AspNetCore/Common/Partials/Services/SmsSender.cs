@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class SmsSender : TemplateBase
     {
-        public SmsSender(SmartAppInfo model) : base(model)
+        public SmsSender(SmartAppInfo model)
+            : base(model)
         {
         }
 

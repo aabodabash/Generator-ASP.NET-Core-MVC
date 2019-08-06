@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ValidationScriptsPartial : TemplateBase
     {
-        public ValidationScriptsPartial(SmartAppInfo model) : base(model)
+        public ValidationScriptsPartial(SmartAppInfo model)
+            : base(model)
         {
         }
 

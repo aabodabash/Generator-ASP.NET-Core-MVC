@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class RoleDelete : TemplateBase
     {
-        public RoleDelete(SmartAppInfo model) : base(model)
+        public RoleDelete(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\RoleAdmin\\Delete.cshtml";
+        public override string OutputPath => "Views\\GeneratorRoleAdmin\\Delete.cshtml";
     }
 }

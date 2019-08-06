@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ViewImports : TemplateBase
     {
-        public ViewImports(SmartAppInfo model) : base(model)
+        public ViewImports(SmartAppInfo model)
+            : base(model)
         {
         }
 

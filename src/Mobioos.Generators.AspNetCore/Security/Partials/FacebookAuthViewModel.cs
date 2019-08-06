@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class FacebookAuthViewModel : TemplateBase
     {
-        public FacebookAuthViewModel(SmartAppInfo model) : base(model)
+        public FacebookAuthViewModel(SmartAppInfo model)
+            : base(model)
         {
         }
 

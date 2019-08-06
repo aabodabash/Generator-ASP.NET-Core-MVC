@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ManageVerifyPhoneNumber : TemplateBase
     {
-        public ManageVerifyPhoneNumber(SmartAppInfo model) : base(model)
+        public ManageVerifyPhoneNumber(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Manage\\VerifyPhoneNumber";
+        public override string OutputPath => "Views\\GeneratorManage\\VerifyPhoneNumber";
     }
 }

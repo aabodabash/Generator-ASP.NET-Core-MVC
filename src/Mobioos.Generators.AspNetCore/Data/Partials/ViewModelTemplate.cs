@@ -6,17 +6,19 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ViewModelTemplate : TemplateBase
     {
-        public ViewModelTemplate(EntityInfo model, string applicationId, string viewModelNamespace, IDictionary<string, string> referencedTypes) :
-            base(model, applicationId)
+        public string ViewModelNamespace { get; set; }
+        public IDictionary<string, string> ModelPropertiesTypes { get; set; }
+
+        public ViewModelTemplate(
+            EntityInfo model,
+            string applicationId,
+            string viewModelNamespace,
+            IDictionary<string, string> modelPropertiesTypes)
+            : base(model, applicationId)
         {
             ViewModelNamespace = viewModelNamespace;
-            ReferencedTypes = referencedTypes;
-
+            ModelPropertiesTypes = modelPropertiesTypes;
         }
-
-        public string ViewModelNamespace { get; set; }
-
-        public IDictionary<string, string> ReferencedTypes { get; set; }
 
         public override string OutputPath => "ViewModels";
     }

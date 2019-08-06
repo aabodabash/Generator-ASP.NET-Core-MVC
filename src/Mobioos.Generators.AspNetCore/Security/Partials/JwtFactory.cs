@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class JwtFactory : TemplateBase
     {
-        public JwtFactory(SmartAppInfo model) : base(model)
+        public JwtFactory(SmartAppInfo model)
+            : base(model)
         {
         }
 

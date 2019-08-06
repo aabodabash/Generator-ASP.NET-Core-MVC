@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class JwtIssuerOptions : TemplateBase
     {
-        public JwtIssuerOptions(SmartAppInfo model) : base(model)
+        public JwtIssuerOptions(SmartAppInfo model)
+            : base(model)
         {
         }
 

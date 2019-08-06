@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class HomeDashboard : TemplateBase
     {
-        public HomeDashboard(SmartAppInfo model) : base(model)
+        public HomeDashboard(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Home\\Dashboard.cshtml";
+        public override string OutputPath => "Views\\GeneratorHome\\Dashboard.cshtml";
     }
 }

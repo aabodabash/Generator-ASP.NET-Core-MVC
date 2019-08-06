@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class RoleIndex : TemplateBase
     {
-        public RoleIndex(SmartAppInfo model) : base(model)
+        public RoleIndex(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\RoleAdmin\\Index.cshtml";
+        public override string OutputPath => "Views\\GeneratorRoleAdmin\\Index.cshtml";
     }
 }

@@ -6,12 +6,15 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class StartupAuth : TemplateBase
     {
-        public StartupAuth(SmartAppInfo model, IDictionary<string, string> authenticationKeys) : base(model)
+        public IDictionary<string, string> AuthenticationKeys { get; private set; }
+
+        public StartupAuth(
+            SmartAppInfo model,
+            IDictionary<string, string> authenticationKeys)
+            : base(model)
         {
             AuthenticationKeys = authenticationKeys;
         }
-
-        public IDictionary<string, string> AuthenticationKeys { get; private set; }
 
         public override string OutputPath => "Startup.Auth.cs";
     }

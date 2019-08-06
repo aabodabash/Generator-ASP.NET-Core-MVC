@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class FacebookApiResponses : TemplateBase
     {
-        public FacebookApiResponses(SmartAppInfo model) : base(model)
+        public FacebookApiResponses(SmartAppInfo model)
+            : base(model)
         {
         }
 

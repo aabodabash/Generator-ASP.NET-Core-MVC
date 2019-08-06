@@ -1,11 +1,13 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using System.Threading.Tasks;
 
 namespace <#= model.Id #>.Backend.Infrastructure.Services
 {
     public interface ISmsSender
     {
-        Task SendSmsAsync(string number, string message);
+        Task SendSmsAsync(
+            string number,
+            string message);
     }
 }
-

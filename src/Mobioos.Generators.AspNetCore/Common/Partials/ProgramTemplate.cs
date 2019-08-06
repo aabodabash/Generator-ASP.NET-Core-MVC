@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ProgramTemplate : TemplateBase
     {
-        public ProgramTemplate(SmartAppInfo model) : base(model)
+        public ProgramTemplate(SmartAppInfo model)
+            : base(model)
         {
 
         }

@@ -1,28 +1,42 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var action = (ApiActionInfo)Model; #>
-<# var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); #>
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<#
+    var action = (ApiActionInfo)Model;
 
-			try
-			{
-<# if(firstParameter.DataModel?.PropertyTypes() != null) {#>
-<# foreach(var entity in firstParameter.DataModel.PropertyTypes()) { #>
-				var <#= entity.Key #> =  <#= firstParameter.Id #>.Get<#=entity.Key #>FromViewModel();
-				await _<#= entity.Key #>Service.Save(<#= entity.Key #>);
-<#}#>
-<#}#>
-<#if(firstParameter.DataModel?.ReferencedTypes() != null){#>
-<# foreach(var entity in firstParameter.DataModel.ReferencedTypes()) { #>
-				var <#= entity.Key #> =  <#= firstParameter.Id #>.Get<#= entity.Key #>FromViewModel();
-				await _<#= entity.Key #>Service.Save(<#= entity.Key #>);
-<#}#>
-<#}#>
+    var firstParameter = action
+        .Parameters
+        .FirstOrDefault();
+#>
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-				return this.Ok(true);
-			}
-			catch (Exception xcp) {
-				//log exception
-				return StatusCode((int)HttpStatusCode.InternalServerError);
-			}
+            try
+            {
+<#
+
+    foreach (var entity in firstParameter.DataModel.ModelPropertiesTypes())
+    {
+#>
+                await _<#= entity.Key.ToCamelCase() #>Service.Save(
+                    <#= firstParameter.Id #>.Get<#= entity.Key #>FromViewModel());
+<#
+    }
+
+    foreach (var entity in firstParameter.DataModel.GetEntityDirectReferences())
+    {
+#>
+                await _<#= entity.Id.ToCamelCase() #>Service.Save(
+                    <#= firstParameter.Id #>.Get<#= entity.Id #>FromViewModel());
+<#
+    }
+#>
+
+                return this.Ok(true);
+            }
+            catch (Exception xcp)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }

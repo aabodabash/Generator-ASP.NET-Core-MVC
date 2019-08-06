@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ViewStart : TemplateBase
     {
-        public ViewStart(SmartAppInfo model) : base(model)
+        public ViewStart(SmartAppInfo model)
+            : base(model)
         {
         }
 

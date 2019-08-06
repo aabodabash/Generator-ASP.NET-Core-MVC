@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class Login : TemplateBase
     {
-        public Login(SmartAppInfo model) : base(model)
+        public Login(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\Login.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\Login.cshtml";
     }
 }

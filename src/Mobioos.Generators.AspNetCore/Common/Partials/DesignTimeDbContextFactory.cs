@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class DesignTimeDbContextFactory : TemplateBase
     {
-        public DesignTimeDbContextFactory(SmartAppInfo model) : base(model)
+        public DesignTimeDbContextFactory(SmartAppInfo model)
+            : base(model)
         {
         }
 

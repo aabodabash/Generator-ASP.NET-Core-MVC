@@ -1,4 +1,8 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (SmartAppInfo)Model;
+    var models = model.GetModels();
+#>
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
@@ -6,43 +10,111 @@ using <#= model.Id #>.Backend.DataModels;
 
 namespace <#= model.Id #>.Backend.Models
 {
-	public partial class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-		{
-		}
+    public partial class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
 
-		protected override void OnModelCreating(ModelBuilder builder)
-		{
-			builder.Entity<IdentityUserLogin<string>>().HasKey(e => new { e.UserId });
-            builder.Entity<IdentityUserRole<string>>().HasKey(e => new { e.RoleId });
-            builder.Entity<IdentityUserToken<string>>().HasKey(e => new { e.UserId });
-			<# if(model.DataModel != null && model.DataModel.Entities != null){ #>
-				<# foreach(var entity in model.DataModel.Entities) {
-					var primaryKey = entity.AllProperties()?.FirstOrDefault(p => p.IsKey);
-					if(!entity.IsAbstract && !entity.IsEnum && primaryKey != null) { var lastKey = entity.AllProperties().Where(p=>p.IsKey).LastOrDefault(); #>
-			builder.Entity<<#= entity.Id #>>().HasKey(e => new { <# foreach(var key in entity.AllProperties().Where(p=>p.IsKey)) {#> e.<#= key.Id#> <# if (!key.Equals(lastKey)) {#>,<#}#>  <# }#>});
-			<# } 
-			 } 
-			}
-			#>
-		}
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder
+                .Entity<IdentityUserLogin<string>>()
+                .HasKey(e => new
+                {
+                    e.UserId
+                });
 
+            builder
+                .Entity<IdentityRole>()
+                .HasKey(e => new
+                {
+                    e.Id
+                });
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            builder
+                .Entity<IdentityUserRole<string>>()
+                .HasKey(e => new
+                {
+                    e.RoleId,
+                    e.UserId
+                });
+
+            builder
+                .Entity<IdentityUserToken<string>>()
+                .HasKey(e => new
+                {
+                    e.UserId
+                });
+
+<#
+    if (models != null)
+    {
+        foreach (var entity in models)
+        {
+            var primaryKey = entity
+                .GetProperties()?
+                .FirstOrDefault(p => p.IsKey);
+
+            if (!entity.IsAbstract
+                && !entity.IsEnum
+                && !entity.IsInherited(models)
+                && primaryKey != null)
+            {
+                var lastKey = entity
+                    .GetProperties()
+                    .Where(p => p.IsKey)
+                    .LastOrDefault();
+#>
+            builder
+                .Entity<<#= entity.Id #>>()
+                .HasKey(e => new
+                {
+<#
+                foreach (var key in entity
+                    .GetProperties()
+                    .Where(p => p.IsKey))
+                {
+#>
+                    e.<#= key.Id.ToPascalCase() #><#= !key.Equals(lastKey) ? " ," : "" #>
+<#
+                }
+#>
+                });
+<#
+            }
+        }
+    }
+#>
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
         }
 
-<# if(model.DataModel != null && model.DataModel.Entities != null){ #>
-		<# foreach(var entity in model.DataModel.Entities) {
-		var key = entity.AllProperties()?.FirstOrDefault(p => p.IsKey);
-		if(!entity.IsAbstract && !entity.IsEnum && key != null) { #>
-		public DbSet<<#=entity.Id#>> <#=entity.Id#>s { get; set; }
-		<# } 
-		 } 
-	    }
-		#>
-		
-	}
+<#
+    if (models != null)
+    {
+        foreach (var entity in models)
+        {
+            var key = entity
+                .GetProperties()?
+                .FirstOrDefault(p => p.IsKey);
+
+            if (!entity.IsAbstract
+                && !entity.IsEnum
+                && !entity.IsInherited(models)
+                && key != null)
+            {
+#>
+
+        public DbSet<<#= entity.Id #>> <#= entity.Id #> { get; set; }
+<#
+            }
+        }
+    }
+#>
+    }
 }

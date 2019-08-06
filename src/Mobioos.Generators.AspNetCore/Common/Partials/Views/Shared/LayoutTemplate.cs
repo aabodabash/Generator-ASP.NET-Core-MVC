@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class LayoutTemplate : TemplateBase
     {
-        public LayoutTemplate(SmartAppInfo model) : base(model)
+        public LayoutTemplate(SmartAppInfo model)
+            : base(model)
         {
         }
 

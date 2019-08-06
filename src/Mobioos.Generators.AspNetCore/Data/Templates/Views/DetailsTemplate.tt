@@ -1,5 +1,6 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; #>
-@model <#= ApplicationId #>.Backend.DataModels.<#=model.Id#>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (EntityInfo)Model; #>
+@model <#= ApplicationId #>.Backend.DataModels.<#= model.Id.ToPascalCase() #>
 
 @{
     ViewBag.Title = "Details";
@@ -9,20 +10,34 @@
 <h2>Details</h2>
 
 <div>
-    <h4><#=model.Id#></h4>
-    <hr />
+    <h4><#= model.Id.ToPascalCase() #></h4>
+    <hr/>
     <dl class="dl-horizontal">
-		<# foreach(var property in model.AllProperties()){#>
-		<dt>
-            @Html.DisplayNameFor(m => m.<#= property.Id #>)
+<#
+        foreach (var property in model.GetProperties())
+        {
+            var propertyId = property.Id.ToPascalCase();
+#>
+        <dt>
+            @Html.DisplayNameFor(m => m.<#= propertyId #>)
         </dt>
         <dd>
-            @Html.DisplayFor(m => m.<#= property.Id #>)
+            @Html.DisplayFor(m => m.<#= propertyId #>)
         </dd>
-		<#}#>
+<#
+        }
+#>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(
+        "Edit",
+        "Edit",
+        new
+        {
+            id = Model.Id
+        }) |
+    @Html.ActionLink(
+        "Back to List",
+        "Index")
 </p>

@@ -1,58 +1,72 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; #>
-using System; 
-using System.Collections.Generic; 
-using System.Linq; 
-using System.Threading.Tasks; 
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (EntityInfo)Model;
+    var key = ((EntityInfo)Model).GetProperties() != null ?
+        ((EntityInfo)Model)
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey) :
+        null;
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using <#= ApplicationId #>.Backend.DataModels;
 using <#= ApplicationId #>.Backend.Models;
 using <#= ApplicationId #>.Backend.Repositories;
 
 namespace <#= ApplicationId #>.Backend.Services
-{ 
-    public class <#= model.Id #>Service : I<#= model.Id #>Service
-    { 
-        private readonly I<#= model.Id #>Repository _repository; 
- 
-        public <#= model.Id #>Service(I<#= model.Id #>Repository repository) 
-        { 
-            _repository = repository; 
-        }
+{
+    public class <#= model.Id #>Service : I<#= model.Id #>Service
+    {
+        private readonly I<#= model.Id #>Repository _repository;
 
-        public IQueryable<<#= model.Id #>> GetAll() 
-        { 
-            return _repository.GetAllWithReferences(); 
-        } 
-        
-		public async Task<<#= model.Id #>> GetById(<#= key.CSharpType() #> id)
+        public <#= model.Id #>Service(I<#= model.Id #>Repository repository)
+        {
+            _repository = repository;
+        }
+
+        public IQueryable<<#= model.Id #>> GetAll()
+        {
+            return _repository.GetAllWithReferences();
+        }
+
+        public async Task<<#= model.Id #>> GetById(<#= key.CSharpType() #> id)
         {
             return await _repository.GetByIdWithReferences(id);
         }
 
-        public async Task Save(<#= model.Id #> entity) 
-        { 
-            if (entity == null) 
-            { 
-                throw new ArgumentNullException(nameof(entity)); 
-            }
+        public async Task Save(<#= model.Id #> entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
 
-			var oldEntity = await GetById(entity.<#= key.Id #>);
+            var oldEntity = await GetById(entity.<#= key.Id.ToPascalCase() #>);
 
-			if(oldEntity == null)
-           		await _repository.Insert(entity); 
-			else
-            	await _repository.Update(oldEntity, entity); 
-        } 
- 
-        public async Task Delete(<#= key.CSharpType() #> id) 
-        { 
-			var entity = await GetById(id);
+            if (oldEntity == null)
+            {
+                await _repository.Insert(entity);
+            }
+            else
+            {
+                await _repository.Update(
+                    oldEntity,
+                    entity);
+            }
+        }
 
-            if (entity == null) 
-            { 
-                throw new ArgumentNullException(nameof(entity)); 
-            } 
+        public async Task Delete(<#= key.CSharpType() #> id)
+        {
+            var entity = await GetById(id);
 
-            await _repository.Delete(entity); 
-        } 
-    } 
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            await _repository.Delete(entity);
+        }
+    }
 }

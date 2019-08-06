@@ -6,12 +6,15 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class AppSettingsTemplate : TemplateBase
     {
-        public AppSettingsTemplate(SmartAppInfo model, IDictionary<string, string> authenticationKeys) : base(model)
+        public IDictionary<string, string> AuthenticationKeys { get; private set; }
+
+        public AppSettingsTemplate(
+            SmartAppInfo model,
+            IDictionary<string, string> authenticationKeys)
+            : base(model)
         {
             AuthenticationKeys = authenticationKeys;
         }
-
-        public IDictionary<string, string> AuthenticationKeys { get; private set; }
 
         public override string OutputPath => "appsettings.json";
     }

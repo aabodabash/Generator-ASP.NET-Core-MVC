@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class LoginPartial : TemplateBase
     {
-        public LoginPartial(SmartAppInfo model) : base(model)
+        public LoginPartial(SmartAppInfo model)
+            : base(model)
         {
         }
 

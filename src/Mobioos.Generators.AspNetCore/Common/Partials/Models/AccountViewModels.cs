@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class AccountViewModels : TemplateBase
     {
-        public AccountViewModels(SmartAppInfo model) : base(model)
+        public AccountViewModels(SmartAppInfo model)
+            : base(model)
         {
         }
 

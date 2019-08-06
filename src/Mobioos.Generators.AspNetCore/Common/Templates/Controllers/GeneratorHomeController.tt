@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace <#= model.Id #>.Backend.Controllers
 {
-    public partial class HomeController : Controller
+    public partial class GeneratorHomeController : Controller
     {
         public ActionResult Index()
         {

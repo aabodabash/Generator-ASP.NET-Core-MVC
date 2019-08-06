@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class AuthSettings : TemplateBase
     {
-        public AuthSettings(SmartAppInfo model) : base(model)
+        public AuthSettings(SmartAppInfo model)
+            : base(model)
         {
         }
 

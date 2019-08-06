@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ForgotPassword : TemplateBase
     {
-        public ForgotPassword(SmartAppInfo model) : base(model)
+        public ForgotPassword(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\ForgotPassword.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\ForgotPassword.cshtml";
     }
 }

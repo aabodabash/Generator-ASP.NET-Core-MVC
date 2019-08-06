@@ -5,8 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class CreateTemplate : TemplateBase
     {
-        public CreateTemplate(EntityInfo model, string applicationId) : base(model, applicationId)
+        public CreateTemplate(
+            EntityInfo model,
+            string applicationId)
+            : base(model, applicationId)
         {
+
         }
 
         public override string OutputPath => "Views";

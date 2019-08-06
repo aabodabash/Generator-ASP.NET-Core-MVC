@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ManageViewModels : TemplateBase
     {
-        public ManageViewModels(SmartAppInfo model) : base(model)
+        public ManageViewModels(SmartAppInfo model)
+            : base(model)
         {
         }
 

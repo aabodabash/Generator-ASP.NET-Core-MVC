@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ServiceContext: TemplateBase
     {
-        public ServiceContext(SmartAppInfo model):base(model)
+        public ServiceContext(SmartAppInfo model)
+            : base(model)
         {
 
         }

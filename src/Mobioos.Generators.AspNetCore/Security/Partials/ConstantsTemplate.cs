@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ConstantsTemplate : TemplateBase
     {
-        public ConstantsTemplate(SmartAppInfo model) : base(model)
+        public ConstantsTemplate(SmartAppInfo model)
+            : base(model)
         {
         }
 

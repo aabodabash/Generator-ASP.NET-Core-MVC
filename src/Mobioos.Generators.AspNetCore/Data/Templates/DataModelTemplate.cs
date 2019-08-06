@@ -13,8 +13,8 @@ namespace Mobioos.Generators.AspNetCore
     using System.Text;
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
-    using Mobioos.Foundation.Jade.Extensions;
     using Mobioos.Scaffold.BaseGenerators.TextTemplating;
+    using Common.Generator.Framework.Extensions;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class DataModelTemplate : TemplateBase
     {
@@ -32,9 +32,8 @@ namespace Mobioos.Generators.AspNetCore
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n");
             
-            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
  var model = (EntityInfo)Model; 
             
             #line default
@@ -42,280 +41,285 @@ namespace Mobioos.Generators.AspNetCore
             this.Write("using System.Collections.Generic;\r\nusing System;\r\nusing System.ComponentModel.Dat" +
                     "aAnnotations;\r\nusing System.ComponentModel.DataAnnotations.Schema;\r\nusing ");
             
-            #line 6 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 7 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.DataModels;\r\n\r\nnamespace ");
             
-            #line 8 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ApplicationId));
             
             #line default
             #line hidden
             this.Write(".Backend.");
             
-            #line 8 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 9 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DataNamespace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n\tpublic ");
+            this.Write("\r\n{\r\n    public ");
             
-            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-if(model.IsAbstract){
-            
-            #line default
-            #line hidden
-            this.Write("abstract");
-            
-            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-}
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.IsAbstract ? "abstract" : ""));
             
             #line default
             #line hidden
             this.Write(" partial class ");
             
-            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.BaseEntity !=null ? ": "+ model.BaseEntity.Id : ""));
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.BaseEntity != null ? $": {model.BaseEntity.Id}" : ""));
             
             #line default
             #line hidden
-            this.Write("\r\n\t{\r\n\t\tpublic ");
+            this.Write("\r\n    {\r\n        public ");
             
-            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
-            this.Write("() ");
+            this.Write("()");
             
-            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.BaseEntity !=null ? ": base()" : ""));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\t\t{\r\n\t\t}\r\n");
-            
-            #line 15 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- if (model.Properties != null) {
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.BaseEntity != null ? " : base()" : ""));
             
             #line default
             #line hidden
+            this.Write("\r\n        {\r\n        }\r\n");
             
-            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- foreach(var prop in model.Properties) {
+            #line 16 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+    if (model.Properties != null)
+    {
+        foreach (var prop in model.Properties)
+        {
+
             
             #line default
             #line hidden
-            this.Write("\r\n\t\tpublic ");
             
-            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(prop.IsKey ? "\n        [Key]" : ""));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n        public ");
+            
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.CSharpType()));
             
             #line default
             #line hidden
             
-            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.IsNullable? "?" : ""));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(prop.Id));
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(prop.Id.ToPascalCase()));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n\r\n");
+            this.Write(" { get; set; }\r\n");
             
-            #line 20 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- } }
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+        }
+    }
+
+    if (model.References != null
+        && model.References.Count() > 0)
+    {
+        foreach (var reference in model.References)
+        {
+            if (reference.IsCollection)
+            {
+
             
             #line default
             #line hidden
+            this.Write("\r\n        private HashSet<");
             
-            #line 21 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- if(model.References !=null && model.References.Count() > 0) {
-foreach(var reference in model.References) {
-if(reference.IsCollection){ 
-            
-            #line default
-            #line hidden
-            this.Write("\t\tprivate HashSet<");
-            
-            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Type));
             
             #line default
             #line hidden
             this.Write("> _");
             
-            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
+            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id.ToCamelCase()));
             
             #line default
             #line hidden
-            this.Write(";\r\n\r\n\t\t");
+            this.Write(";\r\n\r\n");
             
-            #line 26 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-if(reference.Target!=null && reference.Target.IsAbstract){
-            
-            #line default
-            #line hidden
-            this.Write("\t\t[NotMapped]\r\n\t\t");
-            
-            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-}
+            #line 39 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+                if (reference.Target != null
+                    && reference.Target.IsAbstract)
+                {
+
             
             #line default
             #line hidden
-            this.Write("\t\tpublic HashSet<");
+            this.Write("        [NotMapped]\r\n");
             
-            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 45 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+                }
+
+            
+            #line default
+            #line hidden
+            this.Write("        public HashSet<");
+            
+            #line 48 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Type));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
+            #line 48 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id.ToPascalCase()));
             
             #line default
             #line hidden
-            this.Write(" { get { return _");
+            this.Write("\r\n        {\r\n            get\r\n            {\r\n                return _");
             
-            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
+            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id.ToCamelCase()));
             
             #line default
             #line hidden
-            this.Write(" ??(_");
+            this.Write(" ?? (_");
             
-            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
+            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(" = new HashSet<");
             
-            #line 29 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Type));
             
             #line default
             #line hidden
-            this.Write(">()); }}\r\n\r\n");
+            this.Write(">());\r\n            }\r\n        }\r\n");
             
-            #line 31 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-}
-else {
-            
-            #line default
-            #line hidden
-            this.Write("\t\t");
-            
-            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- var referenceKey = reference.Reference?.Properties.FirstOrDefault(p => p.IsKey); 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t");
-            
-            #line 34 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-if(reference.Target!=null && reference.Target.IsAbstract){
+            #line 55 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+            }
+            else
+            {
+
+                var referenceKey = reference
+                    .Reference?
+                    .Properties
+                    .FirstOrDefault(p => p.IsKey);
+
+                if (reference.Target != null
+                    && reference.Target.IsAbstract)
+                {
+
             
             #line default
             #line hidden
-            this.Write("\t\t[NotMapped]\r\n\t\t");
+            this.Write("        [NotMapped]\r\n");
             
-            #line 36 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-}
-            
-            #line default
-            #line hidden
-            this.Write("\t\t");
-            
-            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- if(referenceKey != null) { 
+            #line 70 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+                }
+
+                if (referenceKey != null)
+                {
+
             
             #line default
             #line hidden
-            this.Write("\t\t[ForeignKey(\"");
+            this.Write("        [ForeignKey(\"");
             
-            #line 38 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 76 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Type));
             
             #line default
             #line hidden
-            this.Write("\")]\r\n\t\tpublic ");
+            this.Write("\")]\r\n        public ");
             
-            #line 39 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 77 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(referenceKey.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 39 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
+            #line 77 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id.ToPascalCase()));
             
             #line default
             #line hidden
-            this.Write("RefId { get; set; }\r\n\t\t");
+            this.Write("RefId { get; set; }\r\n");
             
-            #line 40 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- } 
+            #line 78 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+                }
+
             
             #line default
             #line hidden
-            this.Write("\t\tpublic virtual ");
+            this.Write("        public virtual ");
             
-            #line 41 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
+            #line 81 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reference.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 41 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id));
+            #line 81 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(reference.Id.ToPascalCase()));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n\r\n");
+            this.Write(" { get; set; }\r\n");
             
-            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-}
-}
-}
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 47 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
- if (model.BaseEntity==null) {
+            #line 82 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+            }
+        }
+    }
+
+    if (model.BaseEntity == null)
+    {
+
             
             #line default
             #line hidden
-            this.Write("\t\t[Timestamp]\r\n\t\tpublic new byte[] RawVersion { get; set; }\r\n");
+            this.Write("\r\n        [Timestamp]\r\n        public byte[] RawVersion { get; set; }\r\n");
             
-            #line 50 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Data\Templates\DataModelTemplate.tt"
-}
+            #line 93 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Data\Templates\DataModelTemplate.tt"
+
+    }
+
             
             #line default
             #line hidden
-            this.Write("\t}\r\n}");
+            this.Write("    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

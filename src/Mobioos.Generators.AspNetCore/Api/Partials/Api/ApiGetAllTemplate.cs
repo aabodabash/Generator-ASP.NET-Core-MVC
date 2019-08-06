@@ -6,12 +6,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ApiGetAllTemplate : TemplateBase
     {
-        public ApiGetAllTemplate(ApiActionInfo model, IDictionary<string, string> entities) :
-            base(model)
+        public ApiGetAllTemplate(
+            ApiActionInfo model,
+            string applicationId)
+            : base(model, applicationId)
         {
-            Entities = entities;
-        }
 
-        public IDictionary<string, string> Entities { get; set; }
+        }
     }
 }

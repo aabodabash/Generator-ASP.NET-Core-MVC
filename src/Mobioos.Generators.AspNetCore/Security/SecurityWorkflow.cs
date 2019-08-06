@@ -5,7 +5,9 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [Workflow(Id = "AspNetCoreSecurityWorkflow", Order = 4)]
+    [Workflow(
+        Id = "AspNetCoreSecurityWorkflow",
+        Order = 4)]
     public class SecurityWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreSecurityWorkflow";

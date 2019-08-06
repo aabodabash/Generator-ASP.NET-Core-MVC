@@ -5,9 +5,13 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class DataRepository : TemplateBase
     {
-        public DataRepository(EntityInfo model, string applicationId, string version) :
-            base(model, applicationId, version)
+        public DataRepository(
+            EntityInfo model,
+            string applicationId,
+            string version)
+            : base(model, applicationId, version)
         {
+
         }
 
         public override string OutputPath => "Repositories";

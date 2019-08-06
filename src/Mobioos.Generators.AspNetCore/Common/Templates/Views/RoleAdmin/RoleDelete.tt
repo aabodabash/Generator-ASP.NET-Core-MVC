@@ -1,5 +1,5 @@
-﻿<#@ include file="..\..\..\..\Base\Templates\Include.tt" #>
-@model Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole
+﻿<#@ include file = "..\..\..\..\Base\Templates\Include.tt" #>
+@model Microsoft.AspNetCore.Identity.IdentityRole
 
 @{
     ViewBag.Title = "Delete";
@@ -11,7 +11,7 @@
 <p>Deleting this Role will remove all users from this role. It will not delete the users.</p>
 <div>
     <h4>Role.</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -26,8 +26,13 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input
+                type="submit"
+                value="Delete"
+                class="btn btn-default" /> |
+            @Html.ActionLink(
+                "Back to List",
+                "Index")
         </div>
     }
 </div>

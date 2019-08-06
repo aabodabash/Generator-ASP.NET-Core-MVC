@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class SendCode : TemplateBase
     {
-        public SendCode(SmartAppInfo model) : base(model)
+        public SendCode(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\SendCode.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\SendCode.cshtml";
     }
 }

@@ -5,8 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ApiPutTemplate : TemplateBase
     {
-        public ApiPutTemplate(ApiActionInfo model) :
-            base(model)
+        public ApiPutTemplate(ApiActionInfo model)
+            : base(model)
         {
         }
     }

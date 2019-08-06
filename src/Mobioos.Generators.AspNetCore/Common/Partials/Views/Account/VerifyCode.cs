@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class VerifyCode : TemplateBase
     {
-        public VerifyCode(SmartAppInfo model) : base(model)
+        public VerifyCode(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\VerifyCode.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\VerifyCode.cshtml";
     }
 }

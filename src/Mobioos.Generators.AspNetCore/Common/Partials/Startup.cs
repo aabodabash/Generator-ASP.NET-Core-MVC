@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class Startup : TemplateBase
     {
-        public Startup(SmartAppInfo model) : base(model)
+        public Startup(SmartAppInfo model)
+            : base(model)
         {
         }
 

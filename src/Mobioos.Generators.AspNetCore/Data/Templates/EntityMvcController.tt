@@ -1,4 +1,12 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (EntityInfo)Model;
+    var key = ((EntityInfo)Model).GetProperties() != null ?
+        ((EntityInfo)Model)
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey) :
+        null;
+#>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,38 +19,45 @@ using <#= ApplicationId #>.Backend.Controllers;
 using <#= ApplicationId #>.Backend.Models;
 using <#= ApplicationId #>.Backend.Services;
 
-
 namespace <#= ApplicationId #>.Backend.Controllers
 {
     public partial class <#= model.Id #>Controller : ControllerBase<<#= model.Id #>>
     {
-
         private I<#= model.Id #>Service _<#= model.Id #>Service;
 
         public <#= model.Id #>Controller(I<#= model.Id #>Service <#= model.Id #>Service)
         {
-			_<#= model.Id #>Service = <#= model.Id #>Service;
+            _<#= model.Id #>Service = <#= model.Id #>Service;
         }
-	
-		<#var properties = model.Properties != null ? string.Join(",",model.Properties.Select(p=>p.Id).ToArray()) + ",RawVersion" : ""; #>
+<#
+    var properties = model.Properties != null ?
+        string.Join(
+            ",",
+            model
+                .Properties
+                .Select(p => p.Id)
+                .ToArray()) + ", RawVersion" :
+        "";
+#>
 
-		// GET: <#=model.Id#>
+        // GET: <#= model.Id #>
         public async Task<IActionResult> Index()
         {
             return View((_<#= model.Id #>Service.GetAll()).AsQueryable());
         }
 
-
-		// GET:<#=model.Id#>/Details/5
+        // GET:<#= model.Id #>/Details/5
         public async Task<IActionResult> Details(<#= key.CSharpType() #> id)
         {
             var entity = await _<#= model.Id #>Service.GetById(id);
+
             if (entity == null)
             {
                 return NotFound();
             }
+
             return View(entity);
-        }        
+        }
 
         // GET: <entity>/Create
         public IActionResult Create()
@@ -50,14 +65,14 @@ namespace <#= ApplicationId #>.Backend.Controllers
             return View();
         }
 
-		
-
-		// POST: <#=model.Id#>/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // POST: <#= model.Id #>/Create
+        // To protect from overposting attacks, please enable the
+        // specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual async  Task<IActionResult> Create([Bind("<#= properties#>")] <#=model.Id#> entity)
+        public virtual async Task<IActionResult> Create(
+            [Bind("<#= properties #>")] <#= model.Id #> entity)
         {
             if (ModelState.IsValid)
             {
@@ -67,46 +82,52 @@ namespace <#= ApplicationId #>.Backend.Controllers
 
             return View(entity);
         }
-      
-		// GET: <#=model.Id#>/Edit/5
+
+        // GET: <#= model.Id #>/Edit/5
         public async Task<IActionResult> Edit(<#= key.CSharpType() #> id)
         {
             var entity = await _<#= model.Id #>Service.GetById(id);
+
             if (entity == null)
             {
                 return NotFound();
             }
+
             return View(entity);
         }
 
-		// POST: <#=model.Id#>/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // POST: <#= model.Id #>/Edit/5
+        // To protect from overposting attacks, please enable the specific
+        // properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual async Task<IActionResult> Edit([Bind("<#= properties #>")] <#=model.Id#> entity)
+        public virtual async Task<IActionResult> Edit(
+            [Bind("<#= properties #>")] <#= model.Id #> entity)
         {
             if (ModelState.IsValid)
             {
                 await _<#= model.Id #>Service.Save(entity);
                 return RedirectToAction("Index");
             }
+
             return View(entity);
         }
 
-
-		 // GET: <#=model.Id#>/Delete/5
+         // GET: <#= model.Id #>/Delete/5
         public async Task<IActionResult> Delete(<#= key.CSharpType() #> id)
         {
             var entity = await _<#= model.Id #>Service.GetById(id);
+
             if (entity == null)
             {
                 return NotFound();
             }
+
             return View(entity);
         }
 
-        // POST: <#=model.Id#>/Delete/5
+        // POST: <#= model.Id #>/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(<#= key.CSharpType() #> id)

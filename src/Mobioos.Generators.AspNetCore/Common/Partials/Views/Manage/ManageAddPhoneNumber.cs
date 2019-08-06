@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ManageAddPhoneNumber : TemplateBase
     {
-        public ManageAddPhoneNumber(SmartAppInfo model) : base(model)
+        public ManageAddPhoneNumber(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Manage\\AddPhoneNumber.cshtml";
+        public override string OutputPath => "Views\\GeneratorManage\\AddPhoneNumber.cshtml";
     }
 }

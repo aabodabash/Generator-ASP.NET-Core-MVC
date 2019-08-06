@@ -1,48 +1,65 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (SmartAppInfo)Model;
+    var models = model.GetModels();
+#>
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using <#=model.Id#>.Backend.DataModels;
+using <#= model.Id #>.Backend.DataModels;
 
 namespace <#= model.Id #>.Backend.Models
 {
     public partial class MobileServiceContext : DbContext
-	{
-		// You can add custom code to this file. Changes will not be overwritten.
-		// 
-		// If you want Entity Framework to alter your database
-		// automatically whenever you change your model schema, please use data migrations.
-		// For more information refer to the documentation:
-		// http://msdn.microsoft.com/en-us/data/jj591621.aspx
-		//
-		// To enable Entity Framework migrations in the cloud, please ensure that the 
-		// service name, set by the 'MS_MobileServiceName' AppSettings in the local 
-		// Web.config, is the same as the service name when hosted in Azure.
+    {
+        // You can add custom code to this file. Changes will not be overwritten.
+        //
+        // If you want Entity Framework to alter your database
+        // automatically whenever you change your model schema, please use data migrations.
+        // For more information refer to the documentation:
+        // http://msdn.microsoft.com/en-us/data/jj591621.aspx
+        //
+        // To enable Entity Framework migrations in the cloud, please ensure that the
+        // service name, set by the 'MS_MobileServiceName' AppSettings in the local
+        // Web.config, is the same as the service name when hosted in Azure.
 
-		private const string connectionStringName = "Name=MS_TableConnectionString";
+        private const string connectionStringName = "Name=MS_TableConnectionString";
 
-		public MobileServiceContext() : base(connectionStringName)
-		{
-		}
+        public MobileServiceContext()
+            : base(connectionStringName)
+        {
+        }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            /*
+            string schema = ServiceSettingsDictionary.GetSchemaName();
 
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
-		{
-			/*string schema = ServiceSettingsDictionary.GetSchemaName();
-			if (!string.IsNullOrEmpty(schema))
-			{
-				modelBuilder.HasDefaultSchema(schema);
-			}
+            if (!string.IsNullOrEmpty(schema))
+            {
+                modelBuilder.HasDefaultSchema(schema);
+            }
 
-			modelBuilder.Conventions.Add(
-				new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
-					"ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));*/
-		}
-        
-		<# if (model.DataModel != null && model.DataModel.Entities != null) {#>
-		<# foreach(var entity in model.DataModel.Entities){#>
-		public DbSet<<#= entity.Id #>> <#= entity.Id #>s { get; set; }
-		<#}
-	    }
-		#>
+            modelBuilder.Conventions.Add(
+                new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
+                    "ServiceTableColumn",
+                    (property, attributes) =>
+                        attributes
+                            .Single()
+                            .ColumnType
+                            .ToString()));
+            */
+        }
+<#
+    if (models != null)
+    {
+
+        foreach (var entity in models)
+        {
+#>
+        public DbSet<<#= entity.Id #>> <#= entity.Id #>s { get; set; }
+<#
+        }
+    }
+#>
     }
 }

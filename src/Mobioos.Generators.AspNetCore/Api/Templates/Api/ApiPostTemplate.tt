@@ -1,30 +1,53 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var action = (ApiActionInfo)Model; #>
-<# var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); #>
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<#
+    var action = (ApiActionInfo)Model;
 
-			try
-			{
-<# if(firstParameter.DataModel?.PropertyTypes() != null) {#>
-<# foreach(var entity in firstParameter.DataModel.PropertyTypes()) { #>
-<# if (firstParameter != null && !string.IsNullOrEmpty(firstParameter.Id)) {#>
-				var <#= entity.Key #> =  <#= firstParameter.Id #>.Get<#= entity.Key #>FromViewModel();
-				await _<#= entity.Key #>Service.Save(<#= entity.Key #> );
-<#}}#>
-<#}#>
-<# if(firstParameter.DataModel?.ReferencedTypes() != null) {#>
-<# foreach(var entity in firstParameter.DataModel.ReferencedTypes()) { #>
-<# if (firstParameter != null && !string.IsNullOrEmpty(firstParameter.Id) && !firstParameter.DataModel.PropertyTypes().Keys.Contains(entity.Key)) {#>
-				var <#= entity.Key #>  =  <#= firstParameter.Id #>.Get<#=entity.Key #>FromViewModel();
-				await _<#= entity.Key #>Service.Save(<#= entity.Key #> );
-<#}}#>
-<#}#>
+    var firstParameter = action
+        .Parameters
+        .FirstOrDefault();
+#>
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-				return this.Ok(true);
-			}
-			catch (Exception xcp) {
-				//log exception
-				return StatusCode((int)HttpStatusCode.InternalServerError);
-			}
+            try
+            {
+<#
+    foreach (var entity in firstParameter.DataModel.ModelPropertiesTypes())
+    {
+        if (firstParameter != null
+            && !string.IsNullOrEmpty(firstParameter.Id))
+        {
+#>
+                await _<#= entity.Key.ToCamelCase() #>Service.Save(
+                    <#= firstParameter.Id #>.Get<#= entity.Key #>FromViewModel());
+<#
+        }
+    }
+
+    foreach (var entity in firstParameter.DataModel.GetEntityDirectReferences())
+    {
+        if (firstParameter != null
+            && !string.IsNullOrEmpty(firstParameter.Id)
+            && !firstParameter
+                .DataModel
+                .ModelPropertiesTypes()
+                .Keys.Contains(entity.Id))
+        {
+#>
+                await _<#= entity.Id.ToCamelCase() #>Service.Save(
+                    <#= firstParameter.Id #>.Get<#= entity.Id #>FromViewModel());
+<#
+        }
+    }
+#>
+                return this.Ok(true);
+            }
+            catch (Exception xcp)
+            {
+                //log exception
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }

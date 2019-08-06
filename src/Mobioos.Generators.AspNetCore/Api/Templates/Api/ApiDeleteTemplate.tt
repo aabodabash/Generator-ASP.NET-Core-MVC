@@ -1,28 +1,74 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt"#><#var action = (ApiActionInfo)Model;#>
-<#var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault();#>
-<#var keyProperty = firstParameter?.DataModel?.AllProperties()?.FirstOrDefault(p=>p.IsKey);#>
-<#var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : "";#>
-<#if(string.IsNullOrEmpty(keyType)) { var reference = action.ReturnType?.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract); keyType = reference?.CSharpType(); keyProperty=reference?.Target.AllProperties()?.FirstOrDefault(p=>p.IsKey);}#>
-			try
-			{
-<#if(!string.IsNullOrEmpty(keyType)){#>
-				var entity = await _<#=keyType #>Service.GetById(<#=firstParameter.Id#>.<#=keyProperty.Id#>);
-				if (entity == null)
-				{
-					return NotFound();
-				}
-	
-				await _<#=keyType#>Service.Delete(<#=firstParameter.Id#>.<#=keyProperty.Id#>);
-	
-				return Ok(entity);
-<#}else if(firstParameter?.DataModel!=null) {#>
-				return Ok(new <#=firstParameter.DataModel.Id#>());
-<#}#>
-<# else{#>
-				return Ok(true);
-<#}#>
-			}
-			catch (Exception xcp)
-			{
-				return StatusCode((int)HttpStatusCode.InternalServerError);
-			}
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<#
+    var action = (ApiActionInfo)Model;
+
+    var firstParameter = action
+        .Parameters
+        .FirstOrDefault();
+
+    var keyProperty = firstParameter?
+        .DataModel?
+        .GetProperties()
+        .FirstOrDefault(p => p.IsKey);
+
+    var keyType = keyProperty != null ?
+        keyProperty
+            .ModelProperty?
+            .Substring(
+                0,
+                keyProperty.ModelProperty.IndexOf(".")) :
+        "";
+
+    if (string.IsNullOrEmpty(keyType))
+    {
+        var reference = action
+            .ReturnType?
+            .GetEntityDirectReferences()
+            .FirstOrDefault(p => !p.IsAbstract);
+
+        keyType = reference?
+            .Id?
+            .CSharpType();
+
+        keyProperty = reference?
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey);
+    }
+#>
+        {
+            try
+            {
+<#
+    if (!string.IsNullOrEmpty(keyType))
+    {
+#>
+                var entity = await _<#= keyType #>Service.GetById(<#= firstParameter.Id #>.<#= keyProperty.Id #>);
+
+                if (entity == null)
+                {
+                    return NotFound();
+                }
+
+                await _<#= keyType #>Service.Delete(<#= firstParameter.Id #>.<#= keyProperty.Id #>);
+
+                return Ok(entity);
+<#
+    }
+    else if (firstParameter?.DataModel != null) {
+#>
+                return Ok(new <#= firstParameter.DataModel.Id #>());
+<#
+    }
+    else
+    {
+#>
+                return Ok(true);
+<#
+    }
+#>
+            }
+            catch (Exception xcp)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError);
+            }
+        }

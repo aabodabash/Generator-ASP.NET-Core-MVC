@@ -1,4 +1,8 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (SmartAppInfo)Model;
+    var models = model.GetModels();
+#>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +27,18 @@ namespace <#= model.Id #>.Backend
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+                .AddJsonFile(
+                    "appsettings.json",
+                    optional: false,
+                    reloadOnChange: true)
+                .AddJsonFile(
+                    $"appsettings.{env.EnvironmentName}.json",
+                    optional: true);
 
             if (env.IsDevelopment())
             {
-                // For more details on using the user secret store see https://go.microsoft.com/fwlink/?LinkID=532709
+                // For more details on using the user secret store
+                // see https://go.microsoft.com/fwlink/?LinkID=532709
                 builder.AddUserSecrets<Startup>();
             }
 
@@ -36,7 +46,7 @@ namespace <#= model.Id #>.Backend
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -45,42 +55,73 @@ namespace <#= model.Id #>.Backend
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-			services.AddCors(options =>
+            services.AddCors(options =>
             {
                 options.AddPolicy("SiteCorsPolicy",
                 builder => builder.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             });
 
             //Configure authentication services.
-			ConfigureAuth(services);
+            ConfigureAuth(services);
 
             services.AddMvc();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-			
-			<#if(model.DataModel!=null && model.DataModel.Entities!=null && model.DataModel.Entities.FirstOrDefault(e => !e.IsAbstract && !e.IsEnum)!=null){foreach(var entity in model.DataModel.Entities.Where(e => !e.IsAbstract && !e.IsEnum)) { #>
-			services.AddScoped<I<#=entity.Id#>Repository, <#=entity.Id#>Repository>();
-			<#}#>
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-			<# foreach(var entity in model.DataModel.Entities.Where(e => !e.IsAbstract && !e.IsEnum)) { #>
-			services.AddScoped<I<#=entity.Id#>Service, <#=entity.Id#>Service>();
-			<#}}#>
+<#
+    if (models != null
+        && models.FirstOrDefault(e =>
+            !e.IsAbstract
+            && !e.IsEnum
+            && !e.IsInherited(models)) != null)
+    {
+        foreach (var entity in models.Where(e =>
+            !e.IsAbstract
+            && !e.IsEnum
+            && !e.IsInherited(models)))
+        {
+#>
+            services.AddScoped<I<#= entity.Id #>Repository, <#= entity.Id #>Repository>();
+<#
+        }
 
-			 // Register the Swagger generator, defining one or more Swagger documents
+        foreach (var entity in models.Where(e =>
+            !e.IsAbstract
+            && !e.IsEnum
+            && !e.IsInherited(models)))
+        {
+#>
+            services.AddScoped<I<#= entity.Id #>Service, <#= entity.Id #>Service>();
+<#
+        }
+    }
+#>
+
+             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "<#= model.Id #> API", Version = "v1" });
+                c.SwaggerDoc(
+                    "v1",
+                    new Info
+                    {
+                        Title = "<#= model.Id #> API",
+                        Version = "v1"
+                    });
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        // This method gets called by the runtime.
+        // Use this method to configure the HTTP request pipeline.
+        public void Configure(
+            IApplicationBuilder app,
+            IHostingEnvironment env,
+            ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -93,10 +134,10 @@ namespace <#= model.Id #>.Backend
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/GeneratorHome/Error");
             }
 
-			app.UseCors("SiteCorsPolicy");
+            app.UseCors("SiteCorsPolicy");
 
             app.UseStaticFiles();
 
@@ -106,16 +147,19 @@ namespace <#= model.Id #>.Backend
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=GeneratorHome}/{action=Index}/{id?}");
             });
 
-			 // Enable middleware to serve generated Swagger as a JSON endpoint.
+             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.),
+            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "<#= model.Id #> API V1");
+                c.SwaggerEndpoint(
+                    "/swagger/v1/swagger.json",
+                    "<#= model.Id #> API V1");
             });
         }
     }

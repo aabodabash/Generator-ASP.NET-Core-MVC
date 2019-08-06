@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class RoleDetails : TemplateBase
     {
-        public RoleDetails(SmartAppInfo model) : base(model)
+        public RoleDetails(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\RoleAdmin\\Details.cshtml";
+        public override string OutputPath => "Views\\GeneratorRoleAdmin\\Details.cshtml";
     }
 }

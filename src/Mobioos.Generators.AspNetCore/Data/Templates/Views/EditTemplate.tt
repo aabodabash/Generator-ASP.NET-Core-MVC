@@ -1,5 +1,6 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; #>
-@model <#= ApplicationId #>.Backend.DataModels.<#=model.Id#>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (EntityInfo)Model; #>
+@model <#= ApplicationId #>.Backend.DataModels.<#= model.Id.ToPascalCase() #>
 
 @{
     ViewBag.Title = "Edit";
@@ -8,42 +9,82 @@
 
 <h2>Edit</h2>
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4><#=model.Id#></h4>
-        <hr />
+        <h4><#= model.Id.ToPascalCase() #></h4>
+        <hr/>
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(
+            true,
+            "",
+            new
+            {
+                @class="text-danger"
+            })
         @Html.HiddenFor(m => m.Id)
         @Html.HiddenFor(m => m.RawVersion)
 
-		<# var properties = model.AllProperties().Where(p=>p.IsKey==false).ToList(); #>
-		<# foreach(var property in properties){#>
-		<div class="form-group">
-            @Html.LabelFor(m => m.<#=property.Id#>, htmlAttributes: new { @class = "control-label col-md-2" })
+<#
+        var properties = model
+            .GetProperties()
+            .Where(p => p.IsKey == false)
+            .ToList();
+
+        foreach (var property in properties)
+        {
+            var propertyId = property.Id.ToPascalCase();
+#>
+        <div class="form-group">
+            @Html.LabelFor(m =>
+                m.<#= propertyId #>,
+                htmlAttributes: new
+                {
+                    @class="control-label col-md-2"
+                })
             <div class="col-md-10">
-                @Html.EditorFor(m => m.<#= property.Id #>, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.<#= property.Id #>, "", new { @class = "text-danger" })
+                @Html.EditorFor(m =>
+                    m.<#= propertyId #>,
+                    new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class="form-control"
+                        }
+                    })
+                @Html.ValidationMessageFor(m =>
+                    m.<#= propertyId #>,
+                    "",
+                    new
+                    {
+                        @class="text-danger"
+                    })
             </div>
-        </div>    
-		<#}#>
-        
+        </div>
+<#
+        }
+#>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input
+                    type="submit"
+                    value="Save"
+                    class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(
+        "Back to List",
+        "Index")
 </div>
 
-@section Scripts {
+@section Scripts
+{
     @Scripts.Render("~/bundles/jqueryval")
 }

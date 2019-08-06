@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ResetPassword : TemplateBase
     {
-        public ResetPassword(SmartAppInfo model) : base(model)
+        public ResetPassword(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\ResetPassword.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\ResetPassword.cshtml";
     }
 }

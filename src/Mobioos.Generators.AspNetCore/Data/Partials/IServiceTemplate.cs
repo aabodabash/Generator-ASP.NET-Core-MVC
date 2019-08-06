@@ -5,8 +5,10 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class IServiceTemplate : TemplateBase
     {
-        public IServiceTemplate(EntityInfo model, string applicationId, string version) :
-            base(model, applicationId, version)
+        public IServiceTemplate(
+            EntityInfo model,
+            string applicationId,
+            string version) : base(model, applicationId, version)
         {
         }
 

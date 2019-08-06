@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class HomeIndex : TemplateBase
     {
-        public HomeIndex(SmartAppInfo model): base(model)
+        public HomeIndex(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Home\\Index.cshtml";
+        public override string OutputPath => "Views\\GeneratorHome\\Index.cshtml";
     }
 }

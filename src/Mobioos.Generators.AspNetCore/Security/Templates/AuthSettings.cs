@@ -13,8 +13,8 @@ namespace Mobioos.Generators.AspNetCore
     using System.Text;
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
-    using Mobioos.Foundation.Jade.Extensions;
     using Mobioos.Scaffold.BaseGenerators.TextTemplating;
+    using Common.Generator.Framework.Extensions;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthSettings.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\AuthSettings.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class AuthSettings : TemplateBase
     {
@@ -32,35 +32,33 @@ namespace Mobioos.Generators.AspNetCore
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n");
             
-            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthSettings.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\AuthSettings.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
             #line hidden
             this.Write("namespace ");
             
-            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\AuthSettings.tt"
+            #line 3 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\AuthSettings.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(@".Backend.Auth
 {
-	public class AuthSettings
+    public class AuthSettings
     {
       public string FacebookAppId { get; set; }
       public string FacebookAppSecret { get; set; }
-	  public string TwitterAppId { get; set; }
+      public string TwitterAppId { get; set; }
       public string TwitterAppSecret { get; set; }
-	  public string GoogleAppId { get; set; }
+      public string GoogleAppId { get; set; }
       public string GoogleAppSecret { get; set; }
-	  public string MicrosoftAppId { get; set; }
+      public string MicrosoftAppId { get; set; }
       public string MicrosoftAppSecret { get; set; }
     }
-}
-");
+}");
             return this.GenerationEnvironment.ToString();
         }
     }

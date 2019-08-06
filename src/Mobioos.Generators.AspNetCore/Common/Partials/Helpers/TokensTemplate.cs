@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class TokensTemplate : TemplateBase
     {
-        public TokensTemplate(SmartAppInfo model) : base(model)
+        public TokensTemplate(SmartAppInfo model)
+            : base(model)
         {
         }
 

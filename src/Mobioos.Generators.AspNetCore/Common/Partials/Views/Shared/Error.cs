@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class Error : TemplateBase
     {
-        public Error(SmartAppInfo model) : base(model)
+        public Error(SmartAppInfo model)
+            : base(model)
         {
         }
 

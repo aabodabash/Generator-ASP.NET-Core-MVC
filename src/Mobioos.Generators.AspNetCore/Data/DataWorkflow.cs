@@ -5,7 +5,9 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [Workflow(Id = "AspNetCoreDataWorkflow", Order = 2)]
+    [Workflow(
+        Id = "AspNetCoreDataWorkflow",
+        Order = 2)]
     public class DataWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreDataWorkflow";

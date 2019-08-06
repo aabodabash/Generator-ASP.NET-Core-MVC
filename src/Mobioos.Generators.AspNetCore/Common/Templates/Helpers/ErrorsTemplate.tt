@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -6,19 +7,29 @@ namespace <#= model.Id #>.Backend.Helpers
 {
     public static class Errors
     {
-        public static ModelStateDictionary AddErrorsToModelState(IdentityResult identityResult, ModelStateDictionary modelState)
+        public static ModelStateDictionary AddErrorsToModelState(
+            IdentityResult identityResult,
+            ModelStateDictionary modelState)
         {
             foreach (var e in identityResult.Errors)
             {
-                modelState.TryAddModelError(e.Code, e.Description);
+                modelState.TryAddModelError(
+                    e.Code,
+                    e.Description);
             }
 
             return modelState;
         }
 
-        public static ModelStateDictionary AddErrorToModelState(string code, string description, ModelStateDictionary modelState)
+        public static ModelStateDictionary AddErrorToModelState(
+            string code,
+            string description,
+            ModelStateDictionary modelState)
         {
-            modelState.TryAddModelError(code, description);
+            modelState.TryAddModelError(
+                code,
+                description);
+
             return modelState;
         }
     }

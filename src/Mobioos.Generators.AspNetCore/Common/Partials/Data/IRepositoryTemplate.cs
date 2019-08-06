@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class IRepositoryTemplate : TemplateBase
     {
-        public IRepositoryTemplate(SmartAppInfo model) : base(model)
+        public IRepositoryTemplate(SmartAppInfo model)
+            : base(model)
         {
 
         }

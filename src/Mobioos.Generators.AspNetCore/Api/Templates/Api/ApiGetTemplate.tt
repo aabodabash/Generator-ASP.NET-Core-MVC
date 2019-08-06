@@ -1,29 +1,83 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var action = (ApiActionInfo)Model; #>
-<# var lastEntity = Entities.LastOrDefault(); #>
-<# var firstParameter = action.Parameters.AsEnumerable().FirstOrDefault(); #>
-<# var keyProperty = action.ReturnType?.AllProperties().FirstOrDefault(p=>p.IsKey); #>
-<# var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : ""; #>
-<# if(string.IsNullOrEmpty(keyType)) { var reference = action.ReturnType?.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract); keyType = reference?.CSharpType(); keyProperty=reference?.Target.AllProperties()?.FirstOrDefault(p=>p.IsKey);  }#>
-			try
-			{
-<# if(action.ReturnType != null){#>
-<# if(!string.IsNullOrEmpty(keyType) && firstParameter != null && keyType == firstParameter.CSharpType()) {#>
-				var entity = await _<#= keyType #>Service.GetById(<#=firstParameter.Id#>);
-				if(entity != null)
-				{
-					var result = new <#= action.ReturnType.Id #>().ConvertFromModel(entity);
-					return this.Ok(await Task.FromResult(result));
-				}
-		
-				return NotFound();
-<#}else{#>
-				return this.Ok(await Task.FromResult(new <#= action.ReturnType.Id#>()));
-<#}}else{#>
-				return NotFound();
-<#}#>
-			}
-			catch (Exception xcp)
-			{
-				//log exception
-				return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
-			}
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<#
+    var action = (ApiActionInfo)Model;
+    var viewModelsNamespace = $"{ApplicationId}.Backend.ViewModels";
+
+    var firstParameter = action
+        .Parameters
+        .FirstOrDefault();
+
+    var keyProperty = action
+        .ReturnType?
+        .GetProperties()
+        .FirstOrDefault(p => p.IsKey);
+
+    var keyType = keyProperty !=null ?
+        keyProperty
+            .ModelProperty?
+            .Substring(
+                0,
+                keyProperty.ModelProperty.IndexOf(".")) :
+        "";
+
+    if (string.IsNullOrEmpty(keyType))
+    {
+        var reference = action
+            .ReturnType?
+            .GetEntityDirectReferences()
+            .FirstOrDefault(p => !p.IsAbstract);
+
+        keyType = reference?
+            .Id?
+            .CSharpType();
+
+        keyProperty = reference?
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey);
+    }
+#>
+        {
+            try
+            {
+<#
+    if (action.ReturnType != null)
+    {
+        var returnType = $"{viewModelsNamespace}.{action.ReturnType.Id}";
+
+        if (!string.IsNullOrEmpty(keyType)
+            && firstParameter != null
+            && keyType == firstParameter.CSharpType())
+        {
+#>
+                var entity = await _<#= keyType #>Service.GetById(<#= firstParameter.Id #>);
+
+                if (entity != null)
+                {
+                    var result = new <#= returnType #>().ConvertFromModel(entity);
+                    return this.Ok(await Task.FromResult(result));
+                }
+
+                return NotFound();
+<#
+        }
+        else
+        {
+#>
+                return this.Ok(await Task.FromResult(new <#= returnType #>()));
+<#
+        }
+    }
+    else
+    {
+#>
+                return NotFound();
+<#
+    }
+#>
+            }
+            catch (Exception xcp)
+            {
+                //log exception
+                return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+            }
+        }

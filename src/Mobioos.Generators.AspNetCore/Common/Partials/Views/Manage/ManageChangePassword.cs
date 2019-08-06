@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ManageChangePassword : TemplateBase
     {
-        public ManageChangePassword(SmartAppInfo model) : base(model)
+        public ManageChangePassword(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Manage\\ChangePassword.cshtml";
+        public override string OutputPath => "Views\\GeneratorManage\\ChangePassword.cshtml";
     }
 }

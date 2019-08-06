@@ -5,7 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ApplicationUser : TemplateBase
     {
-        public ApplicationUser(SmartAppInfo model) : base(model)
+        public ApplicationUser(SmartAppInfo model)
+            : base(model)
         {
         }
 

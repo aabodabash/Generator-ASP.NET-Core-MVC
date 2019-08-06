@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ConfirmEmail : TemplateBase
     {
-        public ConfirmEmail(SmartAppInfo model) : base(model)
+        public ConfirmEmail(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\ConfirmEmail.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\ConfirmEmail.cshtml";
     }
 }

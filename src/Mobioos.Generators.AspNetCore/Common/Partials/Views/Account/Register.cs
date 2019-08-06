@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class Register : TemplateBase
     {
-        public Register(SmartAppInfo model) : base(model)
+        public Register(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\Register.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\Register.cshtml";
     }
 }

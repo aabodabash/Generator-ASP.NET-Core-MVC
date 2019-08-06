@@ -5,11 +5,12 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ManageLogins : TemplateBase
     {
-        public ManageLogins(SmartAppInfo model) : base(model)
+        public ManageLogins(SmartAppInfo model)
+            : base(model)
         {
 
         }
 
-        public override string OutputPath => "Views\\Manage\\ManageLogins.cshtml";
+        public override string OutputPath => "Views\\GeneratorManage\\ManageLogins.cshtml";
     }
 }

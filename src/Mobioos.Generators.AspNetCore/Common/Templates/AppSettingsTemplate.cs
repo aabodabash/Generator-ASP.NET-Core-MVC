@@ -13,8 +13,8 @@ namespace Mobioos.Generators.AspNetCore
     using System.Text;
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
-    using Mobioos.Foundation.Jade.Extensions;
     using Mobioos.Scaffold.BaseGenerators.TextTemplating;
+    using Common.Generator.Framework.Extensions;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class AppSettingsTemplate : TemplateBase
     {
@@ -32,9 +32,8 @@ namespace Mobioos.Generators.AspNetCore
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n");
             
-            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -51,7 +50,7 @@ namespace Mobioos.Generators.AspNetCore
   },
 ");
             
-            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
     if (AuthenticationKeys != null)
     {
@@ -61,7 +60,7 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("  \"AuthSettings\": {\r\n");
             
-            #line 17 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 18 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         if (AuthenticationKeys.Keys.Contains("FacebookAuthConsumerKey")
             && AuthenticationKeys.Keys.Contains("FacebookAuthConsumerSecret"))
@@ -72,21 +71,21 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("    \"FacebookAppId\": \"");
             
-            #line 22 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["FacebookAuthConsumerKey"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n    \"FacebookAppSecret\": \"");
             
-            #line 23 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["FacebookAuthConsumerSecret"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n");
             
-            #line 24 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 25 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         }
 
@@ -94,7 +93,7 @@ namespace Mobioos.Generators.AspNetCore
             #line default
             #line hidden
             
-            #line 27 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 28 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         if (AuthenticationKeys.Keys.Contains("TwitterAuthAppId")
             && AuthenticationKeys.Keys.Contains("TwitterAuthAppSecret"))
@@ -105,21 +104,21 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("    \"TwitterAppId\": \"");
             
-            #line 32 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["TwitterAuthAppId"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n    \"TwitterAppSecret\": \"");
             
-            #line 33 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 34 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["TwitterAuthAppSecret"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n");
             
-            #line 34 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 35 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         }
 
@@ -127,7 +126,7 @@ namespace Mobioos.Generators.AspNetCore
             #line default
             #line hidden
             
-            #line 37 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 38 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         if (AuthenticationKeys.Keys.Contains("GoogleAuthClientId")
             && AuthenticationKeys.Keys.Contains("GoogleAuthSecret"))
@@ -138,21 +137,21 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("    \"GoogleAppId\": \"");
             
-            #line 42 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["GoogleAuthClientId"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n    \"GoogleAppSecret\": \"");
             
-            #line 43 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["GoogleAuthSecret"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n");
             
-            #line 44 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 45 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         }
 
@@ -160,7 +159,7 @@ namespace Mobioos.Generators.AspNetCore
             #line default
             #line hidden
             
-            #line 47 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 48 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         if (AuthenticationKeys.Keys.Contains("MicrosoftAuthClientId")
             && AuthenticationKeys.Keys.Contains("MicrosoftAuthSecret"))
@@ -171,21 +170,21 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("    \"MicrosoftAppId\": \"");
             
-            #line 52 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["MicrosoftAuthClientId"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n    \"MicrosoftAppSecret\": \"");
             
-            #line 53 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 54 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AuthenticationKeys["MicrosoftAuthSecret"]));
             
             #line default
             #line hidden
             this.Write("\",\r\n");
             
-            #line 54 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 55 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
         }
 
@@ -194,7 +193,7 @@ namespace Mobioos.Generators.AspNetCore
             #line hidden
             this.Write("  },\r\n");
             
-            #line 58 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Common\Templates\AppSettingsTemplate.tt"
+            #line 59 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Common\Templates\AppSettingsTemplate.tt"
 
     }
 
@@ -202,7 +201,7 @@ namespace Mobioos.Generators.AspNetCore
             #line default
             #line hidden
             this.Write("  \"JwtIssuerOptions\": {\r\n    \"Issuer\": \"webApi\",\r\n    \"Audience\": \"http://localho" +
-                    "st:5000/\"\r\n  }\r\n}\r\n");
+                    "st:5000/\"\r\n  }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

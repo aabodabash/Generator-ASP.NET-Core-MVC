@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-AspNetCore-29838208-6d0d-47f0-babd-96e19f25cb8c;Trusted_Connection=True;MultipleActiveResultSets=true"

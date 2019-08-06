@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ResetPasswordConfirmation : TemplateBase
     {
-        public ResetPasswordConfirmation(SmartAppInfo model) : base(model)
+        public ResetPasswordConfirmation(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Views\\Account\\ResetPasswordConfirmation.cshtml";
+        public override string OutputPath => "Views\\GeneratorAccount\\ResetPasswordConfirmation.cshtml";
     }
 }

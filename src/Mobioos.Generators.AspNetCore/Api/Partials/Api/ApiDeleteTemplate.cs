@@ -5,8 +5,8 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ApiDeleteTemplate : TemplateBase
     {
-        public ApiDeleteTemplate(ApiActionInfo model) :
-            base(model)
+        public ApiDeleteTemplate(ApiActionInfo model)
+            : base(model)
         {
         }
     }

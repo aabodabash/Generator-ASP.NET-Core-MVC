@@ -5,7 +5,9 @@ using WorkflowCore.Interface;
 
 namespace Mobioos.Generators.AspNetCore
 {
-    [Workflow(Id = "AspNetCoreApiWorkflow", Order = 3)]
+    [Workflow(
+        Id = "AspNetCoreApiWorkflow",
+        Order = 3)]
     public class ApiWorkflow : IWorkflow
     {
         public string Id => "AspNetCoreApiWorkflow";

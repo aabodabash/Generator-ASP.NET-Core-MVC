@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<# var model = (EntityInfo)Model; #>
 using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -7,46 +8,90 @@ using <#= ApplicationId #>.Backend.DataModels;
 
 namespace <#= ApplicationId #>.Backend.<#= DataNamespace #>
 {
-	public <#if(model.IsAbstract){#>abstract<#}#> partial class <#= model.Id #> <#= model.BaseEntity !=null ? ": "+ model.BaseEntity.Id : "" #>
-	{
-		public <#= model.Id #>() <#= model.BaseEntity !=null ? ": base()" : "" #>
-		{
-		}
-<# if (model.Properties != null) {#>
-<# foreach(var prop in model.Properties) {#>
+    public <#= model.IsAbstract ? "abstract" : "" #> partial class <#= model.Id #> <#= model.BaseEntity != null ? $": {model.BaseEntity.Id}" : "" #>
+    {
+        public <#= model.Id #>()<#= model.BaseEntity != null ? " : base()" : "" #>
+        {
+        }
+<#
+    if (model.Properties != null)
+    {
+        foreach (var prop in model.Properties)
+        {
+#>
+<#= prop.IsKey ? "\n        [Key]" : "" #>
+        public <#= prop.CSharpType() #><#= prop.IsNullable? "?" : "" #> <#= prop.Id.ToPascalCase() #> { get; set; }
+<#
+        }
+    }
 
-		public <#= prop.CSharpType() #><#= prop.IsNullable? "?" : ""#> <#= prop.Id #> { get; set; }
+    if (model.References != null
+        && model.References.Count() > 0)
+    {
+        foreach (var reference in model.References)
+        {
+            if (reference.IsCollection)
+            {
+#>
 
-<# } }#>
-<# if(model.References !=null && model.References.Count() > 0) {
-foreach(var reference in model.References) {
-if(reference.IsCollection){ #>
-		private HashSet<<#= reference.Type #>> _<#= reference.Id #>;
+        private HashSet<<#= reference.Type #>> _<#= reference.Id.ToCamelCase() #>;
 
-		<#if(reference.Target!=null && reference.Target.IsAbstract){#>
-		[NotMapped]
-		<#}#>
-		public HashSet<<#= reference.Type #>> <#= reference.Id #> { get { return _<#= reference.Id #> ??(_<#=reference.Id #> = new HashSet<<#= reference.Type #>>()); }}
+<#
+                if (reference.Target != null
+                    && reference.Target.IsAbstract)
+                {
+#>
+        [NotMapped]
+<#
+                }
+#>
+        public HashSet<<#= reference.Type #>> <#= reference.Id.ToPascalCase() #>
+        {
+            get
+            {
+                return _<#= reference.Id.ToCamelCase() #> ?? (_<#= reference.Id.ToCamelCase() #> = new HashSet<<#= reference.Type #>>());
+            }
+        }
+<#
+            }
+            else
+            {
 
-<#}
-else {#>
-		<# var referenceKey = reference.Reference?.Properties.FirstOrDefault(p => p.IsKey); #>
-		<#if(reference.Target!=null && reference.Target.IsAbstract){#>
-		[NotMapped]
-		<#}#>
-		<# if(referenceKey != null) { #>
-		[ForeignKey("<#= reference.Type #>")]
-		public <#= referenceKey.Type #> <#= reference.Id #>RefId { get; set; }
-		<# } #>
-		public virtual <#= reference.Type #> <#= reference.Id #> { get; set; }
+                var referenceKey = reference
+                    .Reference?
+                    .Properties
+                    .FirstOrDefault(p => p.IsKey);
 
-<#}
-}
-}#>
+                if (reference.Target != null
+                    && reference.Target.IsAbstract)
+                {
+#>
+        [NotMapped]
+<#
+                }
 
-<# if (model.BaseEntity==null) {#>
-		[Timestamp]
-		public new byte[] RawVersion { get; set; }
-<#}#>
-	}
+                if (referenceKey != null)
+                {
+#>
+        [ForeignKey("<#= reference.Type #>")]
+        public <#= referenceKey.Type #> <#= reference.Id.ToPascalCase() #>RefId { get; set; }
+<#
+                }
+#>
+        public virtual <#= reference.Type #> <#= reference.Id.ToPascalCase() #> { get; set; }
+<#
+            }
+        }
+    }
+
+    if (model.BaseEntity == null)
+    {
+#>
+
+        [Timestamp]
+        public byte[] RawVersion { get; set; }
+<#
+    }
+#>
+    }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using WorkflowCore.Interface;
 using WorkflowCore.Models;
 
-namespace Mobioos.Generators.AspNetCore.Common.Steps
+namespace Mobioos.Generators.AspNetCore
 {
     [PromptingStep]
     public class CommonPromptingAuthProvidersStep : StepBodyAsync
@@ -17,7 +17,9 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
         private readonly ISessionContext _context;
         private readonly IPrompting _promptingService;
 
-        public CommonPromptingAuthProvidersStep(ISessionContext context, IPrompting promptingService)
+        public CommonPromptingAuthProvidersStep(
+            ISessionContext context,
+            IPrompting promptingService)
         {
             _context = context;
             _promptingService = promptingService;
@@ -26,17 +28,45 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
             var prompts = new Queue<Question>();
-            var authChoice = ((IDictionary<string, object>)_context.DynamicContext).ContainsKey("AuthOrNot") ?
-                _context.DynamicContext.AuthOrNot as List<Answer> : new List<Answer>();
-            string choice = (authChoice != null && authChoice.Count > 0) ? authChoice.FirstOrDefault().Value : "no";
+
+            var dynamicContext = (IDictionary<string, object>)_context.DynamicContext;
+
+            var authChoice = dynamicContext.ContainsKey("AuthOrNot") ?
+                _context.DynamicContext.AuthOrNot as List<Answer> :
+                new List<Answer>();
+
+            string choice = (authChoice != null && authChoice.Count > 0) ?
+                authChoice.FirstOrDefault().Value :
+                "no";
+
             if (choice == "yes")
             {
                 var authProviderChoices = new List<Choice>
                 {
-                    new Choice { Key = "googleAuth", Value = "googleAuth", Name = "Google OAUTH2" },
-                    new Choice { Key = "microsoftAuth", Value = "microsoftAuth", Name = "Microsoft" },
-                    new Choice { Key = "facebookAuth", Value = "facebookAuth", Name = "Facebook" },
-                    new Choice { Key = "twitterAuth", Value = "twitterAuth", Name = "Twitter" }
+                    new Choice
+                    {
+                        Key = "googleAuth",
+                        Value = "googleAuth",
+                        Name = "Google OAUTH2"
+                    },
+                    new Choice
+                    {
+                        Key = "microsoftAuth",
+                        Value = "microsoftAuth",
+                        Name = "Microsoft"
+                    },
+                    new Choice
+                    {
+                        Key = "facebookAuth",
+                        Value = "facebookAuth",
+                        Name = "Facebook"
+                    },
+                    new Choice
+                    {
+                        Key = "twitterAuth",
+                        Value = "twitterAuth",
+                        Name = "Twitter"
+                    }
                 };
 
                 prompts.Enqueue(new ChoiceQuestion()

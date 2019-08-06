@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,63 +7,97 @@ namespace <#= model.Id #>.Backend.Security
 {
     public class RoleDefinition
     {
-        public RoleDefinition(string key, int value)
+        public string Key { get; private set; }
+        public int Value { get; private set; }
+
+        public RoleDefinition(
+            string key,
+            int value)
         {
             this.Key = key;
             this.Value = value;
         }
-        public string Key { get; private set; }
-        public int Value { get; private set; }
     }
 
     public class Roles
     {
         public const string RolesValueClaimType = "RolesValue";
-		<# if (Roles !=null) {#>
-		<# for(int i=0;i< Roles.Count;i++) { #>
-		public const string <#= Roles[i] #>Key = "<#= Roles[i] #>";
-        public static readonly RoleDefinition <#= Roles[i] #> = new RoleDefinition(<#= Roles[i] #>Key, <#=i+6#>^2);
-		<#}
-		}
-		#>
+<#
+    if (Roles != null)
+    {
 
-		public class BuiltinRoles
-		{
-			public const string DataEditorKey = "DataEditor";
-			public const string AdminKey = "Admin";
-			public const string UserKey = "User";
+        for(int i=0; i< Roles.Count; i++)
+        {
+#>
+        public const string <#= Roles[i] #>Key = "<#= Roles[i] #>";
 
-			public static readonly RoleDefinition Admin = new RoleDefinition(AdminKey, 1);
-			public static readonly RoleDefinition User = new RoleDefinition(UserKey, 2);
-			public static readonly RoleDefinition DataEditor = new RoleDefinition(DataEditorKey, 4);
+        public static readonly RoleDefinition <#= Roles[i] #> =
+            new RoleDefinition(
+                <#= Roles[i] #>Key,
+                <#= i+6 #>^2);
+<#
+        }
+    }
+#>
 
-			public static IEnumerable<RoleDefinition> GetAll()
-			{
-				yield return BuiltinRoles.Admin;
-				yield return BuiltinRoles.User;
-				yield return BuiltinRoles.DataEditor;
-			}
-	    }
+        public class BuiltinRoles
+        {
+            public const string DataEditorKey = "DataEditor";
+            public const string AdminKey = "Admin";
+            public const string UserKey = "User";
+
+            public static readonly RoleDefinition Admin = new RoleDefinition(
+                AdminKey,
+                1);
+
+            public static readonly RoleDefinition User = new RoleDefinition(
+                UserKey,
+                2);
+
+            public static readonly RoleDefinition DataEditor = new RoleDefinition(
+                DataEditorKey,
+                3);
+
+            public static IEnumerable<RoleDefinition> GetAll()
+            {
+                yield return BuiltinRoles.Admin;
+                yield return BuiltinRoles.User;
+                yield return BuiltinRoles.DataEditor;
+            }
+        }
 
         public static IEnumerable<RoleDefinition> GetAll()
         {
             foreach (var builtInRole in Roles.BuiltinRoles.GetAll())
+            {
                 yield return builtInRole;
+            }
 
-			<# if (Roles!=null && Roles.Count>0) {
-				for(int i=0;i< Roles.Count;i++){ #>
-					yield return Roles.<#= Roles[i] #>;
-				<#}
-			}#>
-            
+<#
+    if (Roles != null
+        && Roles.Count > 0)
+    {
+        for(int i=0; i< Roles.Count; i++)
+        {
+#>
+                yield return Roles.<#= Roles[i] #>;
+<#
+        }
+    }
+#>
+
         }
 
         public static int GetRolesValue(IEnumerable<string> roleNames)
         {
             return Roles.GetAll()
-                 .Where(role => roleNames.Any(r => r.Equals(role.Key, System.StringComparison.OrdinalIgnoreCase)))
+                 .Where(role =>
+                    roleNames.Any(r =>
+                        r.Equals(
+                            role.Key,
+                            System.StringComparison.OrdinalIgnoreCase)))
                  .Select(r => r.Value)
                  .Sum();
+        }
     }
-}
 }

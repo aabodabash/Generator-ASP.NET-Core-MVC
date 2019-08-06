@@ -24,6 +24,7 @@
     <None Remove="Common\Templates\app.config" />
     <None Remove="Common\Templates\bower.json" />
     <None Remove="Common\Templates\bundleconfig.json" />
+    <None Remove="Common\Templates\libman.json" />
     <None Remove="Common\Templates\wwwroot\css\site.css" />
     <None Remove="Common\Templates\wwwroot\favicon.ico" />
     <None Remove="Common\Templates\wwwroot\images\banner1.svg" />
@@ -34,16 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Common\Templates\.bowerrc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Common\Templates\app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Common\Templates\bower.json">
+    <Content Include="Common\Templates\bundleconfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Common\Templates\bundleconfig.json">
+    <Content Include="Common\Templates\libman.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Common\Templates\wwwroot\css\site.css">
@@ -74,6 +72,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Common.Generator.Framework" Version="1.0.0" />
     <PackageReference Include="Mobioos.Scaffold.BaseGenerators" Version="1.0.3" />
   </ItemGroup>
 
@@ -92,30 +91,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppSettingsTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Common\Templates\Controllers\AccountController.cs">
+    <Compile Update="Common\Templates\Controllers\GeneratorAccountController.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AccountController.tt</DependentUpon>
+      <DependentUpon>GeneratorAccountController.tt</DependentUpon>
     </Compile>
     <Compile Update="Common\Templates\Controllers\ControllerBase.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ControllerBase.tt</DependentUpon>
     </Compile>
-    <Compile Update="Common\Templates\Controllers\HomeController.cs">
+    <Compile Update="Common\Templates\Controllers\GeneratorHomeController.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>HomeController.tt</DependentUpon>
+      <DependentUpon>GeneratorHomeController.tt</DependentUpon>
     </Compile>
-    <Compile Update="Common\Templates\Controllers\ManageController.cs">
+    <Compile Update="Common\Templates\Controllers\GeneratorManageController.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ManageController.tt</DependentUpon>
+      <DependentUpon>GeneratorManageController.tt</DependentUpon>
     </Compile>
-    <Compile Update="Common\Templates\Controllers\RoleAdminController.cs">
+    <Compile Update="Common\Templates\Controllers\GeneratorRoleAdminController.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>RoleAdminController.tt</DependentUpon>
+      <DependentUpon>GeneratorRoleAdminController.tt</DependentUpon>
     </Compile>
     <Compile Update="Common\Templates\Data\IRepositoryTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -161,6 +160,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ManageViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Templates\Models\RoleViewModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RoleViewModel.tt</DependentUpon>
     </Compile>
     <Compile Update="Common\Templates\ProgramTemplate.cs">
       <DesignTime>True</DesignTime>
@@ -545,9 +549,9 @@
       <LastGenOutput>AppSettingsTemplate.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
-    <None Update="Common\Templates\Controllers\AccountController.tt">
+    <None Update="Common\Templates\Controllers\GeneratorAccountController.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AccountController.cs</LastGenOutput>
+      <LastGenOutput>GeneratorAccountController.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
     <None Update="Common\Templates\Controllers\ControllerBase.tt">
@@ -555,19 +559,19 @@
       <LastGenOutput>ControllerBase.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
-    <None Update="Common\Templates\Controllers\HomeController.tt">
+    <None Update="Common\Templates\Controllers\GeneratorHomeController.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>HomeController.cs</LastGenOutput>
+      <LastGenOutput>GeneratorHomeController.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
-    <None Update="Common\Templates\Controllers\ManageController.tt">
+    <None Update="Common\Templates\Controllers\GeneratorManageController.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ManageController.cs</LastGenOutput>
+      <LastGenOutput>GeneratorManageController.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
-    <None Update="Common\Templates\Controllers\RoleAdminController.tt">
+    <None Update="Common\Templates\Controllers\GeneratorRoleAdminController.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>RoleAdminController.cs</LastGenOutput>
+      <LastGenOutput>GeneratorRoleAdminController.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
     </None>
     <None Update="Common\Templates\Data\IRepositoryTemplate.tt">
@@ -614,6 +618,11 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ManageViewModels.cs</LastGenOutput>
       <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+    </None>
+    <None Update="Common\Templates\Models\RoleViewModel.tt">
+      <CustomToolNamespace>Mobioos.Generators.AspNetCore</CustomToolNamespace>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RoleViewModel.cs</LastGenOutput>
     </None>
     <None Update="Common\Templates\ProgramTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

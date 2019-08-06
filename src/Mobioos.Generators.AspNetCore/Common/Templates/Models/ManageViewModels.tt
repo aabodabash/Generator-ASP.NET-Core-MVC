@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace <#= model.Id #>.Backend.Models
 {
-	public class AddPhoneNumberViewModel
+    public class AddPhoneNumberViewModel
     {
         [Required]
         [Phone]
@@ -18,7 +19,7 @@ namespace <#= model.Id #>.Backend.Models
         public string PhoneNumber { get; set; }
     }
 
-	public class ChangePasswordViewModel
+    public class ChangePasswordViewModel
     {
         [Required]
         [DataType(DataType.Password)]
@@ -26,30 +27,35 @@ namespace <#= model.Id #>.Backend.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(
+            100,
+            ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
+            MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Compare(
+            "NewPassword",
+            ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
-	public class ConfigureTwoFactorViewModel
+    public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }
 
         public ICollection<SelectListItem> Providers { get; set; }
     }
 
-	public class FactorViewModel
+    public class FactorViewModel
     {
         public string Purpose { get; set; }
     }
 
-	public class IndexViewModel
+    public class IndexViewModel
     {
         public bool HasPassword { get; set; }
 
@@ -62,34 +68,39 @@ namespace <#= model.Id #>.Backend.Models
         public bool BrowserRemembered { get; set; }
     }
 
-	public class ManageLoginsViewModel
+    public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
 
         public IList<AuthenticationScheme> OtherLogins { get; set; }
     }
 
-	public class RemoveLoginViewModel
+    public class RemoveLoginViewModel
     {
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }
     }
 
-	public class SetPasswordViewModel
+    public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(
+            100,
+            ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
+            MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Compare(
+            "NewPassword",
+            ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
-	public class VerifyPhoneNumberViewModel
+    public class VerifyPhoneNumberViewModel
     {
         [Required]
         public string Code { get; set; }

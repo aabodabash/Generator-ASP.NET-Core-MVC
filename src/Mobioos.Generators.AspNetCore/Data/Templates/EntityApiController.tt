@@ -1,4 +1,12 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (EntityInfo)Model; var key = ((EntityInfo)Model).AllProperties() != null ? ((EntityInfo)Model).AllProperties().FirstOrDefault(p=>p.IsKey) : null; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (EntityInfo)Model;
+    var key = ((EntityInfo)Model).GetProperties() != null ?
+        ((EntityInfo)Model)
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey) :
+        null;
+#>
 using System;
 using System.Linq;
 using System.Net;
@@ -14,53 +22,60 @@ using <#= ApplicationId #>.Backend.Services;
 namespace <#= ApplicationId #>.Backend.Api.<#= Version #>
 {
     [Route("api/<#= Version #>/<#= model.Id #>")]
-	public partial class <#= model.Id #>Controller
-        : Controller
+    public partial class <#= model.Id #>Controller : Controller
     {
-		private I<#= model.Id #>Service _<#= model.Id #>Service;
+        private I<#= model.Id #>Service _<#= model.Id #>Service;
 
         public <#= model.Id #>Controller(I<#= model.Id #>Service <#= model.Id #>Service)
         {
-			_<#= model.Id #>Service = <#= model.Id #>Service;
+            _<#= model.Id #>Service = <#= model.Id #>Service;
         }
 
-		/// <summary>
-        /// Get all <#= model.Id #>s from database
+        /// <summary>
+        /// Get all <#= model.Id #> from database
         /// </summary>
         /// <returns></returns>
-
-        /// <response code="200">Ok</response>
+        /// <response code = "200">Ok</response>
         // GET: api/<#= Version #>/<#= model.Id #>
         [HttpGet("GetAll")]
-        [ProducesResponseType(typeof(IEnumerable<<#= model.Id #>>), 200)]
+        [ProducesResponseType(
+            typeof(IEnumerable<<#= model.Id #>>),
+            200)]
         public async virtual Task<IActionResult> GetAll()
         {
-			try
+            try
             {
                 return Ok((_<#= model.Id #>Service.GetAll()).AsQueryable());
             }
             catch (Exception xcp)
             {
                 //log error
-                return Ok(Enumerable.Empty <<#= model.Id #>> ().AsQueryable());
+                return Ok(Enumerable.Empty<<#= model.Id #>>().AsQueryable());
             }
         }
-<#if(key!=null){#>
-		/// <summary>
+<#
+    if (key != null)
+    {
+#>
+        /// <summary>
         /// Get <#= model.Id #> by id
         /// </summary>
-        /// <param name="id"><#= model.Id #> id</param>
-        /// <returns>Corresponding <#= model.Id #> <see cref="<#= model.Id #>" ><#= model.Id #></see></returns>
-        /// <response code="200">Ok</response>
-        /// <response code="404">Not found</response>
-        [ProducesResponseType(typeof(<#= model.Id #>), 200)]
+        /// <param name = "id"><#= model.Id #> id</param>
+        /// <returns>Corresponding <#= model.Id #>
+        /// <see cref = "<#= model.Id #>" ><#= model.Id #></see></returns>
+        /// <response code = "200">Ok</response>
+        /// <response code = "404">Not found</response>
+        [ProducesResponseType(
+            typeof(<#= model.Id #>),
+            200)]
         // GET: api/<#= Version #>/<#= model.Id #>/<id>
-		[HttpGet("Get")]
+        [HttpGet("Get")]
         public async virtual Task<IActionResult> GetById(<#= key.CSharpType() #> id)
         {
             try
             {
                 var entity = await _<#= model.Id #>Service.GetById(id);
+
                 if (entity == null)
                 {
                     return NotFound();
@@ -75,36 +90,48 @@ namespace <#= ApplicationId #>.Backend.Api.<#= Version #>
             }
         }
 
-		/// <summary>
+        /// <summary>
         /// Update existing <#= model.Id #>
         /// </summary>
-        /// <param name="id"><#= model.Id #> id</param>
-        /// <param name="entity"><#= model.Id #> to update</param>
-        /// <response code="204">No content</response>
-        /// <response code="400">Bad request</response>
-        /// <response code="404">Not found</response>
-        /// <response code="500">Internal error</response>
+        /// <param name = "id"><#= model.Id #> id</param>
+        /// <param name = "entity"><#= model.Id #> to update</param>
+        /// <response code = "204">No content</response>
+        /// <response code = "400">Bad request</response>
+        /// <response code = "404">Not found</response>
+        /// <response code = "500">Internal error</response>
         // PUT: api/<#= Version #>/<#= model.Id #>/<id>
-        [ProducesResponseType(typeof(void), 200)]
-		[HttpPut("PutEntity")]
-        public async virtual Task<IActionResult> PutEntity(<#= key.CSharpType() #> id, [FromBody] <#= model.Id #> entity)
+        [ProducesResponseType(
+            typeof(void),
+            200)]
+        [HttpPut("PutEntity")]
+        public async virtual Task<IActionResult> PutEntity(
+            <#= key.CSharpType() #> id,
+            [FromBody] <#= model.Id #> entity)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-			<# if (!string.IsNullOrEmpty(key.Id)) { #>
+<#
+        if (!string.IsNullOrEmpty(key.Id))
+        {
+#>
             if (id != entity.<#= key.Id #>)
             {
                 return BadRequest();
             }
-			<# } #>
+<#
+        }
 
-			<# if (!string.IsNullOrEmpty(key.Id)) { #>
+        if (!string.IsNullOrEmpty(key.Id))
+        {
+#>
             // Gets the original entity from the database.
-            var original = _<#= model.Id #>Service.GetById(entity.<#=key.Id #>);
-			<# } #>
+            var original = _<#= model.Id #>Service.GetById(entity.<#= key.Id #>);
+<#
+        }
+#>
 
             // If not found, return the 404 http status.
             if (original == null)
@@ -137,27 +164,30 @@ namespace <#= ApplicationId #>.Backend.Api.<#= Version #>
             catch (Exception xcp)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-            }      
+            }
         }
 
-		/// <summary>
+        /// <summary>
         /// Create a new <#= model.Id #>
         /// </summary>
-        /// <param name="entity"><#= model.Id #> to create</param>
-        /// <returns>New <#= model.Id #> <see cref="<#= model.Id #>"><#= model.Id #></see></returns>
-        /// <response code="200">Ok</response>
-        /// <response code="400">Bad request</response>
-        /// <response code="409">Conflict</response>
-        /// <response code="500">Internal error</response>
-        [ProducesResponseType(typeof(<#= model.Id #>), 200)]
+        /// <param name = "entity"><#= model.Id #> to create</param>
+        /// <returns>New <#= model.Id #> <see cref = "<#= model.Id #>"><#= model.Id #></see></returns>
+        /// <response code = "200">Ok</response>
+        /// <response code = "400">Bad request</response>
+        /// <response code = "409">Conflict</response>
+        /// <response code = "500">Internal error</response>
+        [ProducesResponseType(
+            typeof(<#= model.Id #>),
+            200)]
         // POST: api/<#= Version #>/<#= model.Id #>
-		[HttpPost("PostEntity")]
-        public async virtual Task<IActionResult> PostEntity([FromBody] <#=model.Id#> entity)
+        [HttpPost("PostEntity")]
+        public async virtual Task<IActionResult> PostEntity(
+            [FromBody] <#= model.Id #> entity)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }            
+            }
 
             try
             {
@@ -166,8 +196,11 @@ namespace <#= ApplicationId #>.Backend.Api.<#= Version #>
             }
             catch (DbUpdateException xcp)
             {
-			<# if (!string.IsNullOrEmpty(key.Id)) { #>
-                if (this.EntityExists(entity.<#=key.Id#>))
+<#
+        if (!string.IsNullOrEmpty(key.Id))
+        {
+#>
+                if (this.EntityExists(entity.<#= key.Id #>))
                 {
                     return StatusCode((int)HttpStatusCode.Conflict);
                 }
@@ -175,27 +208,30 @@ namespace <#= ApplicationId #>.Backend.Api.<#= Version #>
                 {
                     throw xcp;
                 }
-				<#}#>
+<#
+        }
+#>
             }
             catch (Exception xcp) {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-            }       
+            }
         }
 
-		/// <summary>
+        /// <summary>
         /// Delete an existing <#= model.Id #>
         /// </summary>
-        /// <param name="entity"><#= model.Id #> to create</param>
-        /// <response code="200">Ok</response>
-        /// <response code="404">Not found</response>
-        /// <response code="500">Internal error</response>
+        /// <param name = "entity"><#= model.Id #> to create</param>
+        /// <response code = "200">Ok</response>
+        /// <response code = "404">Not found</response>
+        /// <response code = "500">Internal error</response>
         // DELETE: api/<#= Version #>/<#= model.Id #>/<id>
-		[HttpDelete("DeleteEntity")]
+        [HttpDelete("DeleteEntity")]
         public async virtual Task<IActionResult> DeleteEntity(<#= key.CSharpType() #> id)
         {
             try
             {
                 var entity = await _<#= model.Id #>Service.GetById(id);
+
                 if (entity == null)
                 {
                     return NotFound();
@@ -208,23 +244,28 @@ namespace <#= ApplicationId #>.Backend.Api.<#= Version #>
             catch (Exception xcp)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-            }          
+            }
         }
 
-		<# if (!string.IsNullOrEmpty(key.Id)) { #>
+<#
+        if (!string.IsNullOrEmpty(key.Id))
+        {
+#>
         protected virtual bool EntityExists(<#= key.CSharpType() #> id)
         {
             return _<#= model.Id #>Service.GetById(id) != null;
         }
-		<#}#>
-<#}#>
+<#
+        }
+    }
+#>
 
-		protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
             }
             base.Dispose(disposing);
         }
-	}
+    }
 }

@@ -1,5 +1,6 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 @using <#= model.Id #>.Backend
-@using <#= model.Id #>.Backend.Models
+@using <#= model.Id #>.Backend.ViewModels
 @using Microsoft.AspNetCore.Identity
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

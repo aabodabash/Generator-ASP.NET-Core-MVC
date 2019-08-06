@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using System;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
@@ -14,107 +15,135 @@ namespace <#= model.Id #>.Backend
 {
     public partial class Startup
     {
-		private const string SecretKey = "iNivDmHLpUA223sqsfhqGbMRdRj1PVkH"; // todo: get this from somewhere secure
-		private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SecretKey));
+        // todo: get this from somewhere secure
+        private const string SecretKey = "iNivDmHLpUA223sqsfhqGbMRdRj1PVkH";
 
-		public void ConfigureAuth(IServiceCollection services)
+        private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(
+            Encoding.ASCII.GetBytes(SecretKey));
+
+        public void ConfigureAuth(IServiceCollection services)
         {
-		   services.AddTransient<IJwtFactory, JwtFactory>();
+            services.AddTransient<IJwtFactory, JwtFactory>();
 
-           services.AddIdentity<ApplicationUser, IdentityRole>()
+            services
+                .AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-			var jwtSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
-			
-			// Configure JwtIssuerOptions
-			services.Configure<JwtIssuerOptions>(options =>
-			{
-				options.Issuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
-				options.Audience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)];
-				options.SigningCredentials = new SigningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);
-			});
+            var jwtSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
 
-			// Get options from app settings
-			var authSettings = Configuration.GetSection(nameof(AuthSettings));
+            // Configure JwtIssuerOptions
+            services.Configure<JwtIssuerOptions>(options =>
+            {
+                options.Issuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                options.Audience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)];
+                options.SigningCredentials = new SigningCredentials(
+                    _signingKey,
+                    SecurityAlgorithms.HmacSha256);
+            });
 
-			// Configure AuthSettings
-			services.Configure<AuthSettings>(options =>
-			{
-				options.FacebookAppId = authSettings[nameof(AuthSettings.FacebookAppId)];
-				options.FacebookAppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
+            // Get options from app settings
+            var authSettings = Configuration.GetSection(nameof(AuthSettings));
+
+            // Configure AuthSettings
+            services.Configure<AuthSettings>(options =>
+            {
+                options.FacebookAppId = authSettings[nameof(AuthSettings.FacebookAppId)];
+                options.FacebookAppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
                 options.TwitterAppId = authSettings[nameof(AuthSettings.TwitterAppId)];
                 options.TwitterAppSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];
                 options.GoogleAppId = authSettings[nameof(AuthSettings.GoogleAppId)];
                 options.GoogleAppSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];
                 options.MicrosoftAppId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
                 options.MicrosoftAppSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
-			});
+            });
 
-			var tokenValidationParameters = new TokenValidationParameters
-			{
-				ValidateIssuer = true,
-				ValidIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)],
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)],
 
-				ValidateAudience = true,
-				ValidAudience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)],
+                ValidateAudience = true,
+                ValidAudience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)],
 
-				ValidateIssuerSigningKey = true,
-				IssuerSigningKey = _signingKey,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = _signingKey,
 
-				RequireExpirationTime = false,
-				ValidateLifetime = true,
-				ClockSkew = TimeSpan.Zero
-			};
+                RequireExpirationTime = false,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
 
 <#
-                if (AuthenticationKeys != null) 
+    if (AuthenticationKeys != null)
+    {
+#>
+            var authServices = services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddCookie(cfg => cfg.SlidingExpiration = true)
+            .AddJwtBearer(configureOptions =>
+            {
+                configureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                configureOptions.TokenValidationParameters = tokenValidationParameters;
+                configureOptions.SaveToken = true;
+            });
+<#
+        if (AuthenticationKeys.ContainsKey("FacebookAuthConsumerKey")
+            && AuthenticationKeys.ContainsKey("FacebookAuthConsumerSecret"))
+        {
+#>
+            authServices.AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = authSettings[nameof(AuthSettings.FacebookAppId)];
+                facebookOptions.AppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
+            });
+<#
+        }
+
+        if (AuthenticationKeys.ContainsKey("TwitterAuthAppId")
+            && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret"))
+        {
+#>
+            authServices.AddTwitter(twitterOptions =>
+            {
+                twitterOptions.ConsumerKey = authSettings[nameof(AuthSettings.TwitterAppId)];
+                twitterOptions.ConsumerSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];
+            });
+<#
+        }
+
+        if (AuthenticationKeys.ContainsKey("GoogleAuthClientId")
+            && AuthenticationKeys.ContainsKey("GoogleAuthSecret"))
+        {
+#>
+            authServices.AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = authSettings[nameof(AuthSettings.GoogleAppId)];
+                googleOptions.ClientSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];
+            });
+<#
+        }
+
+        if (AuthenticationKeys.ContainsKey("MicrosoftAuthClientId")
+            && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret"))
+        {
+#>
+            services
+                .AddAuthentication()
+                .AddMicrosoftAccount(microsoftOptions =>
                 {
-#>
-            services.AddAuthentication(options =>
-			{
-				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-			}).AddCookie(cfg => cfg.SlidingExpiration = true)
-			.AddJwtBearer(configureOptions =>
-			{
-				configureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
-				configureOptions.TokenValidationParameters = tokenValidationParameters;
-				configureOptions.SaveToken = true;
-			})<# if(AuthenticationKeys.ContainsKey("FacebookAuthConsumerKey") && AuthenticationKeys.ContainsKey("FacebookAuthConsumerSecret")) {#>
-			.AddFacebook(facebookOptions =>
-			{
-				facebookOptions.AppId = authSettings[nameof(AuthSettings.FacebookAppId)];
-				facebookOptions.AppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
-			})
-			<# } #>
-			<# if(AuthenticationKeys.ContainsKey("TwitterAuthAppId") && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret")) {#>
-			.AddTwitter(twitterOptions =>
-			{
-				twitterOptions.ConsumerKey = authSettings[nameof(AuthSettings.TwitterAppId)];
-				twitterOptions.ConsumerSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];
-			})
-			<# } #>
-			<# if(AuthenticationKeys.ContainsKey("GoogleAuthClientId") && AuthenticationKeys.ContainsKey("GoogleAuthSecret")) {#>
-			.AddGoogle(googleOptions =>
-			{
-				googleOptions.ClientId = authSettings[nameof(AuthSettings.GoogleAppId)];
-				googleOptions.ClientSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];
-			})
-			<# } #>
-            ;
-			<# if(AuthenticationKeys.ContainsKey("MicrosoftAuthClientId") && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret")) {#>
-			services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
-			{
-				microsoftOptions.ClientId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
-				microsoftOptions.ClientSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
-			});<#}#>
+                    microsoftOptions.ClientId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
+                    microsoftOptions.ClientSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
+                });
 <#
-                }
+        }
+    }
 #>
-			
 
-			services.Configure<IdentityOptions>(options =>
+            services.Configure<IdentityOptions>(options =>
             {
                 // Password settings
 
@@ -132,9 +161,12 @@ namespace <#= model.Id #>.Backend
                 // Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.Cookie.Expiration = TimeSpan.FromDays(150);
-                options.LoginPath = "/Account/Login"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
-                options.LogoutPath = "/Account/Logout"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
-                options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
+                // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
+                options.LoginPath = "/Account/Login";
+                // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
+                options.LogoutPath = "/Account/Logout";
+                // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
+                options.AccessDeniedPath = "/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
         }
@@ -143,8 +175,8 @@ namespace <#= model.Id #>.Backend
         {
             app.UseAuthentication();
 
-            // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
-
+            // Add external authentication middleware below.
+            // To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
         }
     }
 }

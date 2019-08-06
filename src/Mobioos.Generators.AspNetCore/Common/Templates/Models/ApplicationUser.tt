@@ -1,4 +1,5 @@
-﻿<#@ include file="..\..\..\Base\Templates\Include.tt" #><# var model = (SmartAppInfo)Model; #>
+﻿<#@ include file = "..\..\..\Base\Templates\Include.tt" #>
+<# var model = (SmartAppInfo)Model; #>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,13 @@ namespace <#= model.Id #>.Backend.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
-		// Extended Properties
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-		public long? FacebookId { get; set; }
-		public string PictureUrl { get; set; }
+        // Extended Properties
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public long? FacebookId { get; set; }
+
+        public string PictureUrl { get; set; }
     }
 }

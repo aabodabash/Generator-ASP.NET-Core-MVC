@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries":
+  [
+    {
+      "library": "jquery@2.2.0",
+      "files": [
+        "jquery.js",
+        "jquery.min.js"
+      ],
+      "destination": "wwwroot/lib/jquery"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@3.3.7",
+      "files": [
+        "dist/js/bootstrap.js",
+        "dist/js/bootstrap.min.js",
+        "dist/css/bootstrap.css",
+        "dist/css/bootstrap.min.css"
+      ],
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery-validation@1.14.0",
+      "files": [
+        "dist/jquery.validate.js"
+      ],
+      "destination": "wwwroot/lib/jquery-validation/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "files": [
+        "jquery.validate.unobtrusive.js",
+        "jquery.validate.unobtrusive.min.js"
+      ],
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    }
+  ]
+}

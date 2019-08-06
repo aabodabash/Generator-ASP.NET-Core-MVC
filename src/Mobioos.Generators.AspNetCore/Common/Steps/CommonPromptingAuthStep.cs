@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using WorkflowCore.Interface;
 using WorkflowCore.Models;
 
-namespace Mobioos.Generators.AspNetCore.Common.Steps
+namespace Mobioos.Generators.AspNetCore
 {
     [PromptingStep]
     public class CommonPromptingAuthStep : StepBodyAsync
@@ -22,10 +22,21 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
         public async override Task<ExecutionResult> RunAsync(IStepExecutionContext context)
         {
             var prompts = new Queue<Question>();
+
             var authChoices = new List<Choice>
             {
-                new Choice { Key = "yes", Value = "yes", Name = "Yes" },
-                new Choice { Key = "no", Value = "no", Name = "No" }
+                new Choice
+                {
+                    Key = "yes",
+                    Value = "yes",
+                    Name = "Yes"
+                },
+                new Choice
+                {
+                    Key = "no",
+                    Value = "no",
+                    Name = "No"
+                }
             };
 
             prompts.Enqueue(new ChoiceQuestion()
@@ -36,7 +47,11 @@ namespace Mobioos.Generators.AspNetCore.Common.Steps
                 Choices = authChoices
             });
 
-            await _promptingService.Prompts(nameof(CommonPromptingAuthStep), prompts, "Retrieving your choice on external authentication");
+            await _promptingService.Prompts(
+                nameof(CommonPromptingAuthStep),
+                prompts,
+                "Retrieving your choice on external authentication");
+
             return ExecutionResult.Next();
         }
     }

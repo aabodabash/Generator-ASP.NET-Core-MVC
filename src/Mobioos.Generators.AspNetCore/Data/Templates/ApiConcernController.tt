@@ -1,4 +1,54 @@
-﻿<#@ include file="..\..\Base\Templates\Include.tt" #><# var model = (LayoutInfo)Model; var actions = ((LayoutInfo)Model).Actions.Where(a=> a.Type.ToString().IndexOf("data") == 0).ToList(); var key = ((EntityInfo)model.DataModel).AllProperties() != null ? ((EntityInfo)model.DataModel).AllProperties().FirstOrDefault(p=>p.IsKey) : null; #>
+﻿<#@ include file = "..\..\Base\Templates\Include.tt" #>
+<#
+    var model = (LayoutInfo)Model;
+
+    var actions = ((LayoutInfo)Model)
+        .Actions
+        .Where(a=> a.Type.ToString().IndexOf("data") == 0)
+        .ToList();
+
+    var key = ((EntityInfo)model.DataModel).GetProperties() != null ?
+        ((EntityInfo)model.DataModel)
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey) :
+        null;
+
+    var lastType = ReferencedTypes.LastOrDefault();
+
+    var keyProperty = model
+        .DataModel
+        .GetProperties()
+        .FirstOrDefault(p => p.IsKey);
+
+    var keyType = keyProperty != null ?
+        keyProperty
+            .ModelProperty?
+            .Substring(
+                0,
+                keyProperty.ModelProperty.IndexOf(".")) :
+        "";
+
+    if (string.IsNullOrEmpty(keyType))
+    {
+        keyType = model
+            .DataModel
+            .GetEntityDirectReferences()
+            .FirstOrDefault(p =>
+                !p.IsAbstract)?
+            .Id
+            .CSharpType();
+    }
+
+    if (key == null)
+    {
+        key = model
+            .DataModel
+            .GetEntityDirectReferences()
+            .FirstOrDefault()?
+            .GetProperties()
+            .FirstOrDefault(p => p.IsKey);
+    }
+#>
 using System;
 using System.Net;
 using System.Linq;
@@ -11,112 +61,178 @@ using <#= ApplicationId #>.Backend.Models;
 using <#= ApplicationId #>.Backend.Services;
 using <#= ApplicationId #>.Backend.ViewModels;
 
-<# var lastType = ReferencedTypes.LastOrDefault(); #>
-<# var keyProperty = model.DataModel.AllProperties().FirstOrDefault(p=>p.IsKey); #>
-<# var keyType = keyProperty !=null ? keyProperty.ModelProperty?.Substring(0, keyProperty.ModelProperty.IndexOf(".")) : ""; #>
-<# if(string.IsNullOrEmpty(keyType)) { keyType = model.DataModel.AllReferences().FirstOrDefault(p=>p.Target != null && !p.Target.IsAbstract)?.CSharpType(); }#>
-<# if(key == null) { key =  model.DataModel.AllReferences().FirstOrDefault()?.Target?.AllProperties().FirstOrDefault(p=>p.IsKey); }#>
-
 namespace <#= ApplicationId #>.Backend.Api.<#= model.Concern.Id #>
 {
     /// <summary>
-    /// Controller responsible for all data interactions with the <#= model.Id #> view of the <#= model.Concern.Id #> Feature
+    /// Controller responsible for all data interactions
+    /// with the <#= model.Id #> view of the <#= model.Concern.Id #> Feature
     /// </summary>
-    [Route("api/<#= Version#>/<#= ApplicationId#><#=model.Id#>")]
-    public partial class <#= model.Concern.Id #><#=model.Id #>Controller : Controller
+    [Route("api/<#= Version #>/<#= ApplicationId #><#= model.Id #>")]
+    public partial class <#= model.Concern.Id #><#= model.Id #>Controller : Controller
     {
-		<# foreach(var type in ReferencedTypes) {#>
-		private I<#= type.Key #>Service _<#= type.Key #>Service;
-		<# } #>
+<#
+    foreach (var type in ReferencedTypes)
+    {
+#>
+        private I<#= type.Key #>Service _<#= type.Key #>Service;
+<#
+    }
+#>
 
         /// <summary>
-        /// Initialize a new instance of <see cref="<#= ApplicationId #>.Backend.api.<#= model.Concern.Id #>.<#= model.Concern.Id#><#=model.Id #>Controller"/> class.
+        /// Initialize a new instance of
+        /// <see cref = "<#= ApplicationId #>.Backend.api.<#= model.Concern.Id #>.<#= model.Concern.Id #>
+        /// <#= model.Id #>Controller"/> class.
         /// </summary>
-        public <#= model.Concern.Id #><#= model.Id #>Controller(<# foreach(var type in ReferencedTypes) {#>
-		I<#= type.Key #>Service <#= type.Key #>Service
-		<# if (!type.Equals(lastType)) {#>
-		,
-		<#}#>
-		<#}#>)
-		{ 
-			<# foreach(var type in ReferencedTypes) {#>
-			_<#= type.Key #>Service  = <#= type.Key #>Service;
-			<# } #>
-		}
+        public <#= model.Concern.Id #><#= model.Id #>Controller(
+<#
+    foreach (var type in ReferencedTypes)
+    {
+#>
+            I<#= type.Key #>Service <#= type.Key #>Service<#= !type.Equals(lastType) ? "," : ")" #>
+<#
+    }
+#>
+        {
+<#
+    foreach (var type in ReferencedTypes)
+    {
+#>
+            _<#= type.Key #>Service = <#= type.Key #>Service;
+<#
+    }
+#>
+        }
 
-        <#if(model.DataModel != null && !string.IsNullOrEmpty(keyType)) {#>
-
-		<# if(!string.IsNullOrEmpty(keyType)) { #>
-		/// <summary>
-        /// Get all <#= model.DataModel.Id #>s
+<#
+    if (model.DataModel != null
+        && !string.IsNullOrEmpty(keyType))
+    {
+        if (!string.IsNullOrEmpty(keyType))
+        {
+#>
+        /// <summary>
+        /// Get all <#= model.DataModel.Id #>
         /// </summary>
-        /// <returns><see cref="<%=List<<#=model.DataModel.Id #>>%>"/></returns>
-
-        /// <response code="200">Ok</response>
+        /// <returns><see cref = "<%=List<<#= model.DataModel.Id #>>%>"/></returns>
+        /// <response code = "200">Ok</response>
         // GET: api/<#= Version #>/<#= model.DataModel.Id #>
         [HttpGet("GetAll")]
-        [ProducesResponseType(typeof(IEnumerable<<#= model.DataModel.Id #>>), 200)]
+        [ProducesResponseType(
+            typeof(IEnumerable<<#= model.DataModel.Id #>>),
+            200)]
         public async virtual Task<IActionResult> GetAll()
         {
-			try
+            try
             {
-				var list = new List<<#=model.DataModel.Id#>>();
-				<# if(!string.IsNullOrEmpty(keyType)) {#>
-				var result = _<#= keyType #>Service.GetAll();
+                var list = new List<<#= model.DataModel.Id #>>();
+<#
+            if (!string.IsNullOrEmpty(keyType))
+            {
+#>
+                var result = _<#= keyType #>Service.GetAll();
 
-				if(result != null)
-				{
-					foreach(var item in result)
-					{
-						list.Add(new <#= model.DataModel.Id #>().ConvertFromModel(<# foreach(var referenceType in ReferencedTypes) { if(referenceType.Key.Equals(keyType)){ #>
-						item <#} else {#> new <#= referenceType.Key #>() <# } if(!referenceType.Key.Equals(lastType.Key)) {#>,<#}#>
-						<# } #>
-						));
-					}
-					return this.Ok(await Task.FromResult(list));
-				}
+                if (result != null)
+                {
+                    foreach (var item in result)
+                    {
+                        list.Add(new <#= model.DataModel.Id #>().ConvertFromModel(
+<#
+                foreach (var referenceType in ReferencedTypes)
+                {
+                    if (referenceType.Key.Equals(keyType))
+                    {
+#>
+                            item<#= !referenceType.Key.Equals(lastType.Key) ? "," : "));" #>
+<#
+                    }
+                    else
+                    {
+#>
+                            new <#= referenceType.Key #>()<#= !referenceType.Key.Equals(lastType.Key) ? "," : "));" #>
+<#
+                    }
+                }
+#>
+                }
 
-				return NotFound();
-				<# } else { #>
+                    return this.Ok(await Task.FromResult(list));
+                }
+
+                return NotFound();
+<#
+            }
+            else
+            {
+#>
                 return this.Ok(await Task.FromResult(list));
-				<# } #>
+<#
+            }
+#>
             }
             catch (Exception xcp)
             {
                 //log error
-                return Ok(Enumerable.Empty <<#= model.Id #>ViewModel> ().AsQueryable());
+                return Ok(Enumerable.Empty<<#= model.Id #>ViewModel>().AsQueryable());
             }
         }
 
         /// <summary>
-        /// <# if (model.DataModel.Description != null) #><#= model.DataModel.Description #>
+        /// <#= model.DataModel.Description ?? model.DataModel.Description #>
         /// </summary>
-        /// <param name="date">The date to use to retreive the <see cref="<#=model.DataModel.Id #>"/> collection from</param>
-        /// <returns><see cref="<%=<#=model.DataModel.Id #>%>"/></returns>
-        /// <response code="200">Ok</response>
-        /// <response code="304">NotModified</response>
-        /// <response code="404">Not found</response>
-        /// <response code="500">Internal error</response>
+        /// <param name = "date">The date to use to retreive the
+        /// <see cref = "<#= model.DataModel.Id #>"/> collection from</param>
+        /// <returns><see cref = "<%=<#= model.DataModel.Id #>%>"/></returns>
+        /// <response code = "200">Ok</response>
+        /// <response code = "304">NotModified</response>
+        /// <response code = "404">Not found</response>
+        /// <response code = "500">Internal error</response>
         [HttpGet("Get")]
-		[ProducesResponseType(typeof(<#= model.DataModel.Id #>), 200)]
-        public async Task<IActionResult> Get(<# if(key != null) {#> <#= key.CSharpType() #> <#} else {#> int <#}#> id)
+        [ProducesResponseType(
+            typeof(<#= model.DataModel.Id #>),
+            200)]
+        public async Task<IActionResult> Get(<#= key != null ? key.CSharpType() : "int" #> id)
         {
             try
             {
-				<# if(!string.IsNullOrEmpty(keyType)) {#>
-				var entity = await _<#= keyType #>Service.GetById(id);
-				if(entity != null)
-				{
-					return this.Ok(await Task.FromResult(new <#= model.DataModel.Id#>().ConvertFromModel(
-					<# foreach(var referenceType in ReferencedTypes) { if(referenceType.Key.Equals(keyType)){ #>
-						entity <#} else {#> new <#= referenceType.Key #>() <# } if(!referenceType.Key.Equals(lastType.Key)) {#>,<#}#>
-						<# } #>)));
-				}
+<#
+            if (!string.IsNullOrEmpty(keyType))
+            {
+#>
+                var entity = await _<#= keyType #>Service.GetById(id);
 
-				return NotFound();
-				<# } else { #>
-                return this.Ok(await Task.FromResult(new <#= model.DataModel.Id#>()));
-				<# } #>
+                if (entity != null)
+                {
+                    return this.Ok(await Task.FromResult(new <#= model.DataModel.Id #>().ConvertFromModel(
+<#
+                foreach (var referenceType in ReferencedTypes)
+                {
+                    if (referenceType.Key.Equals(keyType))
+                    {
+#>
+                        entity<#= !referenceType.Key.Equals(lastType.Key) ? "," : ")));" #>
+<#
+                    }
+                    else
+                    {
+#>
+                        new <#= referenceType.Key #>()<#= !referenceType.Key.Equals(lastType.Key) ? "," : ")));" #>
+<#
+                    }
+                }
+#>
+                }
+
+                return NotFound();
+<#
+            }
+            else
+            {
+#>
+                return this.Ok(await Task.FromResult(new <#= model.DataModel.Id #>()));
+<#
+            }
+#>
             }
             catch (Exception xcp)
             {
@@ -124,42 +240,66 @@ namespace <#= ApplicationId #>.Backend.Api.<#= model.Concern.Id #>
             }
         }
 
-		/// <summary>
+        /// <summary>
         /// Update existing <#= model.DataModel.Id #>
         /// </summary>
-        /// <param name="id"><#= model.DataModel.Id #> id</param>
-        /// <param name="entity"><#= model.DataModel.Id #> to update</param>
-        /// <response code="204">No content</response>
-        /// <response code="400">Bad request</response>
-        /// <response code="404">Not found</response>
-        /// <response code="500">Internal error</response>
+        /// <param name = "id"><#= model.DataModel.Id #> id</param>
+        /// <param name = "entity"><#= model.DataModel.Id #> to update</param>
+        /// <response code = "204">No content</response>
+        /// <response code = "400">Bad request</response>
+        /// <response code = "404">Not found</response>
+        /// <response code = "500">Internal error</response>
         // PUT: api/<#= Version #>/<#= model.DataModel.Id #>/<id>
-        [ProducesResponseType(typeof(void), 200)]
-		[HttpPut("PutEntity")]
-        public async virtual Task<IActionResult> PutEntity(<# if(key != null) {#> <#= key.CSharpType() #> <#} else {#> int <#}#> id, [FromBody] <#= model.DataModel.Id #> model)
+        [ProducesResponseType(
+            typeof(void),
+            200)]
+        [HttpPut("PutEntity")]
+        public async virtual Task<IActionResult> PutEntity(
+            <#= key != null ? key.CSharpType() : "int" #> id,
+            [FromBody] <#= model.DataModel.Id #> model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-			<# if (key != null && !string.IsNullOrEmpty(key.Id)) { #>
-			<# if(model.DataModel.AllProperties().FirstOrDefault(p=>p.IsKey) != null) { #>
+<#
+            if (key != null
+                && !string.IsNullOrEmpty(key.Id))
+            {
+
+                if (model
+                    .DataModel
+                    .GetProperties()
+                    .FirstOrDefault(p => p.IsKey) != null)
+                {
+#>
             if (id != model.<#= key.Id #>)
             {
                 return BadRequest();
             }
-			<# } else { #>
-			if (id != model.<#= model.DataModel.AllReferences().FirstOrDefault()?.Id #>.<#=key.Id#>)
+<#
+                }
+                else
+                {
+#>
+            if (id != model.<#= model.DataModel.GetEntityDirectReferences().FirstOrDefault()?.Id #>.<#= key.Id #>)
             {
                 return BadRequest();
             }
-			<# }} #>
+<#
+                }
+            }
 
-			<# if (key != null && !string.IsNullOrEmpty(key.Id)) { #>
+            if (key != null
+                && !string.IsNullOrEmpty(key.Id))
+            {
+#>
             // Gets the original entity from the database.
             var original = _<#= keyType #>Service.GetById(id);
-			<# } #>
+<#
+            }
+#>
 
             // If not found, return the 404 http status.
             if (original == null)
@@ -169,19 +309,41 @@ namespace <#= ApplicationId #>.Backend.Api.<#= model.Concern.Id #>
            
             try
             {
-			<#if(model.DataModel.AllProperties().FirstOrDefault() !=null) {#>
-				var entity = model.ConvertToModel();
-				<# } else if(model.DataModel.AllReferences().FirstOrDefault() != null) {#>
-				var entity = model.<#=keyType#>;
-				<# } #>
-				// Sets a new rawVersion to the update entity.
-			    entity.RawVersion = System.BitConverter.GetBytes(DateTime.Now.Ticks);
+<#
+            if (model
+                .DataModel
+                .GetProperties()
+                .FirstOrDefault() != null)
+            {
+#>
+                var entity = model.ConvertToModel();
+<#
+            }
+            else if (model
+                .DataModel
+                .GetEntityDirectReferences()
+                .FirstOrDefault() != null)
+            {
+#>
+                var entity = model.<#= keyType #>;
+<#
+            }
+#>
+                // Sets a new rawVersion to the update entity.
+                entity.RawVersion = System
+                    .BitConverter
+                    .GetBytes(DateTime.Now.Ticks);
 
-				<# if(!string.IsNullOrEmpty(keyType)) { #>
+<#
+            if (!string.IsNullOrEmpty(keyType))
+            {
+#>
                 // Save changes to database.
                 await _<#= keyType #>Service.Save(entity);
 
-				<#} #>
+<#
+            }
+#>
 
                 // Return the 200 http status with no content.
                 return  StatusCode((int)HttpStatusCode.OK);
@@ -189,62 +351,91 @@ namespace <#= ApplicationId #>.Backend.Api.<#= model.Concern.Id #>
             catch (Exception xcp)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-            }      
+            }
         }
 
-		/// <summary>
+        /// <summary>
         /// Create a new <#= model.DataModel.Id #>
         /// </summary>
-        /// <param name="entity"><#= model.DataModel.Id #> to create</param>
-        /// <returns>New <#= model.Id #> <see cref="<#= model.Id #>"><#= model.DataModel.Id #></see></returns>
-        /// <response code="200">Ok</response>
-        /// <response code="400">Bad request</response>
-        /// <response code="409">Conflict</response>
-        /// <response code="500">Internal error</response>
-        [ProducesResponseType(typeof(<#= model.DataModel.Id #>), 200)]
+        /// <param name = "entity"><#= model.DataModel.Id #> to create</param>
+        /// <returns>New <#= model.Id #> <see cref = "<#= model.Id #>"><#= model.DataModel.Id #></see></returns>
+        /// <response code = "200">Ok</response>
+        /// <response code = "400">Bad request</response>
+        /// <response code = "409">Conflict</response>
+        /// <response code = "500">Internal error</response>
+        [ProducesResponseType(
+            typeof(<#= model.DataModel.Id #>),
+            200)]
         // POST: api/<#= Version #>/<#= model.DataModel.Id #>
-		[HttpPost("PostEntity")]
-        public async virtual Task<IActionResult> PostEntity([FromBody] <#=model.DataModel.Id#> model)
+        [HttpPost("PostEntity")]
+        public async virtual Task<IActionResult> PostEntity(
+            [FromBody] <#= model.DataModel.Id #> model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }            
+            }
 
             try
             {
-			<#if(model.DataModel.AllProperties().FirstOrDefault() !=null) {#>
-				var entity = model.ConvertToModel();
-				<# } else if(model.DataModel.AllReferences().FirstOrDefault() != null) {#>
-				var entity = model.<#=keyType#>;
-				<# } #>
-				<# if(!string.IsNullOrEmpty(keyType)) { #>
+<#
+            if (model
+                .DataModel
+                .GetProperties()
+                .FirstOrDefault() != null)
+            {
+#>
+                var entity = model.ConvertToModel();
+<#
+            }
+            else if (model
+                .DataModel
+                .GetEntityDirectReferences()
+                .FirstOrDefault() != null)
+            {
+#>
+                var entity = model.<#= keyType #>;
+<#
+            }
+
+            if (!string.IsNullOrEmpty(keyType))
+            {
+#>
                 await _<#= keyType #>Service.Save(entity);
-				<# } #>
+<#
+            }
+#>
                 return this.Ok(entity);
             }
             catch (Exception xcp) {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-            }       
+            }
         }
 
-		<# } #>
+<#
+        }
+#>
 
-		/// <summary>
+        /// <summary>
         /// Delete an existing <#= model.Id #>
         /// </summary>
-        /// <param name="entity"><#= model.Id #> to create</param>
-        /// <response code="200">Ok</response>
-        /// <response code="404">Not found</response>
-        /// <response code="500">Internal error</response>
+        /// <param name = "entity"><#= model.Id #> to create</param>
+        /// <response code = "200">Ok</response>
+        /// <response code = "404">Not found</response>
+        /// <response code = "500">Internal error</response>
         // DELETE: api/<#= Version #>/<#= model.Id #>/<id>
-		[HttpDelete("DeleteEntity")]
-        public async virtual Task<IActionResult> DeleteEntity(<# if(key != null) {#> <#= key.CSharpType() #> <#} else {#> int <#}#> id)
+        [HttpDelete("DeleteEntity")]
+        public async virtual Task<IActionResult> DeleteEntity(
+            <#= key != null ? key.CSharpType() : "int" #> id)
         {
             try
             {
-			<# if(!string.IsNullOrEmpty(keyType)) { #>
+<#
+        if (!string.IsNullOrEmpty(keyType))
+        {
+#>
                 var entity = await _<#= keyType #>Service.GetById(id);
+
                 if (entity == null)
                 {
                     return NotFound();
@@ -253,17 +444,25 @@ namespace <#= ApplicationId #>.Backend.Api.<#= model.Concern.Id #>
                 await _<#= keyType #>Service.Delete(id);
 
                 return Ok(entity);
-				<# } else { #>
+<#
+        }
+        else
+        {
+#>
 
-				return Ok(new <#= model.DataModel.Id #>());
-				<# } #>
+                return Ok(new <#= model.DataModel.Id #>());
+<#
+        }
+#>
             }
             catch (Exception xcp)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError);
-            }          
+            }
         }
 
-        <#}#>
+<#
+    }
+#>
     }
 }

@@ -5,10 +5,11 @@ namespace Mobioos.Generators.AspNetCore
 {
     public partial class ExternalAuthController : TemplateBase
     {
-        public ExternalAuthController(SmartAppInfo model) : base(model)
+        public ExternalAuthController(SmartAppInfo model)
+            : base(model)
         {
         }
 
-        public override string OutputPath => "Api\\ExternalAuthController.cs";
+        public override string OutputPath => "Controllers\\ExternalAuthController.cs";
     }
 }

@@ -13,8 +13,8 @@ namespace Mobioos.Generators.AspNetCore
     using System.Text;
     using System.Collections.Generic;
     using Mobioos.Foundation.Jade.Models;
-    using Mobioos.Foundation.Jade.Extensions;
     using Mobioos.Scaffold.BaseGenerators.TextTemplating;
+    using Common.Generator.Framework.Extensions;
     using Mobioos.Generators.AspNetCore;
     using System;
     
@@ -22,7 +22,7 @@ namespace Mobioos.Generators.AspNetCore
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+    #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class StartupAuth : TemplateBase
     {
@@ -32,9 +32,8 @@ namespace Mobioos.Generators.AspNetCore
         /// </summary>
         public override string TransformText()
         {
-            this.Write("\r\n");
             
-            #line 1 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+            #line 2 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
  var model = (SmartAppInfo)Model; 
             
             #line default
@@ -49,185 +48,184 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ");
             
-            #line 10 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Models;\r\nusing ");
             
-            #line 11 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+            #line 12 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
             this.Write(".Backend.Auth;\r\n\r\nnamespace ");
             
-            #line 13 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+            #line 14 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Id));
             
             #line default
             #line hidden
-            this.Write(".Backend\r\n{\r\n    public partial class Startup\r\n    {\r\n\t\tprivate const string Secr" +
-                    "etKey = \"iNivDmHLpUA223sqsfhqGbMRdRj1PVkH\"; // todo: get this from somewhere sec" +
-                    "ure\r\n\t\tprivate readonly SymmetricSecurityKey _signingKey = new SymmetricSecurity" +
-                    "Key(Encoding.ASCII.GetBytes(SecretKey));\r\n\r\n\t\tpublic void ConfigureAuth(IService" +
-                    "Collection services)\r\n        {\r\n\t\t   services.AddTransient<IJwtFactory, JwtFact" +
-                    "ory>();\r\n\r\n           services.AddIdentity<ApplicationUser, IdentityRole>()\r\n   " +
-                    "             .AddEntityFrameworkStores<ApplicationDbContext>()\r\n                " +
-                    ".AddDefaultTokenProviders();\r\n\r\n\t\t\tvar jwtSettingOptions = Configuration.GetSect" +
-                    "ion(nameof(JwtIssuerOptions));\r\n\t\t\t\r\n\t\t\t// Configure JwtIssuerOptions\r\n\t\t\tservic" +
-                    "es.Configure<JwtIssuerOptions>(options =>\r\n\t\t\t{\r\n\t\t\t\toptions.Issuer = jwtSetting" +
-                    "Options[nameof(JwtIssuerOptions.Issuer)];\r\n\t\t\t\toptions.Audience = jwtSettingOpti" +
-                    "ons[nameof(JwtIssuerOptions.Audience)];\r\n\t\t\t\toptions.SigningCredentials = new Si" +
-                    "gningCredentials(_signingKey, SecurityAlgorithms.HmacSha256);\r\n\t\t\t});\r\n\r\n\t\t\t// G" +
-                    "et options from app settings\r\n\t\t\tvar authSettings = Configuration.GetSection(nam" +
-                    "eof(AuthSettings));\r\n\r\n\t\t\t// Configure AuthSettings\r\n\t\t\tservices.Configure<AuthS" +
-                    "ettings>(options =>\r\n\t\t\t{\r\n\t\t\t\toptions.FacebookAppId = authSettings[nameof(AuthS" +
-                    "ettings.FacebookAppId)];\r\n\t\t\t\toptions.FacebookAppSecret = authSettings[nameof(Au" +
-                    "thSettings.FacebookAppSecret)];\r\n                options.TwitterAppId = authSett" +
-                    "ings[nameof(AuthSettings.TwitterAppId)];\r\n                options.TwitterAppSecr" +
-                    "et = authSettings[nameof(AuthSettings.TwitterAppSecret)];\r\n                optio" +
-                    "ns.GoogleAppId = authSettings[nameof(AuthSettings.GoogleAppId)];\r\n              " +
-                    "  options.GoogleAppSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];\r" +
-                    "\n                options.MicrosoftAppId = authSettings[nameof(AuthSettings.Micro" +
-                    "softAppId)];\r\n                options.MicrosoftAppSecret = authSettings[nameof(A" +
-                    "uthSettings.MicrosoftAppSecret)];\r\n\t\t\t});\r\n\r\n\t\t\tvar tokenValidationParameters = " +
-                    "new TokenValidationParameters\r\n\t\t\t{\r\n\t\t\t\tValidateIssuer = true,\r\n\t\t\t\tValidIssuer" +
-                    " = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)],\r\n\r\n\t\t\t\tValidateAudience =" +
-                    " true,\r\n\t\t\t\tValidAudience = jwtSettingOptions[nameof(JwtIssuerOptions.Audience)]" +
-                    ",\r\n\r\n\t\t\t\tValidateIssuerSigningKey = true,\r\n\t\t\t\tIssuerSigningKey = _signingKey,\r\n" +
-                    "\r\n\t\t\t\tRequireExpirationTime = false,\r\n\t\t\t\tValidateLifetime = true,\r\n\t\t\t\tClockSke" +
-                    "w = TimeSpan.Zero\r\n\t\t\t};\r\n\r\n");
+            this.Write(".Backend\r\n{\r\n    public partial class Startup\r\n    {\r\n        // todo: get this f" +
+                    "rom somewhere secure\r\n        private const string SecretKey = \"iNivDmHLpUA223sq" +
+                    "sfhqGbMRdRj1PVkH\";\r\n\r\n        private readonly SymmetricSecurityKey _signingKey " +
+                    "= new SymmetricSecurityKey(\r\n            Encoding.ASCII.GetBytes(SecretKey));\r\n\r" +
+                    "\n        public void ConfigureAuth(IServiceCollection services)\r\n        {\r\n    " +
+                    "        services.AddTransient<IJwtFactory, JwtFactory>();\r\n\r\n            service" +
+                    "s\r\n                .AddIdentity<ApplicationUser, IdentityRole>()\r\n              " +
+                    "  .AddEntityFrameworkStores<ApplicationDbContext>()\r\n                .AddDefault" +
+                    "TokenProviders();\r\n\r\n            var jwtSettingOptions = Configuration.GetSectio" +
+                    "n(nameof(JwtIssuerOptions));\r\n\r\n            // Configure JwtIssuerOptions\r\n     " +
+                    "       services.Configure<JwtIssuerOptions>(options =>\r\n            {\r\n         " +
+                    "       options.Issuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];\r\n   " +
+                    "             options.Audience = jwtSettingOptions[nameof(JwtIssuerOptions.Audien" +
+                    "ce)];\r\n                options.SigningCredentials = new SigningCredentials(\r\n   " +
+                    "                 _signingKey,\r\n                    SecurityAlgorithms.HmacSha256" +
+                    ");\r\n            });\r\n\r\n            // Get options from app settings\r\n           " +
+                    " var authSettings = Configuration.GetSection(nameof(AuthSettings));\r\n\r\n         " +
+                    "   // Configure AuthSettings\r\n            services.Configure<AuthSettings>(optio" +
+                    "ns =>\r\n            {\r\n                options.FacebookAppId = authSettings[nameo" +
+                    "f(AuthSettings.FacebookAppId)];\r\n                options.FacebookAppSecret = aut" +
+                    "hSettings[nameof(AuthSettings.FacebookAppSecret)];\r\n                options.Twit" +
+                    "terAppId = authSettings[nameof(AuthSettings.TwitterAppId)];\r\n                opt" +
+                    "ions.TwitterAppSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];\r\n  " +
+                    "              options.GoogleAppId = authSettings[nameof(AuthSettings.GoogleAppId" +
+                    ")];\r\n                options.GoogleAppSecret = authSettings[nameof(AuthSettings." +
+                    "GoogleAppSecret)];\r\n                options.MicrosoftAppId = authSettings[nameof" +
+                    "(AuthSettings.MicrosoftAppId)];\r\n                options.MicrosoftAppSecret = au" +
+                    "thSettings[nameof(AuthSettings.MicrosoftAppSecret)];\r\n            });\r\n\r\n       " +
+                    "     var tokenValidationParameters = new TokenValidationParameters\r\n            " +
+                    "{\r\n                ValidateIssuer = true,\r\n                ValidIssuer = jwtSett" +
+                    "ingOptions[nameof(JwtIssuerOptions.Issuer)],\r\n\r\n                ValidateAudience" +
+                    " = true,\r\n                ValidAudience = jwtSettingOptions[nameof(JwtIssuerOpti" +
+                    "ons.Audience)],\r\n\r\n                ValidateIssuerSigningKey = true,\r\n           " +
+                    "     IssuerSigningKey = _signingKey,\r\n\r\n                RequireExpirationTime = " +
+                    "false,\r\n                ValidateLifetime = true,\r\n                ClockSkew = Ti" +
+                    "meSpan.Zero\r\n            };\r\n\r\n");
             
-            #line 70 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
+            #line 77 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
 
-                if (AuthenticationKeys != null) 
-                {
-
-            
-            #line default
-            #line hidden
-            this.Write(@"            services.AddAuthentication(options =>
-			{
-				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-			}).AddCookie(cfg => cfg.SlidingExpiration = true)
-			.AddJwtBearer(configureOptions =>
-			{
-				configureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
-				configureOptions.TokenValidationParameters = tokenValidationParameters;
-				configureOptions.SaveToken = true;
-			})");
-            
-            #line 84 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.ContainsKey("FacebookAuthConsumerKey") && AuthenticationKeys.ContainsKey("FacebookAuthConsumerSecret")) {
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t.AddFacebook(facebookOptions =>\r\n\t\t\t{\r\n\t\t\t\tfacebookOptions.AppId = authSetting" +
-                    "s[nameof(AuthSettings.FacebookAppId)];\r\n\t\t\t\tfacebookOptions.AppSecret = authSett" +
-                    "ings[nameof(AuthSettings.FacebookAppSecret)];\r\n\t\t\t})\r\n\t\t\t");
-            
-            #line 90 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t");
-            
-            #line 91 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.ContainsKey("TwitterAuthAppId") && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret")) {
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t.AddTwitter(twitterOptions =>\r\n\t\t\t{\r\n\t\t\t\ttwitterOptions.ConsumerKey = authSett" +
-                    "ings[nameof(AuthSettings.TwitterAppId)];\r\n\t\t\t\ttwitterOptions.ConsumerSecret = au" +
-                    "thSettings[nameof(AuthSettings.TwitterAppSecret)];\r\n\t\t\t})\r\n\t\t\t");
-            
-            #line 97 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t");
-            
-            #line 98 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.ContainsKey("GoogleAuthClientId") && AuthenticationKeys.ContainsKey("GoogleAuthSecret")) {
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t.AddGoogle(googleOptions =>\r\n\t\t\t{\r\n\t\t\t\tgoogleOptions.ClientId = authSettings[n" +
-                    "ameof(AuthSettings.GoogleAppId)];\r\n\t\t\t\tgoogleOptions.ClientSecret = authSettings" +
-                    "[nameof(AuthSettings.GoogleAppSecret)];\r\n\t\t\t})\r\n\t\t\t");
-            
-            #line 104 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("            ;\r\n\t\t\t");
-            
-            #line 106 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
- if(AuthenticationKeys.ContainsKey("MicrosoftAuthClientId") && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret")) {
-            
-            #line default
-            #line hidden
-            this.Write(@"			services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
-			{
-				microsoftOptions.ClientId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
-				microsoftOptions.ClientSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
-			});");
-            
-            #line 111 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
-}
-            
-            #line default
-            #line hidden
-            
-            #line 112 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Security\Templates\StartupAuth.tt"
-
-                }
+    if (AuthenticationKeys != null)
+    {
 
             
             #line default
             #line hidden
-            this.Write(@"			
-
-			services.Configure<IdentityOptions>(options =>
+            this.Write(@"            var authServices = services.AddAuthentication(options =>
             {
-                // Password settings
-
-                // Lockout settings
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-                options.Lockout.MaxFailedAccessAttempts = 10;
-                options.Lockout.AllowedForNewUsers = true;
-
-                // User settings
-                options.User.RequireUniqueEmail = true;
-            });
-
-            services.ConfigureApplicationCookie(options =>
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddCookie(cfg => cfg.SlidingExpiration = true)
+            .AddJwtBearer(configureOptions =>
             {
-                // Cookie settings
-                options.Cookie.HttpOnly = true;
-                options.Cookie.Expiration = TimeSpan.FromDays(150);
-                options.LoginPath = ""/Account/Login""; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
-                options.LogoutPath = ""/Account/Logout""; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
-                options.AccessDeniedPath = ""/Account/AccessDenied""; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
-                options.SlidingExpiration = true;
+                configureOptions.ClaimsIssuer = jwtSettingOptions[nameof(JwtIssuerOptions.Issuer)];
+                configureOptions.TokenValidationParameters = tokenValidationParameters;
+                configureOptions.SaveToken = true;
             });
+");
+            
+            #line 93 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
+
+        if (AuthenticationKeys.ContainsKey("FacebookAuthConsumerKey")
+            && AuthenticationKeys.ContainsKey("FacebookAuthConsumerSecret"))
+        {
+
+            
+            #line default
+            #line hidden
+            this.Write(@"            authServices.AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = authSettings[nameof(AuthSettings.FacebookAppId)];
+                facebookOptions.AppSecret = authSettings[nameof(AuthSettings.FacebookAppSecret)];
+            });
+");
+            
+            #line 103 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
+
         }
 
-        public void ConfigureAuth(IApplicationBuilder app)
+        if (AuthenticationKeys.ContainsKey("TwitterAuthAppId")
+            && AuthenticationKeys.ContainsKey("TwitterAuthAppSecret"))
         {
-            app.UseAuthentication();
 
-            // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
+            
+            #line default
+            #line hidden
+            this.Write(@"            authServices.AddTwitter(twitterOptions =>
+            {
+                twitterOptions.ConsumerKey = authSettings[nameof(AuthSettings.TwitterAppId)];
+                twitterOptions.ConsumerSecret = authSettings[nameof(AuthSettings.TwitterAppSecret)];
+            });
+");
+            
+            #line 115 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
+
+        }
+
+        if (AuthenticationKeys.ContainsKey("GoogleAuthClientId")
+            && AuthenticationKeys.ContainsKey("GoogleAuthSecret"))
+        {
+
+            
+            #line default
+            #line hidden
+            this.Write(@"            authServices.AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = authSettings[nameof(AuthSettings.GoogleAppId)];
+                googleOptions.ClientSecret = authSettings[nameof(AuthSettings.GoogleAppSecret)];
+            });
+");
+            
+            #line 127 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
+
+        }
+
+        if (AuthenticationKeys.ContainsKey("MicrosoftAuthClientId")
+            && AuthenticationKeys.ContainsKey("MicrosoftAuthSecret"))
+        {
+
+            
+            #line default
+            #line hidden
+            this.Write(@"            services
+                .AddAuthentication()
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = authSettings[nameof(AuthSettings.MicrosoftAppId)];
+                    microsoftOptions.ClientSecret = authSettings[nameof(AuthSettings.MicrosoftAppSecret)];
+                });
+");
+            
+            #line 141 "C:\Users\PC\Documents\Gits\ASP.NET-Core-MVC\src\Mobioos.Generators.AspNetCore\Security\Templates\StartupAuth.tt"
 
         }
     }
-}");
+
+            
+            #line default
+            #line hidden
+            this.Write("\r\n            services.Configure<IdentityOptions>(options =>\r\n            {\r\n    " +
+                    "            // Password settings\r\n\r\n                // Lockout settings\r\n       " +
+                    "         options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);\r\n   " +
+                    "             options.Lockout.MaxFailedAccessAttempts = 10;\r\n                opti" +
+                    "ons.Lockout.AllowedForNewUsers = true;\r\n\r\n                // User settings\r\n    " +
+                    "            options.User.RequireUniqueEmail = true;\r\n            });\r\n\r\n        " +
+                    "    services.ConfigureApplicationCookie(options =>\r\n            {\r\n             " +
+                    "   // Cookie settings\r\n                options.Cookie.HttpOnly = true;\r\n        " +
+                    "        options.Cookie.Expiration = TimeSpan.FromDays(150);\r\n                // " +
+                    "If the LoginPath is not set here, ASP.NET Core will default to /Account/Login\r\n " +
+                    "               options.LoginPath = \"/Account/Login\";\r\n                // If the " +
+                    "LogoutPath is not set here, ASP.NET Core will default to /Account/Logout\r\n      " +
+                    "          options.LogoutPath = \"/Account/Logout\";\r\n                // If the Acc" +
+                    "essDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenie" +
+                    "d\r\n                options.AccessDeniedPath = \"/Account/AccessDenied\";\r\n        " +
+                    "        options.SlidingExpiration = true;\r\n            });\r\n        }\r\n\r\n       " +
+                    " public void ConfigureAuth(IApplicationBuilder app)\r\n        {\r\n            app." +
+                    "UseAuthentication();\r\n\r\n            // Add external authentication middleware be" +
+                    "low.\r\n            // To configure them please see https://go.microsoft.com/fwlin" +
+                    "k/?LinkID=532715\r\n        }\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
